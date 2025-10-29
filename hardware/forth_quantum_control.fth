@@ -1,0 +1,311 @@
+DECIMAL
+
+0x1000 CONSTANT Q-BASE-ADDR
+0x1100 CONSTANT Q-PULSE-GEN
+0x1200 CONSTANT Q-TIMING-CTL
+
+20 CONSTANT PULSE-WIDTH-NS
+100 CONSTANT GATE-DELAY-NS
+50 CONSTANT READOUT-TIME-US
+
+314159 CONSTANT PI-SCALED
+100000 CONSTANT PI-DIVISOR
+
+CREATE QUBIT-REGS 32 CELLS ALLOT
+
+: QUBIT-ADDR ( n -- addr )
+  CELLS QUBIT-REGS +
+;
+
+: *// ( n1 n2 n3 -- n1*n2/n3 )
+  */ 
+;
+
+: SQRT ( n -- sqrt )
+  DUP 0= IF EXIT THEN
+  DUP 2 /
+  BEGIN
+    2DUP 2DUP / + 2 /
+    2DUP > 
+  WHILE
+    NIP
+  REPEAT
+  DROP
+;
+
+: PI ( -- n )
+  PI-SCALED PI-DIVISOR */
+;
+
+: EXP-APPROX ( n -- exp[n] )
+  DUP 0= IF DROP 1 EXIT THEN
+  DUP ABS 10 > IF DROP 0 EXIT THEN
+  1 OVER
+  1 10 1 DO
+    OVER I */ 
+    DUP ROT + SWAP
+  LOOP
+  DROP NIP
+;
+
+: NEGATE-VAL ( n -- -n )
+  0 SWAP -
+;
+
+: ROUND ( n -- rounded )
+  DUP 0< IF
+    5 - 10 / 
+  ELSE
+    5 + 10 /
+  THEN
+;
+
+: GAUSSIAN-PULSE ( amplitude width -- )
+  SWAP DUP * SWAP /
+  DUP * 2 /
+  NEGATE-VAL EXP-APPROX
+  DROP
+;
+
+: SQUARE-PULSE ( amplitude width -- )
+  2DROP
+;
+
+: WAIT-LOOP ( n -- )
+  0 ?DO LOOP
+;
+
+: HADAMARD-GATE ( qubit -- )
+  DUP QUBIT-ADDR
+  90 OVER !
+  180 OVER CELL+ !
+  PULSE-WIDTH-NS GATE-DELAY-NS + WAIT-LOOP
+  DROP
+;
+
+: PAULI-X ( qubit -- )
+  DUP QUBIT-ADDR
+  180 SWAP !
+  PULSE-WIDTH-NS WAIT-LOOP
+;
+
+: PAULI-Y ( qubit -- )
+  DUP QUBIT-ADDR
+  180 SWAP CELL+ !
+  PULSE-WIDTH-NS WAIT-LOOP
+;
+
+: PAULI-Z ( qubit -- )
+  DUP QUBIT-ADDR
+  180 SWAP 2 CELLS + !
+  DROP
+;
+
+: PHASE-GATE ( angle qubit -- )
+  DUP QUBIT-ADDR
+  ROT SWAP 2 CELLS + !
+  PULSE-WIDTH-NS WAIT-LOOP
+  DROP
+;
+
+: RX-GATE ( angle qubit -- )
+  DUP QUBIT-ADDR
+  ROT SWAP !
+  PULSE-WIDTH-NS WAIT-LOOP
+  DROP
+;
+
+: RY-GATE ( angle qubit -- )
+  DUP QUBIT-ADDR
+  ROT SWAP CELL+ !
+  PULSE-WIDTH-NS WAIT-LOOP
+  DROP
+;
+
+: RZ-GATE ( angle qubit -- )
+  DUP QUBIT-ADDR
+  ROT SWAP 2 CELLS + !
+  2DROP
+;
+
+: CNOT-GATE ( control target -- )
+  OVER QUBIT-ADDR >R
+  OVER R@ 3 CELLS + !
+  180 R@ !
+  R> DROP
+  PULSE-WIDTH-NS 2 * WAIT-LOOP
+  2DROP
+;
+
+: CZ-GATE ( control target -- )
+  OVER QUBIT-ADDR >R
+  OVER R@ 3 CELLS + !
+  180 R@ 2 CELLS + !
+  R> DROP
+  PULSE-WIDTH-NS WAIT-LOOP
+  2DROP
+;
+
+: TOFFOLI-GATE ( control1 control2 target -- )
+  >R 2DUP CNOT-GATE
+  OVER 45 SWAP RZ-GATE
+  2DUP CNOT-GATE
+  OVER -45 SWAP RZ-GATE
+  R> SWAP CNOT-GATE
+  DROP
+;
+
+: MEASURE-QUBIT ( qubit -- result )
+  DUP QUBIT-ADDR >R
+  1 R@ 4 CELLS + !
+  READOUT-TIME-US WAIT-LOOP
+  R@ 5 CELLS + @
+  R> DROP
+  0 > IF 1 ELSE 0 THEN
+;
+
+: MEASURE-ALL ( n -- )
+  0 ?DO
+    I MEASURE-QUBIT DROP
+  LOOP
+;
+
+: CALIBRATE-QUBIT ( qubit -- )
+  DUP 0 SWAP RX-GATE
+  DUP MEASURE-QUBIT DROP
+  DUP 180 SWAP RX-GATE
+  MEASURE-QUBIT DROP
+;
+
+: CALIBRATE-ALL ( n -- )
+  0 ?DO
+    I CALIBRATE-QUBIT
+  LOOP
+;
+
+: WAIT-NS ( n -- )
+  WAIT-LOOP
+;
+
+: WAIT-US ( n -- )
+  1000 * WAIT-NS
+;
+
+: SYNC-PULSE ( -- )
+  Q-TIMING-CTL 1 SWAP !
+  100 WAIT-NS
+  Q-TIMING-CTL 0 SWAP !
+;
+
+CREATE PULSE-SEQ 1024 CELLS ALLOT
+VARIABLE SEQ-PTR
+
+: SEQ-INIT ( -- )
+  0 SEQ-PTR !
+  PULSE-SEQ 1024 CELLS ERASE
+;
+
+: ADD-GATE ( gate qubit -- )
+  SEQ-PTR @ CELLS PULSE-SEQ + >R
+  R@ ! R@ CELL+ !
+  R> DROP
+  SEQ-PTR @ 2 + SEQ-PTR !
+;
+
+: EXECUTE-SEQ ( -- )
+  SEQ-PTR @ 0 ?DO
+    I 2 MOD 0= IF
+      I CELLS PULSE-SEQ + DUP @ SWAP CELL+ @ 
+      2DUP + DROP
+    THEN
+  LOOP
+;
+
+: GROVER-ORACLE ( marked-state num-qubits -- )
+  0 ?DO
+    DUP I 1 SWAP LSHIFT AND 
+    0 <> IF I PAULI-Z THEN
+  LOOP
+  DROP
+;
+
+: GROVER-DIFFUSION ( num-qubits -- )
+  DUP 0 ?DO
+    I HADAMARD-GATE
+    I PAULI-X
+  LOOP
+  DUP 1 - 0 SWAP CNOT-GATE
+  DUP 0 ?DO
+    I PAULI-X
+    I HADAMARD-GATE
+  LOOP
+  DROP
+;
+
+: GROVER-SEARCH ( marked-state num-qubits -- )
+  DUP 0 ?DO I HADAMARD-GATE LOOP
+  DUP DUP * SQRT 4 * PI-SCALED 100000 */ * ROUND
+  0 ?DO
+    2DUP GROVER-ORACLE
+    DUP GROVER-DIFFUSION
+  LOOP
+  DUP MEASURE-ALL
+  2DROP
+;
+
+CREATE VQE-PARAMS 32 CELLS ALLOT
+
+: VQE-ANSATZ ( num-qubits -- )
+  DUP 0 ?DO
+    I CELLS VQE-PARAMS + @
+    I RY-GATE
+  LOOP
+  DUP 1 - 0 ?DO
+    I I 1 + CNOT-GATE
+  LOOP
+  DROP
+;
+
+: BIT-FLIP-CODE ( qubit -- )
+  DUP 1 +
+  DUP 1 +
+  ROT 2DUP CNOT-GATE
+  ROT 2DUP CNOT-GATE
+  2DROP 2DROP
+;
+
+: PHASE-FLIP-CODE ( qubit -- )
+  DUP HADAMARD-GATE
+  DUP BIT-FLIP-CODE
+  DUP HADAMARD-GATE
+  DUP 1 + HADAMARD-GATE
+  DUP 2 + HADAMARD-GATE
+  DROP
+;
+
+: CHECK-QUBIT-STATUS ( qubit -- )
+  DUP QUBIT-ADDR @ DROP
+  DUP QUBIT-ADDR CELL+ @ DROP
+  QUBIT-ADDR 2 CELLS + @ DROP
+;
+
+: SYSTEM-STATUS ( -- )
+  8 0 ?DO
+    I CHECK-QUBIT-STATUS
+  LOOP
+;
+
+: QUANTUM-INIT ( -- )
+  Q-BASE-ADDR DROP
+  Q-PULSE-GEN DROP
+  Q-TIMING-CTL DROP
+;
+
+: QUANTUM-MAIN ( -- )
+  QUANTUM-INIT
+  8 CALIBRATE-ALL
+  5 3 GROVER-SEARCH
+  SYSTEM-STATUS
+;
+
+QUANTUM-MAIN

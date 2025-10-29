@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+    <title>JADED - Deep Discovery AI Platform</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="JADED">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000' rx='22'/%3E%3Cpath d='M 30 28 C 30 50 50 72 70 72' stroke='white' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='30' cy='72' r='6' fill='white'/%3E%3C/svg%3E">
+    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22JADED%20-%20Deep%20Discovery%20AI%20Platform%22%2C%22short_name%22%3A%22JADED%22%2C%22description%22%3A%22Fejlett%20AI%20platform%20tudom%C3%A1nyos%20kutat%C3%A1shoz%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22theme_color%22%3A%22%23000000%22%2C%22background_color%22%3A%22%23000000%22%7D">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/js/cerebras_chat.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #2323FF; 
+            --secondary: #39FF14; 
+            --accent: #2323FF;
+            --border-glow: rgba(35, 35, 255, 0.5); 
+            --primary-rgb: 35, 35, 255; 
+            --secondary-rgb: 57, 255, 20;
+            --bg: #000000; 
+            --surface: rgba(10, 10, 10, 0.7); 
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-strong: rgba(255, 255, 255, 0.08); 
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #f0f0f0; 
+            --text-muted: #94a3b8; 
+            --radius-lg: 16px; 
+            --radius-md: 12px; 
+            --radius-sm: 8px;
+            --sidebar-width: 260px;
+            --transition-curve: cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { height: 100%; -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg); color: var(--text);
+            min-height: 100vh; min-height: -webkit-fill-available; overflow: hidden;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+            font-size: 14px;
+        }
+
+        .aurora-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1; overflow: hidden; }
+        .aurora { position: absolute; border-radius: 50%; mix-blend-mode: screen; filter: blur(180px); opacity: 0; transition: opacity 8s ease-in-out; animation: pulse 40s ease-in-out infinite alternate; }
+        .aurora.visible { opacity: 0.15; }
+        .aurora.one { width: 80vmax; height: 80vmax; background-color: var(--primary); animation-name: move-one, pulse; animation-duration: 900s, 40s; }
+        .aurora.two { width: 70vmax; height: 70vmax; background-color: var(--secondary); animation-name: move-two, pulse; animation-duration: 750s, 45s; }
+        @keyframes move-one { from { transform: translate(-30vw, -30vh); } to { transform: translate(60vw, 70vh); } }
+        @keyframes move-two { from { transform: translate(70vw, 40vh); } to { transform: translate(-20vw, 50vh); } }
+        @keyframes pulse { from { opacity: 0.08; } to { opacity: 0.18; } }
+
+        .container { display: flex; min-height: 100vh; min-height: -webkit-fill-available; position: relative; }
+
+        .header-title, .welcome-title { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .accent { color: var(--accent); }
+
+        .sidebar { width: var(--sidebar-width); background: var(--surface); backdrop-filter: blur(60px) saturate(180%); border-right: 1px solid var(--border); overflow-x: hidden; position: fixed; top: 0; left: 0; height: 100vh; height: -webkit-fill-available; z-index: 1000; transform: translateX(calc(-1 * var(--sidebar-width))); transition: transform 0.4s var(--transition-curve); display: flex; flex-direction: column; }
+        .sidebar.open { transform: translateX(0); box-shadow: 10px 0 50px -20px rgba(0,0,0,0.5); }
+        .sidebar-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(10px); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; }
+
+        .sidebar-header { padding: 12px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+        .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .logo-icon { width: 28px; height: 28px; transition: transform 0.3s var(--transition-curve); }
+        .logo:hover .logo-icon { transform: scale(1.1) rotate(5deg); }
+        .logo-text h1 { font-size: 1rem; font-weight: 700; }
+        .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+        .new-chat-btn { width: 100%; background: var(--glass-strong); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-md); padding: 8px; font-weight: 600; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s var(--transition-curve); }
+        .new-chat-btn:hover { background: var(--glass-strong); border-color: var(--border-glow); }
+
+        .sidebar-content { padding: 16px; flex-grow: 1; overflow-y: auto; }
+        .service-category { margin-bottom: 16px; }
+        .category-header { padding: 10px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s var(--transition-curve); border-radius: var(--radius-sm); }
+        .category-header:hover { background: var(--glass); }
+        .category-title { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; }
+        .category-title i { color: var(--text-muted); width: 20px; text-align: center; }
+        .category-header .fa-chevron-down { transition: transform 0.3s var(--transition-curve); color: var(--text-muted); }
+        .category-services { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s ease-out; }
+        .category-services > div { overflow: hidden; padding-top: 4px; }
+        .category-services.open { grid-template-rows: 1fr; }
+
+        .service-item { padding: 10px; cursor: pointer; transition: background 0.2s var(--transition-curve), border-left-color 0.2s var(--transition-curve); display: flex; align-items: center; gap: 10px; border-radius: var(--radius-sm); border-left: 2px solid transparent; }
+        .service-item:hover { background: var(--glass); }
+        .service-item.active { background: var(--glass); border-left-color: var(--primary); }
+        .service-icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: var(--accent); background: var(--glass); border-radius: var(--radius-sm); }
+        .service-info h4 { font-size: 0.9rem; font-weight: 500; }
+        .service-info p { display: none; }
+
+        .sidebar-footer { padding: 16px; border-top: 1px solid var(--border); font-size: 0.75rem; text-align: center; color: var(--text-muted); flex-shrink: 0; }
+
+        .main-content { flex: 1; display: flex; flex-direction: column; min-height: 100vh; min-height: -webkit-fill-available; max-height: 100vh; max-height: -webkit-fill-available; overflow: hidden; transition: margin-left 0.4s var(--transition-curve); width: 100%; }
+        .header { padding: 0 16px; height: 48px; background: rgba(10, 10, 10, 0.7); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; flex-shrink: 0; }
+        .menu-toggle { background: transparent; border: none; border-radius: var(--radius-sm); color: var(--text); cursor: pointer; font-size: 0.95rem; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+        .menu-toggle:hover { background: var(--glass-strong); }
+        .header-title { font-size: 1rem; font-weight: 600; text-shadow: 0 0 15px var(--border-glow); }
+
+        .chat-area { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .messages-container { padding: 24px; overflow-y: auto; flex: 1; }
+
+        .welcome-screen { text-align: center; max-width: 500px; margin: auto; padding: 30px 20px; animation: fadeIn 1s var(--transition-curve); display: flex; flex-direction: column; justify-content: center; height: 100%; }
+        .welcome-title { font-size: 1.8rem; margin-bottom: 0.4rem; font-weight: 800; }
+        .welcome-subtitle { font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--text-muted); max-width: 400px; margin-left: auto; margin-right: auto; }
+
+        .message { margin-bottom: 24px; animation: messageSlideIn 0.4s var(--transition-curve); display: flex; max-width: 85%; }
+        @keyframes messageSlideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .user-message { justify-content: flex-end; margin-left: auto; }
+        .ai-message { justify-content: flex-start; margin-right: auto; }
+        .user-bubble { background: var(--primary); color: #fff; padding: 10px 14px; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-sm) var(--radius-lg); font-size: 0.9rem; line-height: 1.4; }
+        .ai-content { background: var(--surface); padding: 10px 14px; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-sm); font-size: 0.9rem; line-height: 1.5; }
+        .ai-content p { margin-bottom: 0.8em; }
+        .ai-content pre { background: #000; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; margin: 12px 0; font-size: 0.8rem; overflow-x: auto; }
+        
+        .typing-indicator { display: inline-flex; gap: 4px; }
+        .typing-indicator span { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); animation: typing 1.4s infinite; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 60%, 100% { opacity: 0.3; transform: scale(0.8); } 30% { opacity: 1; transform: scale(1.2); } }
+
+        .input-area { padding: 12px 16px; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); border-top: 1px solid var(--border); z-index: 50; flex-shrink: 0; }
+        @supports (padding: max(0px)) { 
+            .input-area { padding-bottom: max(12px, env(safe-area-inset-bottom)); } 
+            .header { padding-top: max(0px, env(safe-area-inset-top)); }
+        }
+        .input-wrapper { display: flex; gap: 10px; align-items: flex-end; max-width: 800px; margin: 0 auto; }
+        .message-input { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 10px 14px; color: var(--text); font-size: 0.9rem; resize: none; outline: none; transition: all 0.2s; min-height: 42px; max-height: 160px; line-height: 1.3; }
+        .message-input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px var(--border-glow); }
+        .send-btn { width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; border: none; background: var(--primary); color: #fff; transition: all 0.2s; font-size: 0.95rem; flex-shrink: 0; }
+        .send-btn:hover:not(:disabled) { filter: brightness(1.2); }
+        .send-btn:disabled { background: var(--surface); color: var(--text-muted); cursor: not-allowed; }
+
+        .service-interface { padding: 20px; max-width: 900px; margin: 0 auto; animation: fadeIn 0.5s ease; overflow-y: auto; height: 100%; }
+        .interface-header { text-align: center; margin-bottom: 24px; }
+        .interface-header h2 { font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; gap: 10px; justify-content: center; }
+        .interface-header p { font-size: 0.85rem; color: var(--text-muted); max-width: 450px; margin: 6px auto 0; }
+        .interface-content { display: flex; flex-direction: column; gap: 20px; }
+        .input-section { display: flex; flex-direction: column; gap: 12px; }
+        .input-section h3 { font-size: 1.1rem; font-weight: 600; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+        textarea, input, select { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 12px; font-size: 0.9rem; color: var(--text); outline: none; transition: all 0.2s; }
+        textarea:focus, input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 2px var(--border-glow); }
+        .action-buttons { margin-top: 12px; display: flex; justify-content: center; gap: 12px; }
+        .primary-btn, .secondary-btn { padding: 10px 20px; font-weight: 600; border-radius: var(--radius-md); border: 1px solid transparent; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; }
+        .primary-btn { background: var(--primary); color: white; }
+        .primary-btn:hover { filter: brightness(1.15); }
+        .secondary-btn { background: var(--surface); color: var(--text); border-color: var(--border); }
+        .secondary-btn:hover { background: var(--glass-strong); }
+
+        .options-grid, .input-grid, .stats-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+        .input-group, .option-group { display: flex; flex-direction: column; gap: 6px; }
+        .input-group label, .option-group label { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+        .stat-item { background: var(--glass); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; text-align: center; display: flex; flex-direction: column; gap: 3px; }
+        .stat-number { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); }
+
+        .tab-selector { display: flex; background: var(--surface); padding: 4px; border-radius: var(--radius-md); align-self: center; margin-bottom: 16px; }
+        .tab-btn { padding: 8px 16px; font-weight: 500; background: none; border: none; color: var(--text-muted); cursor: pointer; border-radius: var(--radius-sm); transition: all 0.2s; }
+        .tab-btn.active { background: var(--glass-strong); color: var(--text); }
+        .tab-content { display: none; } .tab-content.active { display: block; }
+
+        .switch-container { display: flex; justify-content: space-between; align-items: center; background: var(--glass); padding: 12px; border-radius: var(--radius-md); }
+        .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border); border-radius: 34px; transition: .4s; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; border-radius: 50%; transition: .4s; }
+        input:checked + .slider { background-color: var(--primary); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        .result-card { margin-top: 24px; }
+        .status-indicator { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: var(--radius-md); font-weight: 500; }
+        .status-running { background: var(--glass); color: var(--accent); border: 1px solid var(--border); }
+        .status-error { background: rgba(255, 0, 0, 0.1); color: #ff6b6b; border: 1px solid rgba(255, 0, 0, 0.3); }
+        .status-success { background: rgba(0, 255, 0, 0.1); color: var(--secondary); border: 1px solid rgba(0, 255, 0, 0.3); }
+
+        @media (min-width: 769px) {
+            .sidebar.open ~ .main-content { margin-left: var(--sidebar-width); }
+        }
+        @media (max-width: 768px) {
+            .sidebar { width: 100vw; transform: translateX(-100vw); }
+            .sidebar-overlay.active { opacity: 1; visibility: visible; }
+            .header { padding: 0 12px; height: 48px; }
+            .messages-container, .service-interface, .input-area { padding: 12px; }
+            .welcome-title { font-size: 1.5rem; }
+            .user-bubble, .ai-content { font-size: 0.85rem; padding: 8px 12px; }
+            .input-wrapper { gap: 8px; }
+            .message-input { min-height: 40px; padding: 10px 12px; font-size: 0.85rem; }
+            .send-btn { width: 40px; height: 40px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aurora-background">
+        <div class="aurora one"></div>
+        <div class="aurora two"></div>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="container">
+        <aside class="sidebar" id="sidebar" role="navigation">
+            <header class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon" id="logo-icon-container"></div>
+                    <div class="logo-text">
+                        <h1>JADED</h1>
+                        <p>Deep Discovery AI</p>
+                    </div>
+                </div>
+                <button class="new-chat-btn" onclick="newChat()">
+                    <span>Új Beszélgetés</span>
+                    <i class="fas fa-plus"></i>
+                </button>
+            </header>
+            <div class="sidebar-content" id="sidebarContent"></div>
+            <footer class="sidebar-footer">
+                <p>JADED v4.2 by Sándor Kollár</p>
+            </footer>
+        </aside>
+
+        <main class="main-content" id="mainContent">
+            <header class="header">
+                <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Menü">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="header-title" id="main-header-title">JADED</h1>
+                <div style="width: 40px;"></div>
+            </header>
+
+            <div class="chat-area">
+                <section class="messages-container" id="messagesContainer" aria-live="polite">
+                    <div class="welcome-screen" id="welcomeScreen">
+                        <h1 class="welcome-title">JADED AI Assistant</h1>
+                        <p class="welcome-subtitle">
+                            GPT-OSS-120B - Cerebras Inference API<br>
+                            65,000 token kimenet | 3000 tokens/sec sebesség | Fejlett reasoning
+                        </p>
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(35, 35, 255, 0.1); border-radius: 8px; max-width: 500px; margin-left: auto; margin-right: auto;">
+                            <p style="font-size: 0.75rem; color: var(--text-muted); margin: 0;">
+                                💡 Kérdezz bármit a tudományról, protein struktúrákról, matematikáról vagy kódolásról!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="input-area">
+                    <div class="input-wrapper">
+                        <textarea class="message-input" id="messageInput" placeholder="Kérdezzen bármit..." rows="1" aria-label="Üzenet"></textarea>
+                        <button class="send-btn" id="sendBtn" onclick="sendMessage()" aria-label="Küldés" disabled>
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const AppState = { isTyping: false, currentJobId: null };
+
+        const getEl = id => document.getElementById(id);
+        const sidebar = getEl('sidebar'), sidebarOverlay = getEl('sidebarOverlay'), sidebarContent = getEl('sidebarContent'),
+              mainContent = getEl('mainContent'), messagesContainer = getEl('messagesContainer'), 
+              messageInput = getEl('messageInput'), sendBtn = getEl('sendBtn'), mainHeaderTitle = getEl('main-header-title');
+        let welcomeScreen = getEl('welcomeScreen');
+
+        class DynamicThemeManager {
+            constructor() { this.auroraBlobs = document.querySelectorAll('.aurora-background .aurora'); setTimeout(() => this.auroraBlobs.forEach(b => b.classList.add('visible')), 500); }
+        }
+
+        async function callBackendAPI(endpoint, payload, method = 'POST') {
+            try {
+                const options = {
+                    method: method,
+                    headers: { 'Content-Type': 'application/json' }
+                };
+
+                if (method === 'POST' && payload) {
+                    options.body = JSON.stringify(payload);
+                }
+
+                const response = await fetch(endpoint, options);
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: `HTTP error ${response.status}` }));
+                    throw new Error(errorData.error || `Backend error: ${response.status}`);
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('Backend API call failed:', error);
+                throw error;
+            }
+        }
+
+        const createSVGLogo = () => getEl('logo-icon-container').innerHTML = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M 30 28 C 30 50 50 72 70 72" stroke="white" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="30" cy="72" r="6" fill="white"/></svg>`;
+        
+        function toggleSidebar() {
+            const isOpen = sidebar.classList.toggle('open');
+            if (window.innerWidth <= 768) {
+                sidebarOverlay.classList.toggle('active', isOpen);
+            }
+        }
+        
+        function closeSidebar() { 
+            if (sidebar.classList.contains('open')) {
+                toggleSidebar();
+            }
+        }
+        
+        const hideWelcome = () => { if (welcomeScreen) { welcomeScreen.style.display = 'none'; welcomeScreen = null; } };
+        
+        function newChat() {
+            messagesContainer.innerHTML = '';
+            mainHeaderTitle.textContent = "JADED";
+            const newWelcomeScreen = document.createElement('div');
+            newWelcomeScreen.className = 'welcome-screen'; newWelcomeScreen.id = 'welcomeScreen';
+            newWelcomeScreen.innerHTML = `<h1 class="welcome-title">JADED AI</h1><p class="welcome-subtitle">Készen állok a következő feladatra. Válassz egy szolgáltatást, vagy kérdezz bármit!</p>`;
+            messagesContainer.appendChild(newWelcomeScreen);
+            welcomeScreen = getEl('welcomeScreen');
+            messageInput.value = ''; messageInput.dispatchEvent(new Event('input')); messageInput.focus();
+            document.querySelectorAll('.service-item.active').forEach(item => item.classList.remove('active'));
+            closeSidebar();
+        }
+
+        function loadServices() {
+            const services = {
+                biologiai_orvosi: { name: 'Biológiai & Orvosi', icon: 'fa-dna', items: { 'AlphaFold 3++': '', 'Szekvencia Validálás': '', 'Szekvencia Elemzés': '' } },
+                rendszer: { name: 'Rendszer', icon: 'fa-server', items: { 'Backend Állapot': '' } }
+            };
+            sidebarContent.innerHTML = '';
+            for (const categoryId in services) {
+                const category = services[categoryId];
+                let servicesHTML = Object.keys(category.items).map(name => `<div class="service-item" onclick="selectService(this, '${escapeHtml(name).replace(/'/g, `\\'`)}')"><div class="service-icon"><i class="fas ${category.icon}"></i></div><div class="service-info"><h4>${escapeHtml(name)}</h4></div></div>`).join('');
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'service-category';
+                categoryDiv.innerHTML = `<div class="category-header" onclick="toggleCategory(this)"><div class="category-title"><span>${category.name}</span></div><i class="fas fa-chevron-down"></i></div><div class="category-services"><div>${servicesHTML}</div></div>`;
+                sidebarContent.appendChild(categoryDiv);
+            }
+        }
+        
+        const toggleCategory = header => { const s = header.nextElementSibling; const c = header.querySelector('.fa-chevron-down'); s.classList.toggle('open'); c.style.transform = s.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)'; };
+        
+        function selectService(element, serviceName) { 
+            document.querySelectorAll('.service-item.active').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+            hideWelcome(); 
+            mainHeaderTitle.textContent = serviceName; 
+            showServiceInterface(serviceName); 
+            closeSidebar(); 
+        }
+
+        async function sendMessage() { 
+            const message = messageInput.value.trim(); 
+            if (!message || AppState.isTyping) return; 
+            hideWelcome(); 
+            addUserMessage(message); 
+            messageInput.value = ''; 
+            sendBtn.disabled = true; 
+            messageInput.style.height = 'auto'; 
+            showTypingIndicator(); 
+            
+            try { 
+                addAiMessage(`Jelenleg csak a szolgáltatásokat támogatom. Kérlek válassz egyet a menüből!`);
+            } catch(e) { 
+                addAiMessage(`**Hiba:** ${e.message}`); 
+            } finally { 
+                hideTypingIndicator(); 
+            } 
+        }
+        
+        const addUserMessage = content => { const div = document.createElement('div'); div.className = 'message user-message'; div.innerHTML = `<div class="user-bubble">${escapeHtml(content)}</div>`; messagesContainer.appendChild(div); scrollToBottom(); };
+        
+        function addAiMessage(content) { 
+            const div = document.createElement('div'); 
+            div.className = 'message ai-message'; 
+            div.innerHTML = `<div class="ai-content">${marked.parse(content)}</div>`; 
+            messagesContainer.appendChild(div); 
+            if (typeof hljs !== 'undefined') hljs.highlightAll(); 
+            scrollToBottom(); 
+        }
+        
+        function showTypingIndicator() { 
+            if(AppState.isTyping) return; 
+            AppState.isTyping = true; 
+            const i = document.createElement('div'); 
+            i.id = 'typingIndicator'; 
+            i.className = 'message ai-message'; 
+            i.innerHTML = `<div style="background: var(--surface); padding: 10px 16px; border-radius: var(--radius-lg);"><div style="display:flex; gap:4px;"><div style="animation: typingPulse 1.4s infinite ease-in-out; background-color: var(--text-muted); width: 8px; height: 8px; border-radius: 50%;"></div><div style="animation: typingPulse 1.4s -0.16s infinite ease-in-out; background-color: var(--text-muted); width: 8px; height: 8px; border-radius: 50%;"></div><div style="animation: typingPulse 1.4s -0.32s infinite ease-in-out; background-color: var(--text-muted); width: 8px; height: 8px; border-radius: 50%;"></div></div></div><style>@keyframes typingPulse { 0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; } 40% { transform: scale(1.2); opacity: 1; } }</style>`; 
+            messagesContainer.appendChild(i); 
+            scrollToBottom(); 
+        }
+        
+        const hideTypingIndicator = () => { AppState.isTyping = false; const i = getEl('typingIndicator'); if (i) i.remove(); };
+
+        const escapeHtml = text => { const d = document.createElement('div'); d.textContent = String(text); return d.innerHTML; };
+        const scrollToBottom = () => messagesContainer.scrollTo({ top: messagesContainer.scrollHeight, behavior: 'smooth' });
+        
+        function setupEventListeners() {
+            messageInput.addEventListener('input', () => { const hasText = messageInput.value.trim().length > 0; sendBtn.disabled = !hasText; messageInput.style.height = 'auto'; messageInput.style.height = `${Math.min(messageInput.scrollHeight, 200)}px`; });
+            messageInput.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } });
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        }
+
+        function showServiceInterface(serviceName) {
+            let interfaceHTML = '';
+            switch (serviceName) {
+                case 'AlphaFold 3++': interfaceHTML = getAlphaFoldInterface(); break;
+                case 'Szekvencia Validálás': interfaceHTML = getSequenceValidationInterface(); break;
+                case 'Szekvencia Elemzés': interfaceHTML = getSequenceAnalysisInterface(); break;
+                case 'Backend Állapot': interfaceHTML = getHealthCheckInterface(); break;
+                default: interfaceHTML = getGenericInterface(serviceName, 'Adja meg a bemeneti adatokat a számításhoz.'); break;
+            }
+            messagesContainer.innerHTML = interfaceHTML;
+            if (serviceName === 'AlphaFold 3++') {
+                const seqInput = getEl('proteinSequence');
+                if (seqInput) seqInput.addEventListener('input', updateSequenceStats);
+            }
+        }
+
+        const getAlphaFoldInterface = () => `<div class="service-interface"><header class="interface-header"><h2><i class="fas fa-dna accent"></i> AlphaFold 3++</h2><p>Fehérje struktúra előrejelzés AlphaFold3 modellel.</p></header><div class="interface-content"><section class="input-section"><h3>Protein Szekvencia</h3><textarea id="proteinSequence" placeholder="Írja be a protein szekvenciát (pl. MKTAYIAK...)..." rows="6"></textarea><div class="sequence-stats" style="margin-top: 8px; color: var(--text-muted); font-size: 0.85rem;"><span id="sequence-length">Hossz: 0</span></div></section><section class="input-section"><h3>Paraméterek</h3><div class="options-grid"><div class="option-group"><label>Recycle Iterations</label><input type="number" id="recycle-iterations" value="3" min="1" max="20"></div><div class="option-group"><label>Diffusion Samples</label><input type="number" id="diffusion-samples" value="1" min="1" max="10"></div></div></section><div class="action-buttons"><button class="primary-btn" onclick="runAlphaFoldPrediction()"><i class="fas fa-play"></i> Predikció Indítása</button></div><div id="service-results"></div></div></div>`;
+
+        const getSequenceValidationInterface = () => `<div class="service-interface"><header class="interface-header"><h2><i class="fas fa-check-circle accent"></i> Szekvencia Validálás</h2><p>Ellenőrizze, hogy a szekvencia érvényes-e.</p></header><div class="interface-content"><section class="input-section"><h3>Protein Szekvencia</h3><textarea id="validateSequence" placeholder="Írja be a protein szekvenciát..." rows="6"></textarea></section><div class="action-buttons"><button class="primary-btn" onclick="runSequenceValidation()"><i class="fas fa-check"></i> Validálás</button></div><div id="service-results"></div></div></div>`;
+
+        const getSequenceAnalysisInterface = () => `<div class="service-interface"><header class="interface-header"><h2><i class="fas fa-chart-line accent"></i> Szekvencia Elemzés</h2><p>Elemezze a protein szekvenciát.</p></header><div class="interface-content"><section class="input-section"><h3>Protein Szekvencia</h3><textarea id="analyzeSequence" placeholder="Írja be a protein szekvenciát..." rows="6"></textarea></section><div class="action-buttons"><button class="primary-btn" onclick="runSequenceAnalysis()"><i class="fas fa-search"></i> Elemzés</button></div><div id="service-results"></div></div></div>`;
+
+        const getHealthCheckInterface = () => `<div class="service-interface"><header class="interface-header"><h2><i class="fas fa-heartbeat accent"></i> Backend Állapot</h2><p>Ellenőrizze a backend szolgáltatás állapotát.</p></header><div class="interface-content"><div class="action-buttons"><button class="primary-btn" onclick="runHealthCheck()"><i class="fas fa-sync"></i> Állapot Lekérdezése</button></div><div id="service-results"></div></div></div>`;
+
+        const getGenericInterface = (name, desc) => `<div class="service-interface"><header class="interface-header"><h2>${name}</h2><p>${desc}</p></header><div class="interface-content"><section class="input-section"><textarea id="serviceInput" placeholder="Bemeneti adatok..." rows="8"></textarea></section><div class="action-buttons"><button class="primary-btn" onclick="alert('Ez a szolgáltatás még nem elérhető.')"><i class="fas fa-play"></i> Indítás</button></div><div id="service-results"></div></div></div>`;
+
+        const switchTab = (btn, tabId) => { btn.parentElement.querySelector('.active').classList.remove('active'); btn.classList.add('active'); btn.closest('.interface-content').querySelector('.tab-content.active').classList.remove('active'); getEl(tabId).classList.add('active'); };
+        const updateSequenceStats = () => { const seqInput = getEl('proteinSequence'); if (seqInput) getEl('sequence-length').textContent = `Hossz: ${seqInput.value.replace(/[^A-Za-z]/g, '').length}`; };
+
+        async function runAlphaFoldPrediction() {
+            const sequence = getEl('proteinSequence').value.trim();
+            const numRecycles = parseInt(getEl('recycle-iterations').value) || 3;
+            const numDiffusionSamples = parseInt(getEl('diffusion-samples').value) || 1;
+
+            if (!sequence) {
+                showError("Kérlek adj meg egy protein szekvenciát.");
+                return;
+            }
+
+            const payload = {
+                protein_sequence: sequence,
+                num_recycles: numRecycles,
+                num_diffusion_samples: numDiffusionSamples
+            };
+
+            await showProgressAndRun('AlphaFold 3++ Predikció', async () => {
+                const response = await callBackendAPI('/api/predict', payload);
+                
+                AppState.currentJobId = response.job_id;
+                
+                let resultsHTML = `<h3><i class="fas fa-check-circle accent"></i> Predikció Elindítva</h3><div class="result-card">`;
+                
+                if (response.job_id) {
+                    resultsHTML += `<div class="status-indicator status-running"><i class="fas fa-spinner fa-spin"></i> Job ID: ${response.job_id}</div>`;
+                    resultsHTML += `<div class="action-buttons" style="margin-top: 20px;"><button class="secondary-btn" onclick="checkJobStatus('${response.job_id}')"><i class="fas fa-sync"></i> Állapot Ellenőrzése</button></div>`;
+                }
+                
+                if (response.pdb_content) {
+                    resultsHTML += `<div class="action-buttons" style="margin-top: 20px;"><button class="primary-btn" onclick="downloadPDB('${response.job_id}')"><i class="fas fa-download"></i> PDB Letöltése</button></div>`;
+                }
+                
+                resultsHTML += `</div>`;
+                getEl('service-results').innerHTML = resultsHTML;
+            });
+        }
+
+        async function checkJobStatus(jobId) {
+            try {
+                const response = await callBackendAPI(`/api/predict/${jobId}`, null, 'GET');
+                
+                let statusHTML = `<h3><i class="fas fa-info-circle accent"></i> Job Állapot</h3><div class="result-card">`;
+                
+                if (response.status === 'completed' && response.results) {
+                    statusHTML += `<div class="status-indicator status-success"><i class="fas fa-check"></i> Kész</div>`;
+                    statusHTML += `<div class="stats-grid" style="margin-top: 20px;">`;
+                    
+                    if (response.results.plddt !== undefined) {
+                        statusHTML += `<div class="stat-item"><span class="stat-number">${response.results.plddt.toFixed(1)}</span><span class="stat-label">pLDDT</span></div>`;
+                    }
+                    if (response.results.ptm !== undefined) {
+                        statusHTML += `<div class="stat-item"><span class="stat-number">${response.results.ptm.toFixed(3)}</span><span class="stat-label">pTM</span></div>`;
+                    }
+                    if (response.results.iptm !== undefined) {
+                        statusHTML += `<div class="stat-item"><span class="stat-number">${response.results.iptm.toFixed(3)}</span><span class="stat-label">ipTM</span></div>`;
+                    }
+                    
+                    statusHTML += `</div>`;
+                    statusHTML += `<div class="action-buttons" style="margin-top: 20px;"><button class="primary-btn" onclick="downloadPDB('${jobId}')"><i class="fas fa-download"></i> PDB Letöltése</button></div>`;
+                } else if (response.status === 'running') {
+                    statusHTML += `<div class="status-indicator status-running"><i class="fas fa-spinner fa-spin"></i> Futás közben...</div>`;
+                    statusHTML += `<div class="action-buttons" style="margin-top: 20px;"><button class="secondary-btn" onclick="checkJobStatus('${jobId}')"><i class="fas fa-sync"></i> Újraellenőrzés</button></div>`;
+                } else if (response.status === 'failed') {
+                    statusHTML += `<div class="status-indicator status-error"><i class="fas fa-times"></i> Hiba: ${response.error || 'Ismeretlen hiba'}</div>`;
+                } else {
+                    statusHTML += `<div class="status-indicator status-running"><i class="fas fa-clock"></i> Állapot: ${response.status || 'ismeretlen'}</div>`;
+                }
+                
+                statusHTML += `</div>`;
+                getEl('service-results').innerHTML = statusHTML;
+            } catch (error) {
+                showError(`Hiba az állapot ellenőrzésekor: ${error.message}`);
+            }
+        }
+
+        async function downloadPDB(jobId) {
+            try {
+                window.open(`/api/predict/${jobId}/pdb`, '_blank');
+            } catch (error) {
+                showError(`Hiba a PDB letöltésekor: ${error.message}`);
+            }
+        }
+
+        async function runSequenceValidation() {
+            const sequence = getEl('validateSequence').value.trim();
+            
+            if (!sequence) {
+                showError("Kérlek adj meg egy szekvenciát.");
+                return;
+            }
+
+            await showProgressAndRun('Szekvencia Validálás', async () => {
+                const response = await callBackendAPI('/api/sequences/validate', { sequence });
+                
+                let resultsHTML = `<h3><i class="fas fa-check-circle accent"></i> Validálási Eredmény</h3><div class="result-card">`;
+                
+                if (response.valid) {
+                    resultsHTML += `<div class="status-indicator status-success"><i class="fas fa-check"></i> A szekvencia érvényes</div>`;
+                } else {
+                    resultsHTML += `<div class="status-indicator status-error"><i class="fas fa-times"></i> A szekvencia érvénytelen</div>`;
+                }
+                
+                if (response.message) {
+                    resultsHTML += `<p style="margin-top: 16px; color: var(--text-muted);">${response.message}</p>`;
+                }
+                
+                resultsHTML += `</div>`;
+                getEl('service-results').innerHTML = resultsHTML;
+            });
+        }
+
+        async function runSequenceAnalysis() {
+            const sequence = getEl('analyzeSequence').value.trim();
+            
+            if (!sequence) {
+                showError("Kérlek adj meg egy szekvenciát.");
+                return;
+            }
+
+            await showProgressAndRun('Szekvencia Elemzés', async () => {
+                const response = await callBackendAPI('/api/sequences/analyze', { sequence });
+                
+                let resultsHTML = `<h3><i class="fas fa-chart-line accent"></i> Elemzési Eredmények</h3><div class="result-card">`;
+                
+                if (response.length !== undefined) {
+                    resultsHTML += `<div class="stats-grid">`;
+                    resultsHTML += `<div class="stat-item"><span class="stat-number">${response.length}</span><span class="stat-label">Hossz</span></div>`;
+                    
+                    if (response.molecular_weight) {
+                        resultsHTML += `<div class="stat-item"><span class="stat-number">${response.molecular_weight.toFixed(2)}</span><span class="stat-label">Molekulatömeg (Da)</span></div>`;
+                    }
+                    if (response.isoelectric_point) {
+                        resultsHTML += `<div class="stat-item"><span class="stat-number">${response.isoelectric_point.toFixed(2)}</span><span class="stat-label">Izoelektromos pont</span></div>`;
+                    }
+                    
+                    resultsHTML += `</div>`;
+                }
+                
+                if (response.composition) {
+                    resultsHTML += `<h4 style="margin-top: 20px;">Aminosav Összetétel</h4><div style="max-height: 200px; overflow-y: auto; margin-top: 12px;">`;
+                    for (const [aa, count] of Object.entries(response.composition)) {
+                        resultsHTML += `<div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border);"><span>${aa}</span><span>${count}</span></div>`;
+                    }
+                    resultsHTML += `</div>`;
+                }
+                
+                resultsHTML += `</div>`;
+                getEl('service-results').innerHTML = resultsHTML;
+            });
+        }
+
+        async function runHealthCheck() {
+            await showProgressAndRun('Backend Állapot Ellenőrzése', async () => {
+                const response = await callBackendAPI('/api/health', null, 'GET');
+                
+                let resultsHTML = `<h3><i class="fas fa-heartbeat accent"></i> Backend Állapot</h3><div class="result-card">`;
+                
+                if (response.status === 'healthy' || response.status === 'ok') {
+                    resultsHTML += `<div class="status-indicator status-success"><i class="fas fa-check"></i> A backend működik</div>`;
+                } else {
+                    resultsHTML += `<div class="status-indicator status-error"><i class="fas fa-exclamation-triangle"></i> A backend nem elérhető</div>`;
+                }
+                
+                if (response.version) {
+                    resultsHTML += `<p style="margin-top: 16px; color: var(--text-muted);">Verzió: ${response.version}</p>`;
+                }
+                if (response.uptime) {
+                    resultsHTML += `<p style="color: var(--text-muted);">Uptime: ${response.uptime}</p>`;
+                }
+                
+                resultsHTML += `</div>`;
+                getEl('service-results').innerHTML = resultsHTML;
+            });
+        }
+
+        async function showProgressAndRun(title, asyncFunc) {
+            const resultsDiv = getEl('service-results');
+            resultsDiv.innerHTML = `<div class="status-indicator status-running"><i class="fas fa-spinner fa-spin"></i> ${title} folyamatban...</div>`;
+            
+            try {
+                await asyncFunc();
+            } catch (error) {
+                showError(error.message);
+            }
+        }
+
+        function showError(message) {
+            const resultsDiv = getEl('service-results');
+            resultsDiv.innerHTML = `<div class="status-indicator status-error"><i class="fas fa-exclamation-triangle"></i> Hiba: ${message}</div>`;
+        }
+
+        function downloadFile(filename, content) {
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            createSVGLogo();
+            loadServices();
+            setupEventListeners();
+            new DynamicThemeManager();
+        });
+    </script>
+</body>
+</html>

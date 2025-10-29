@@ -1,0 +1,350 @@
+import [balsa.types.basic]
+
+type NeuronValue is 16 signed bits
+type WeightValue is 16 signed bits
+type AccumulatorValue is 32 signed bits
+
+constant NUM_NEURONS = 256
+constant NUM_LAYERS = 8
+
+type NeuronArray is array NUM_NEURONS of NeuronValue
+type WeightMatrix is array NUM_NEURONS of array NUM_NEURONS of WeightValue
+
+procedure NeuronCompute (
+    input inputValue: NeuronValue;
+    input weight: WeightValue;
+    input bias: NeuronValue;
+    output result: NeuronValue
+) is
+    variable accumulator: AccumulatorValue
+begin
+    accumulator := (inputValue as AccumulatorValue) * (weight as AccumulatorValue) ;
+    accumulator := accumulator + (bias as AccumulatorValue) ;
+
+    if accumulator < 0 then
+        result := 0 as NeuronValue
+    else
+        result := accumulator{15..0} as NeuronValue
+    end
+end
+
+procedure ReLUActivation (
+    input value: AccumulatorValue;
+    output activated: NeuronValue
+) is
+begin
+    if value < 0 then
+        activated := 0 as NeuronValue
+    else
+        if value > 32767 then
+            activated := 32767 as NeuronValue
+        else
+            activated := value{15..0} as NeuronValue
+        end
+    end
+end
+
+procedure DotProduct (
+    sync inputReq;
+    input inputVector: NeuronArray;
+    input weightVector: array NUM_NEURONS of WeightValue;
+    output result: AccumulatorValue;
+    sync outputAck
+) is
+    variable i: 8 bits
+    variable acc: AccumulatorValue
+begin
+    loop
+        sync inputReq ;
+        acc := 0 as AccumulatorValue ;
+        i := 0 as 8 bits ;
+
+        while i < NUM_NEURONS loop
+            acc := acc + ((inputVector[i] as AccumulatorValue) * 
+                         (weightVector[i] as AccumulatorValue)) ;
+            i := i + 1
+        end ;
+
+        result := acc ;
+        sync outputAck
+    end
+end
+
+procedure NeuralLayer (
+    sync inputReq;
+    input inputNeurons: NeuronArray;
+    input weights: WeightMatrix;
+    input biases: NeuronArray;
+    output outputNeurons: NeuronArray;
+    sync outputAck
+) is
+    variable i: 8 bits
+    variable j: 8 bits
+    variable acc: AccumulatorValue
+    variable biasedValue: AccumulatorValue
+    variable activatedValue: NeuronValue
+    array NUM_NEURONS of variable neuronResults: NeuronValue
+begin
+    loop
+        sync inputReq ;
+        i := 0 as 8 bits ;
+
+        while i < NUM_NEURONS loop
+            acc := 0 as AccumulatorValue ;
+            j := 0 as 8 bits ;
+
+            while j < NUM_NEURONS loop
+                acc := acc + ((inputNeurons[j] as AccumulatorValue) * 
+                             (weights[i][j] as AccumulatorValue)) ;
+                j := j + 1
+            end ;
+
+            biasedValue := acc + (biases[i] as AccumulatorValue) ;
+
+            if biasedValue < 0 then
+                activatedValue := 0 as NeuronValue
+            else
+                activatedValue := biasedValue{15..0} as NeuronValue
+            end ;
+
+            neuronResults[i] := activatedValue ;
+            i := i + 1
+        end ;
+
+        i := 0 as 8 bits ;
+        while i < NUM_NEURONS loop
+            outputNeurons[i] := neuronResults[i] ;
+            i := i + 1
+        end ;
+
+        sync outputAck
+    end
+end
+
+procedure ConvolutionalLayer (
+    sync inputReq;
+    input inputFeatureMap: array 64 of array 64 of NeuronValue;
+    input kernel: array 3 of array 3 of WeightValue;
+    output outputFeatureMap: array 62 of array 62 of NeuronValue;
+    sync outputAck
+) is
+    variable row: 8 bits
+    variable col: 8 bits
+    variable kr: 8 bits
+    variable kc: 8 bits
+    variable acc: AccumulatorValue
+begin
+    loop
+        sync inputReq ;
+        row := 0 as 8 bits ;
+
+        while row < 62 loop
+            col := 0 as 8 bits ;
+
+            while col < 62 loop
+                acc := 0 as AccumulatorValue ;
+
+                kr := 0 as 8 bits ;
+                while kr < 3 loop
+                    kc := 0 as 8 bits ;
+                    while kc < 3 loop
+                        acc := acc + ((inputFeatureMap[row + kr][col + kc] as AccumulatorValue) *
+                                     (kernel[kr][kc] as AccumulatorValue)) ;
+                        kc := kc + 1
+                    end ;
+                    kr := kr + 1
+                end ;
+
+                if acc < 0 then
+                    outputFeatureMap[row][col] := 0 as NeuronValue
+                else
+                    outputFeatureMap[row][col] := acc{15..0} as NeuronValue
+                end ;
+
+                col := col + 1
+            end ;
+
+            row := row + 1
+        end ;
+
+        sync outputAck
+    end
+end
+
+procedure MaxPooling (
+    sync inputReq;
+    input inputFeatureMap: array 64 of array 64 of NeuronValue;
+    output outputFeatureMap: array 32 of array 32 of NeuronValue;
+    sync outputAck
+) is
+    variable inRow: 8 bits
+    variable inCol: 8 bits
+    variable outRow: 8 bits
+    variable outCol: 8 bits
+    variable maxVal: NeuronValue
+begin
+    loop
+        sync inputReq ;
+        outRow := 0 as 8 bits ;
+
+        while outRow < 32 loop
+            outCol := 0 as 8 bits ;
+
+            while outCol < 32 loop
+                inRow := outRow * 2 ;
+                inCol := outCol * 2 ;
+
+                maxVal := inputFeatureMap[inRow][inCol] ;
+
+                if inputFeatureMap[inRow][inCol + 1] > maxVal then
+                    maxVal := inputFeatureMap[inRow][inCol + 1]
+                end ;
+
+                if inputFeatureMap[inRow + 1][inCol] > maxVal then
+                    maxVal := inputFeatureMap[inRow + 1][inCol]
+                end ;
+
+                if inputFeatureMap[inRow + 1][inCol + 1] > maxVal then
+                    maxVal := inputFeatureMap[inRow + 1][inCol + 1]
+                end ;
+
+                outputFeatureMap[outRow][outCol] := maxVal ;
+
+                outCol := outCol + 1
+            end ;
+
+            outRow := outRow + 1
+        end ;
+
+        sync outputAck
+    end
+end
+
+procedure DeepNeuralNetwork (
+    sync inputReq;
+    input inputData: NeuronArray;
+    input layerWeights: array NUM_LAYERS of WeightMatrix;
+    input layerBiases: array NUM_LAYERS of NeuronArray;
+    output outputData: NeuronArray;
+    sync outputAck
+) is
+    array NUM_LAYERS of variable layerOutputs: NeuronArray
+    variable currentLayer: 4 bits
+    variable i: 8 bits
+    variable j: 8 bits
+    variable acc: AccumulatorValue
+begin
+    loop
+        sync inputReq ;
+        i := 0 as 8 bits ;
+        while i < NUM_NEURONS loop
+            layerOutputs[0][i] := inputData[i] ;
+            i := i + 1
+        end ;
+
+        currentLayer := 0 as 4 bits ;
+
+        while currentLayer < (NUM_LAYERS - 1) loop
+            i := 0 as 8 bits ;
+            while i < NUM_NEURONS loop
+                acc := 0 as AccumulatorValue ;
+                j := 0 as 8 bits ;
+
+                while j < NUM_NEURONS loop
+                    acc := acc + ((layerOutputs[currentLayer][j] as AccumulatorValue) *
+                                 (layerWeights[currentLayer][i][j] as AccumulatorValue)) ;
+                    j := j + 1
+                end ;
+
+                acc := acc + (layerBiases[currentLayer][i] as AccumulatorValue) ;
+
+                if acc < 0 then
+                    layerOutputs[currentLayer + 1][i] := 0 as NeuronValue
+                else
+                    layerOutputs[currentLayer + 1][i] := acc{15..0} as NeuronValue
+                end ;
+
+                i := i + 1
+            end ;
+
+            currentLayer := currentLayer + 1
+        end ;
+
+        i := 0 as 8 bits ;
+        while i < NUM_NEURONS loop
+            outputData[i] := layerOutputs[NUM_LAYERS - 1][i] ;
+            i := i + 1
+        end ;
+
+        sync outputAck
+    end
+end
+
+procedure QuantumNeuralProcessor (
+    sync inputReq;
+    input quantumFeatures: NeuronArray;
+    input classicalFeatures: NeuronArray;
+    input weights: array NUM_LAYERS of WeightMatrix;
+    input biases: array NUM_LAYERS of NeuronArray;
+    output prediction: NeuronArray;
+    sync outputAck
+) is
+    variable hybridInput: NeuronArray
+    variable i: 8 bits
+    array NUM_LAYERS of variable layerOutputs: NeuronArray
+    variable currentLayer: 4 bits
+    variable j: 8 bits
+    variable acc: AccumulatorValue
+begin
+    loop
+        sync inputReq ;
+        i := 0 as 8 bits ;
+        while i < (NUM_NEURONS / 2) loop
+            hybridInput[i] := quantumFeatures[i] ;
+            hybridInput[i + (NUM_NEURONS / 2)] := classicalFeatures[i] ;
+            i := i + 1
+        end ;
+
+        i := 0 as 8 bits ;
+        while i < NUM_NEURONS loop
+            layerOutputs[0][i] := hybridInput[i] ;
+            i := i + 1
+        end ;
+
+        currentLayer := 0 as 4 bits ;
+
+        while currentLayer < (NUM_LAYERS - 1) loop
+            i := 0 as 8 bits ;
+            while i < NUM_NEURONS loop
+                acc := 0 as AccumulatorValue ;
+                j := 0 as 8 bits ;
+
+                while j < NUM_NEURONS loop
+                    acc := acc + ((layerOutputs[currentLayer][j] as AccumulatorValue) *
+                                 (weights[currentLayer][i][j] as AccumulatorValue)) ;
+                    j := j + 1
+                end ;
+
+                acc := acc + (biases[currentLayer][i] as AccumulatorValue) ;
+
+                if acc < 0 then
+                    layerOutputs[currentLayer + 1][i] := 0 as NeuronValue
+                else
+                    layerOutputs[currentLayer + 1][i] := acc{15..0} as NeuronValue
+                end ;
+
+                i := i + 1
+            end ;
+
+            currentLayer := currentLayer + 1
+        end ;
+
+        i := 0 as 8 bits ;
+        while i < NUM_NEURONS loop
+            prediction[i] := layerOutputs[NUM_LAYERS - 1][i] ;
+            i := i + 1
+        end ;
+
+        sync outputAck
+    end
+end

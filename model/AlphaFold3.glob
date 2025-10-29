@@ -1,0 +1,2888 @@
+DIGEST 57a1aa4d5d439f4bb2273c3c4e6c9968
+FAlphaFold3
+R15:29 Coq.Reals.Reals <> <> lib
+R47:60 Coq.Lists.List <> <> lib
+R78:92 Coq.Arith.Arith <> <> lib
+R110:122 Coq.Bool.Bool <> <> lib
+R140:157 Coq.Strings.String <> <> lib
+R175:191 Coq.Strings.Ascii <> <> lib
+R209:242 Coq.Logic.FunctionalExtensionality <> <> lib
+R260:276 Coq.micromega.Lia <> <> lib
+R294:310 Coq.micromega.Lra <> <> lib
+R328:339 Coq.Init.Nat <> <> lib
+R357:373 Coq.ZArith.ZArith <> <> lib
+R391:407 Coq.QArith.QArith <> <> lib
+R425:439 Coq.QArith.Qabs <> <> lib
+R457:471 Coq.Reals.RIneq <> <> lib
+R489:504 Coq.Reals.Rpower <> <> lib
+R522:537 Coq.Reals.Rtrigo <> <> lib
+R555:570 Coq.Reals.R_sqrt <> <> lib
+R588:606 Coq.Logic.Classical <> <> lib
+R616:628 Coq.Lists.List ListNotations <> mod
+def 684:687 <> map2
+binder 690:690 <> A:1
+binder 692:692 <> B:2
+binder 694:694 <> C:3
+R710:713 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R709:709 AlphaFold3 <> A:1 var
+R715:718 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R714:714 AlphaFold3 <> B:2 var
+R719:719 AlphaFold3 <> C:3 var
+binder 705:705 <> f:4
+R728:731 Coq.Init.Datatypes <> list ind
+R733:733 AlphaFold3 <> A:1 var
+binder 723:724 <> l1:5
+R742:745 Coq.Init.Datatypes <> list ind
+R747:747 AlphaFold3 <> B:2 var
+binder 737:738 <> l2:6
+R752:755 Coq.Init.Datatypes <> list ind
+R757:757 AlphaFold3 <> C:3 var
+R774:775 AlphaFold3 <> l2:6 var
+R770:771 AlphaFold3 <> l1:5 var
+R786:787 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R795:796 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R805:806 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R811:812 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R819:820 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R827:828 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R841:844 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R836:836 AlphaFold3 <> f:4 var
+R845:848 AlphaFold3 <> map2:7 def
+R850:850 AlphaFold3 <> f:4 var
+prf 874:884 <> map2_length
+binder 896:896 <> A:10
+binder 898:898 <> B:11
+binder 900:900 <> C:12
+R909:912 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R908:908 AlphaFold3 <> A:10 var
+R914:917 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R913:913 AlphaFold3 <> B:11 var
+R918:918 AlphaFold3 <> C:12 var
+binder 904:904 <> f:13
+R927:930 Coq.Init.Datatypes <> list ind
+R932:932 AlphaFold3 <> A:10 var
+binder 922:923 <> l1:14
+R941:944 Coq.Init.Datatypes <> list ind
+R946:946 AlphaFold3 <> B:11 var
+binder 936:937 <> l2:15
+R978:980 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R952:962 Coq.Lists.List <> length abbrev
+R965:968 AlphaFold3 <> map2 def
+R975:976 AlphaFold3 <> l2:15 var
+R972:973 AlphaFold3 <> l1:14 var
+R970:970 AlphaFold3 <> f:13 var
+R981:983 Coq.Init.Nat <> min def
+R986:996 Coq.Lists.List <> length abbrev
+R998:999 AlphaFold3 <> l1:14 var
+R1003:1013 Coq.Lists.List <> length abbrev
+R1015:1016 AlphaFold3 <> l2:15 var
+def 1214:1222 <> AminoAcid
+R1227:1229 Coq.Init.Datatypes <> nat ind
+def 1243:1249 <> Residue
+R1254:1256 Coq.Init.Datatypes <> nat ind
+def 1270:1278 <> AtomIndex
+R1283:1285 Coq.Init.Datatypes <> nat ind
+def 1299:1305 <> ChainID
+R1310:1315 Coq.Strings.String <> string ind
+ind 1329:1339 <> ResidueType
+constr 1353:1355 <> ALA
+constr 1359:1361 <> ARG
+constr 1365:1367 <> ASN
+constr 1371:1373 <> ASP
+constr 1377:1379 <> CYS
+constr 1383:1385 <> GLN
+constr 1389:1391 <> GLU
+constr 1395:1397 <> GLY
+constr 1401:1403 <> HIS
+constr 1407:1409 <> ILE
+constr 1413:1415 <> LEU
+constr 1419:1421 <> LYS
+constr 1425:1427 <> MET
+constr 1431:1433 <> PHE
+constr 1437:1439 <> PRO
+constr 1443:1445 <> SER
+constr 1449:1451 <> THR
+constr 1455:1457 <> TRP
+constr 1461:1463 <> TYR
+constr 1467:1469 <> VAL
+scheme 1329:1339 <> ResidueType_rect
+scheme 1329:1339 <> ResidueType_ind
+scheme 1329:1339 <> ResidueType_rec
+scheme 1329:1339 <> ResidueType_sind
+def 1484:1494 <> residue_eqb
+R1505:1515 AlphaFold3 <> ResidueType ind
+binder 1497:1498 <> r1:18
+binder 1500:1501 <> r2:19
+R1520:1523 Coq.Init.Datatypes <> bool ind
+R1540:1541 AlphaFold3 <> r2:19 var
+R1536:1537 AlphaFold3 <> r1:18 var
+R1552:1554 AlphaFold3 <> ALA constr
+R1557:1559 AlphaFold3 <> ALA constr
+R1563:1565 AlphaFold3 <> ARG constr
+R1568:1570 AlphaFold3 <> ARG constr
+R1574:1576 AlphaFold3 <> ASN constr
+R1579:1581 AlphaFold3 <> ASN constr
+R1585:1587 AlphaFold3 <> ASP constr
+R1590:1592 AlphaFold3 <> ASP constr
+R1596:1598 AlphaFold3 <> CYS constr
+R1601:1603 AlphaFold3 <> CYS constr
+R1609:1611 AlphaFold3 <> GLN constr
+R1614:1616 AlphaFold3 <> GLN constr
+R1620:1622 AlphaFold3 <> GLU constr
+R1625:1627 AlphaFold3 <> GLU constr
+R1631:1633 AlphaFold3 <> GLY constr
+R1636:1638 AlphaFold3 <> GLY constr
+R1642:1644 AlphaFold3 <> HIS constr
+R1647:1649 AlphaFold3 <> HIS constr
+R1653:1655 AlphaFold3 <> ILE constr
+R1658:1660 AlphaFold3 <> ILE constr
+R1666:1668 AlphaFold3 <> LEU constr
+R1671:1673 AlphaFold3 <> LEU constr
+R1677:1679 AlphaFold3 <> LYS constr
+R1682:1684 AlphaFold3 <> LYS constr
+R1688:1690 AlphaFold3 <> MET constr
+R1693:1695 AlphaFold3 <> MET constr
+R1699:1701 AlphaFold3 <> PHE constr
+R1704:1706 AlphaFold3 <> PHE constr
+R1710:1712 AlphaFold3 <> PRO constr
+R1715:1717 AlphaFold3 <> PRO constr
+R1723:1725 AlphaFold3 <> SER constr
+R1728:1730 AlphaFold3 <> SER constr
+R1734:1736 AlphaFold3 <> THR constr
+R1739:1741 AlphaFold3 <> THR constr
+R1745:1747 AlphaFold3 <> TRP constr
+R1750:1752 AlphaFold3 <> TRP constr
+R1756:1758 AlphaFold3 <> TYR constr
+R1761:1763 AlphaFold3 <> TYR constr
+R1767:1769 AlphaFold3 <> VAL constr
+R1772:1774 AlphaFold3 <> VAL constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1779:1782 Coq.Init.Datatypes <> true constr
+R1796:1800 Coq.Init.Datatypes <> false constr
+rec 1817:1820 <> Vec3
+proj 1843:1844 <> vx
+proj 1853:1854 <> vy
+proj 1863:1864 <> vz
+R1848:1848 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1858:1858 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R1868:1868 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+rec 1881:1884 <> Atom
+proj 1907:1914 <> atom_pos
+proj 1926:1934 <> atom_type
+proj 1948:1959 <> atom_residue
+proj 1974:1983 <> atom_chain
+proj 1998:2009 <> atom_bfactor
+R1918:1921 AlphaFold3 <> Vec3 rec
+R1938:1943 Coq.Strings.String <> string ind
+R1963:1969 AlphaFold3 <> Residue def
+R1987:1993 AlphaFold3 <> ChainID def
+R2013:2013 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+rec 2026:2037 <> ProteinChain
+proj 2068:2075 <> chain_id
+proj 2090:2103 <> chain_sequence
+proj 2127:2137 <> chain_atoms
+proj 2154:2165 <> chain_length
+R2079:2085 AlphaFold3 <> ChainID def
+R2107:2110 Coq.Init.Datatypes <> list ind
+R2112:2122 AlphaFold3 <> ResidueType ind
+R2141:2144 Coq.Init.Datatypes <> list ind
+R2146:2149 AlphaFold3 <> Atom rec
+R2169:2171 Coq.Init.Datatypes <> nat ind
+rec 2184:2199 <> ProteinStructure
+proj 2234:2244 <> prot_chains
+proj 2269:2287 <> prot_total_residues
+proj 2298:2313 <> prot_total_atoms
+R2248:2251 Coq.Init.Datatypes <> list ind
+R2253:2264 AlphaFold3 <> ProteinChain rec
+R2291:2293 Coq.Init.Datatypes <> nat ind
+R2317:2319 Coq.Init.Datatypes <> nat ind
+rec 2332:2342 <> MSAFeatures
+proj 2372:2380 <> msa_depth
+proj 2391:2400 <> msa_length
+proj 2411:2423 <> msa_sequences
+proj 2454:2467 <> msa_embeddings
+R2384:2386 Coq.Init.Datatypes <> nat ind
+R2404:2406 Coq.Init.Datatypes <> nat ind
+R2427:2430 Coq.Init.Datatypes <> list ind
+R2433:2436 Coq.Init.Datatypes <> list ind
+R2438:2448 AlphaFold3 <> ResidueType ind
+R2471:2474 Coq.Init.Datatypes <> list ind
+R2477:2480 Coq.Init.Datatypes <> list ind
+R2482:2482 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+rec 2496:2507 <> PairFeatures
+proj 2538:2545 <> pair_dim
+proj 2556:2564 <> pair_size
+proj 2575:2583 <> pair_repr
+R2549:2551 Coq.Init.Datatypes <> nat ind
+R2568:2570 Coq.Init.Datatypes <> nat ind
+R2587:2590 Coq.Init.Datatypes <> list ind
+R2593:2596 Coq.Init.Datatypes <> list ind
+R2599:2602 Coq.Init.Datatypes <> list ind
+R2604:2604 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+rec 2619:2632 <> SingleFeatures
+proj 2665:2674 <> single_dim
+proj 2685:2697 <> single_length
+proj 2708:2718 <> single_repr
+R2678:2680 Coq.Init.Datatypes <> nat ind
+R2701:2703 Coq.Init.Datatypes <> nat ind
+R2722:2725 Coq.Init.Datatypes <> list ind
+R2728:2731 Coq.Init.Datatypes <> list ind
+R2733:2733 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 2751:2758 <> vec3_add
+R2769:2772 AlphaFold3 <> Vec3 rec
+binder 2761:2762 <> v1:54
+binder 2764:2765 <> v2:55
+R2777:2780 AlphaFold3 <> Vec3 rec
+R2787:2792 AlphaFold3 <> mkVec3 constr
+R2800:2802 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2795:2796 AlphaFold3 <> vx proj
+R2798:2799 AlphaFold3 <> v1:54 var
+R2803:2804 AlphaFold3 <> vx proj
+R2806:2807 AlphaFold3 <> v2:55 var
+R2816:2818 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2811:2812 AlphaFold3 <> vy proj
+R2814:2815 AlphaFold3 <> v1:54 var
+R2819:2820 AlphaFold3 <> vy proj
+R2822:2823 AlphaFold3 <> v2:55 var
+R2832:2834 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R2827:2828 AlphaFold3 <> vz proj
+R2830:2831 AlphaFold3 <> v1:54 var
+R2835:2836 AlphaFold3 <> vz proj
+R2838:2839 AlphaFold3 <> v2:55 var
+def 2855:2862 <> vec3_sub
+R2873:2876 AlphaFold3 <> Vec3 rec
+binder 2865:2866 <> v1:56
+binder 2868:2869 <> v2:57
+R2881:2884 AlphaFold3 <> Vec3 rec
+R2891:2896 AlphaFold3 <> mkVec3 constr
+R2904:2906 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2899:2900 AlphaFold3 <> vx proj
+R2902:2903 AlphaFold3 <> v1:56 var
+R2907:2908 AlphaFold3 <> vx proj
+R2910:2911 AlphaFold3 <> v2:57 var
+R2920:2922 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2915:2916 AlphaFold3 <> vy proj
+R2918:2919 AlphaFold3 <> v1:56 var
+R2923:2924 AlphaFold3 <> vy proj
+R2926:2927 AlphaFold3 <> v2:57 var
+R2936:2938 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R2931:2932 AlphaFold3 <> vz proj
+R2934:2935 AlphaFold3 <> v1:56 var
+R2939:2940 AlphaFold3 <> vz proj
+R2942:2943 AlphaFold3 <> v2:57 var
+def 2959:2968 <> vec3_scale
+R2975:2975 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 2971:2971 <> s:58
+R2983:2986 AlphaFold3 <> Vec3 rec
+binder 2979:2979 <> v:59
+R2991:2994 AlphaFold3 <> Vec3 rec
+R3001:3006 AlphaFold3 <> mkVec3 constr
+R3010:3012 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3009:3009 AlphaFold3 <> s:58 var
+R3013:3014 AlphaFold3 <> vx proj
+R3016:3016 AlphaFold3 <> v:59 var
+R3021:3023 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3020:3020 AlphaFold3 <> s:58 var
+R3024:3025 AlphaFold3 <> vy proj
+R3027:3027 AlphaFold3 <> v:59 var
+R3032:3034 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3031:3031 AlphaFold3 <> s:58 var
+R3035:3036 AlphaFold3 <> vz proj
+R3038:3038 AlphaFold3 <> v:59 var
+def 3054:3061 <> vec3_dot
+R3072:3075 AlphaFold3 <> Vec3 rec
+binder 3064:3065 <> v1:60
+binder 3067:3068 <> v2:61
+R3080:3080 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3116:3118 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3100:3102 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R3092:3094 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3087:3088 AlphaFold3 <> vx proj
+R3090:3091 AlphaFold3 <> v1:60 var
+R3095:3096 AlphaFold3 <> vx proj
+R3098:3099 AlphaFold3 <> v2:61 var
+R3108:3110 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3103:3104 AlphaFold3 <> vy proj
+R3106:3107 AlphaFold3 <> v1:60 var
+R3111:3112 AlphaFold3 <> vy proj
+R3114:3115 AlphaFold3 <> v2:61 var
+R3124:3126 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3119:3120 AlphaFold3 <> vz proj
+R3122:3123 AlphaFold3 <> v1:60 var
+R3127:3128 AlphaFold3 <> vz proj
+R3130:3131 AlphaFold3 <> v2:61 var
+def 3146:3157 <> vec3_norm_sq
+R3164:3167 AlphaFold3 <> Vec3 rec
+binder 3160:3160 <> v:62
+R3172:3172 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3179:3186 AlphaFold3 <> vec3_dot def
+R3188:3188 AlphaFold3 <> v:62 var
+R3190:3190 AlphaFold3 <> v:62 var
+def 3205:3213 <> vec3_norm
+R3220:3223 AlphaFold3 <> Vec3 rec
+binder 3216:3216 <> v:63
+R3228:3228 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3235:3238 Coq.Reals.R_sqrt <> sqrt def
+R3241:3252 AlphaFold3 <> vec3_norm_sq def
+R3254:3254 AlphaFold3 <> v:63 var
+def 3270:3282 <> vec3_distance
+R3293:3296 AlphaFold3 <> Vec3 rec
+binder 3285:3286 <> v1:64
+binder 3288:3289 <> v2:65
+R3301:3301 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R3308:3316 AlphaFold3 <> vec3_norm def
+R3319:3326 AlphaFold3 <> vec3_sub def
+R3328:3329 AlphaFold3 <> v1:64 var
+R3331:3332 AlphaFold3 <> v2:65 var
+def 3348:3357 <> vec3_cross
+R3368:3371 AlphaFold3 <> Vec3 rec
+binder 3360:3361 <> v1:66
+binder 3363:3364 <> v2:67
+R3376:3379 AlphaFold3 <> Vec3 rec
+R3386:3391 AlphaFold3 <> mkVec3 constr
+R3407:3409 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3399:3401 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3394:3395 AlphaFold3 <> vy proj
+R3397:3398 AlphaFold3 <> v1:66 var
+R3402:3403 AlphaFold3 <> vz proj
+R3405:3406 AlphaFold3 <> v2:67 var
+R3415:3417 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3410:3411 AlphaFold3 <> vz proj
+R3413:3414 AlphaFold3 <> v1:66 var
+R3418:3419 AlphaFold3 <> vy proj
+R3421:3422 AlphaFold3 <> v2:67 var
+R3448:3450 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3440:3442 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3435:3436 AlphaFold3 <> vz proj
+R3438:3439 AlphaFold3 <> v1:66 var
+R3443:3444 AlphaFold3 <> vx proj
+R3446:3447 AlphaFold3 <> v2:67 var
+R3456:3458 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3451:3452 AlphaFold3 <> vx proj
+R3454:3455 AlphaFold3 <> v1:66 var
+R3459:3460 AlphaFold3 <> vz proj
+R3462:3463 AlphaFold3 <> v2:67 var
+R3489:3491 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R3481:3483 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3476:3477 AlphaFold3 <> vx proj
+R3479:3480 AlphaFold3 <> v1:66 var
+R3484:3485 AlphaFold3 <> vy proj
+R3487:3488 AlphaFold3 <> v2:67 var
+R3497:3499 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R3492:3493 AlphaFold3 <> vy proj
+R3495:3496 AlphaFold3 <> v1:66 var
+R3500:3501 AlphaFold3 <> vx proj
+R3503:3504 AlphaFold3 <> v2:67 var
+def 3520:3533 <> vec3_normalize
+R3540:3543 AlphaFold3 <> Vec3 rec
+binder 3536:3536 <> v:68
+R3548:3551 AlphaFold3 <> Vec3 rec
+R3567:3575 AlphaFold3 <> vec3_norm def
+R3577:3577 AlphaFold3 <> v:68 var
+binder 3562:3562 <> n:69
+R3587:3594 Coq.Reals.RIneq <> Req_EM_T abbrev
+R3596:3596 AlphaFold3 <> n:69 var
+R3625:3634 AlphaFold3 <> vec3_scale def
+R3637:3638 Coq.Reals.Rdefinitions <> ::R_scope:'/'_x not
+R3639:3639 AlphaFold3 <> n:69 var
+R3642:3642 AlphaFold3 <> v:68 var
+R3605:3610 AlphaFold3 <> mkVec3 constr
+prf 3652:3664 <> vec3_add_comm
+binder 3675:3676 <> v1:70
+binder 3678:3679 <> v2:71
+R3696:3698 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3682:3689 AlphaFold3 <> vec3_add def
+R3691:3692 AlphaFold3 <> v1:70 var
+R3694:3695 AlphaFold3 <> v2:71 var
+R3699:3706 AlphaFold3 <> vec3_add def
+R3708:3709 AlphaFold3 <> v2:71 var
+R3711:3712 AlphaFold3 <> v1:70 var
+R3739:3746 AlphaFold3 <> vec3_add def
+prf 3801:3814 <> vec3_add_assoc
+binder 3825:3826 <> v1:72
+binder 3828:3829 <> v2:73
+binder 3831:3832 <> v3:74
+R3865:3867 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3837:3844 AlphaFold3 <> vec3_add def
+R3847:3854 AlphaFold3 <> vec3_add def
+R3856:3857 AlphaFold3 <> v1:72 var
+R3859:3860 AlphaFold3 <> v2:73 var
+R3863:3864 AlphaFold3 <> v3:74 var
+R3868:3875 AlphaFold3 <> vec3_add def
+R3877:3878 AlphaFold3 <> v1:72 var
+R3881:3888 AlphaFold3 <> vec3_add def
+R3890:3891 AlphaFold3 <> v2:73 var
+R3893:3894 AlphaFold3 <> v3:74 var
+R3922:3929 AlphaFold3 <> vec3_add def
+prf 3988:4000 <> vec3_dot_comm
+binder 4011:4012 <> v1:75
+binder 4014:4015 <> v2:76
+R4032:4034 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4018:4025 AlphaFold3 <> vec3_dot def
+R4027:4028 AlphaFold3 <> v1:75 var
+R4030:4031 AlphaFold3 <> v2:76 var
+R4035:4042 AlphaFold3 <> vec3_dot def
+R4044:4045 AlphaFold3 <> v2:76 var
+R4047:4048 AlphaFold3 <> v1:75 var
+R4075:4082 AlphaFold3 <> vec3_dot def
+prf 4126:4141 <> vec3_norm_nonneg
+binder 4152:4152 <> v:77
+R4156:4159 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R4160:4168 AlphaFold3 <> vec3_norm def
+R4170:4170 AlphaFold3 <> v:77 var
+R4197:4205 AlphaFold3 <> vec3_norm def
+R4214:4228 Coq.Reals.R_sqrt <> sqrt_positivity thm
+R4214:4228 Coq.Reals.R_sqrt <> sqrt_positivity thm
+R4240:4251 AlphaFold3 <> vec3_norm_sq def
+R4254:4261 AlphaFold3 <> vec3_dot def
+R4291:4310 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R4291:4310 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R4321:4340 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R4349:4357 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4321:4340 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R4349:4357 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4349:4357 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4368:4376 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4368:4376 Coq.Reals.RIneq <> Rle_0_sqr thm
+prf 4391:4408 <> three_squares_zero
+binder 4419:4419 <> x:78
+binder 4421:4421 <> y:79
+binder 4423:4423 <> z:80
+R4453:4456 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4449:4451 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4441:4443 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R4433:4435 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R4429:4431 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4428:4428 AlphaFold3 <> x:78 var
+R4432:4432 AlphaFold3 <> x:78 var
+R4437:4439 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4436:4436 AlphaFold3 <> y:79 var
+R4440:4440 AlphaFold3 <> y:79 var
+R4445:4447 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4444:4444 AlphaFold3 <> z:80 var
+R4448:4448 AlphaFold3 <> z:80 var
+R4462:4465 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4458:4460 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4457:4457 AlphaFold3 <> x:78 var
+R4471:4474 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4467:4469 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4466:4466 AlphaFold3 <> y:79 var
+R4476:4478 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4475:4475 AlphaFold3 <> z:80 var
+R4531:4534 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4527:4529 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4519:4521 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R4515:4517 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4523:4525 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4540:4542 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4536:4538 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4531:4534 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4527:4529 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4519:4521 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R4515:4517 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4523:4525 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4540:4542 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4536:4538 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4557:4567 Coq.Reals.RIneq <> Rplus_eq_R0 abbrev
+R4557:4567 Coq.Reals.RIneq <> Rplus_eq_R0 abbrev
+R4582:4601 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R4610:4618 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4582:4601 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R4610:4618 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4610:4618 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4633:4641 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4633:4641 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4718:4721 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4714:4716 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4710:4712 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4727:4729 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4723:4725 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4718:4721 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R4714:4716 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4710:4712 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4727:4729 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4723:4725 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R4744:4754 Coq.Reals.RIneq <> Rplus_eq_R0 abbrev
+R4744:4754 Coq.Reals.RIneq <> Rplus_eq_R0 abbrev
+R4769:4777 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4769:4777 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4792:4800 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4792:4800 Coq.Reals.RIneq <> Rle_0_sqr thm
+R4874:4882 Coq.Reals.R_sqr <> Rsqr_eq_0 thm
+R4892:4895 Coq.Reals.RIneq <> Rsqr def
+R4874:4882 Coq.Reals.R_sqr <> Rsqr_eq_0 thm
+R4874:4882 Coq.Reals.R_sqr <> Rsqr_eq_0 thm
+R4874:4882 Coq.Reals.R_sqr <> Rsqr_eq_0 thm
+prf 4922:4935 <> vec3_norm_zero
+binder 4946:4946 <> v:81
+R4964:4968 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R4960:4962 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4949:4957 AlphaFold3 <> vec3_norm def
+R4959:4959 AlphaFold3 <> v:81 var
+R4970:4972 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R4969:4969 AlphaFold3 <> v:81 var
+R4973:4978 AlphaFold3 <> mkVec3 constr
+R5030:5038 AlphaFold3 <> vec3_norm def
+R5052:5060 Coq.Reals.R_sqrt <> sqrt_eq_0 thm
+R5052:5060 Coq.Reals.R_sqrt <> sqrt_eq_0 thm
+R5079:5090 AlphaFold3 <> vec3_norm_sq def
+R5093:5100 AlphaFold3 <> vec3_dot def
+R5142:5159 AlphaFold3 <> three_squares_zero thm
+R5142:5159 AlphaFold3 <> three_squares_zero thm
+R5243:5254 AlphaFold3 <> vec3_norm_sq def
+R5257:5264 AlphaFold3 <> vec3_dot def
+R5296:5315 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R5296:5315 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R5328:5347 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R5356:5364 Coq.Reals.RIneq <> Rle_0_sqr thm
+R5328:5347 Coq.Reals.RIneq <> Rplus_le_le_0_compat thm
+R5356:5364 Coq.Reals.RIneq <> Rle_0_sqr thm
+R5356:5364 Coq.Reals.RIneq <> Rle_0_sqr thm
+R5377:5385 Coq.Reals.RIneq <> Rle_0_sqr thm
+R5377:5385 Coq.Reals.RIneq <> Rle_0_sqr thm
+R5410:5418 AlphaFold3 <> vec3_norm def
+R5421:5432 AlphaFold3 <> vec3_norm_sq def
+R5435:5442 AlphaFold3 <> vec3_dot def
+R5478:5480 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R5470:5472 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R5466:5468 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5474:5476 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5482:5484 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5478:5480 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R5470:5472 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R5466:5468 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5474:5476 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5482:5484 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R5509:5514 Coq.Reals.R_sqrt <> sqrt_0 thm
+R5509:5514 Coq.Reals.R_sqrt <> sqrt_0 thm
+prf 5529:5551 <> vec3_distance_symmetric
+binder 5562:5563 <> v1:82
+binder 5565:5566 <> v2:83
+R5590:5592 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5571:5583 AlphaFold3 <> vec3_distance def
+R5585:5586 AlphaFold3 <> v1:82 var
+R5588:5589 AlphaFold3 <> v2:83 var
+R5593:5605 AlphaFold3 <> vec3_distance def
+R5607:5608 AlphaFold3 <> v2:83 var
+R5610:5611 AlphaFold3 <> v1:82 var
+R5638:5650 AlphaFold3 <> vec3_distance def
+R5653:5660 AlphaFold3 <> vec3_sub def
+R5689:5697 AlphaFold3 <> vec3_norm def
+R5700:5711 AlphaFold3 <> vec3_norm_sq def
+R5714:5721 AlphaFold3 <> vec3_dot def
+prf 5759:5778 <> vec3_distance_nonneg
+binder 5789:5790 <> v1:84
+binder 5792:5793 <> v2:85
+R5797:5800 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R5801:5813 AlphaFold3 <> vec3_distance def
+R5815:5816 AlphaFold3 <> v1:84 var
+R5818:5819 AlphaFold3 <> v2:85 var
+R5846:5858 AlphaFold3 <> vec3_distance def
+R5867:5882 AlphaFold3 <> vec3_norm_nonneg thm
+R5867:5882 AlphaFold3 <> vec3_norm_nonneg thm
+prf 5897:5914 <> vec3_distance_zero
+binder 5925:5926 <> v1:86
+binder 5928:5929 <> v2:87
+R5957:5961 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R5953:5955 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5934:5946 AlphaFold3 <> vec3_distance def
+R5948:5949 AlphaFold3 <> v1:86 var
+R5951:5952 AlphaFold3 <> v2:87 var
+R5964:5966 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R5962:5963 AlphaFold3 <> v1:86 var
+R5967:5968 AlphaFold3 <> v2:87 var
+R6014:6026 AlphaFold3 <> vec3_distance def
+R6040:6053 AlphaFold3 <> vec3_norm_zero thm
+R6040:6053 AlphaFold3 <> vec3_norm_zero thm
+R6072:6079 AlphaFold3 <> vec3_sub def
+R6165:6167 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6165:6167 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6196:6198 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6196:6198 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6227:6229 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6227:6229 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6289:6301 AlphaFold3 <> vec3_distance def
+R6304:6311 AlphaFold3 <> vec3_sub def
+R6338:6346 AlphaFold3 <> vec3_norm def
+R6349:6360 AlphaFold3 <> vec3_norm_sq def
+R6363:6370 AlphaFold3 <> vec3_dot def
+R6396:6398 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6396:6398 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6435:6437 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6435:6437 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6474:6476 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6474:6476 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R6523:6525 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6515:6517 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6511:6513 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6519:6521 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6527:6529 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6523:6525 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6515:6517 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6511:6513 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6519:6521 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6527:6529 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6558:6563 Coq.Reals.R_sqrt <> sqrt_0 thm
+R6558:6563 Coq.Reals.R_sqrt <> sqrt_0 thm
+def 6583:6601 <> rotation_matrix_3x3
+R6606:6609 Coq.Init.Datatypes <> list ind
+R6612:6615 Coq.Init.Datatypes <> list ind
+R6617:6617 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 6633:6646 <> apply_rotation
+R6653:6671 AlphaFold3 <> rotation_matrix_3x3 def
+binder 6649:6649 <> R:88
+R6679:6682 AlphaFold3 <> Vec3 rec
+binder 6675:6675 <> v:89
+R6687:6690 AlphaFold3 <> Vec3 rec
+R6703:6703 AlphaFold3 <> R:88 var
+R6714:6714 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6730:6731 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6747:6748 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6764:6764 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6715:6715 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6719:6720 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6724:6725 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6729:6729 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6749:6749 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6753:6754 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6758:6759 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6763:6763 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6732:6732 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6736:6737 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6741:6742 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6746:6746 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6773:6778 AlphaFold3 <> mkVec3 constr
+R6804:6806 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6791:6793 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6784:6786 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6787:6788 AlphaFold3 <> vx proj
+R6790:6790 AlphaFold3 <> v:89 var
+R6797:6799 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6800:6801 AlphaFold3 <> vy proj
+R6803:6803 AlphaFold3 <> v:89 var
+R6810:6812 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6813:6814 AlphaFold3 <> vz proj
+R6816:6816 AlphaFold3 <> v:89 var
+R6854:6856 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6841:6843 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6834:6836 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6837:6838 AlphaFold3 <> vx proj
+R6840:6840 AlphaFold3 <> v:89 var
+R6847:6849 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6850:6851 AlphaFold3 <> vy proj
+R6853:6853 AlphaFold3 <> v:89 var
+R6860:6862 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6863:6864 AlphaFold3 <> vz proj
+R6866:6866 AlphaFold3 <> v:89 var
+R6904:6906 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6891:6893 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R6884:6886 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6887:6888 AlphaFold3 <> vx proj
+R6890:6890 AlphaFold3 <> v:89 var
+R6897:6899 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6900:6901 AlphaFold3 <> vy proj
+R6903:6903 AlphaFold3 <> v:89 var
+R6910:6912 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R6913:6914 AlphaFold3 <> vz proj
+R6916:6916 AlphaFold3 <> v:89 var
+R6928:6928 AlphaFold3 <> v:89 var
+def 6949:6965 <> identity_rotation
+R6969:6987 AlphaFold3 <> rotation_matrix_3x3 def
+R6994:6994 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7004:7005 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7015:7016 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7026:7026 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6995:6995 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R6997:6998 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7000:7001 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7003:7003 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7006:7006 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7008:7009 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7011:7012 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7014:7014 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7017:7017 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7019:7020 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7022:7023 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R7025:7025 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+def 7039:7049 <> rmsd_helper
+R7070:7073 Coq.Init.Datatypes <> list ind
+R7075:7078 AlphaFold3 <> Vec3 rec
+binder 7052:7058 <> coords1:91
+binder 7060:7066 <> coords2:92
+R7088:7088 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 7082:7084 <> acc:93
+R7093:7093 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R7115:7121 AlphaFold3 <> coords2:92 var
+R7106:7112 AlphaFold3 <> coords1:91 var
+R7132:7133 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R7136:7137 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R7142:7144 AlphaFold3 <> acc:93 var
+R7152:7153 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7161:7162 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R7183:7195 AlphaFold3 <> vec3_distance def
+binder 7178:7178 <> d:97
+R7210:7220 AlphaFold3 <> rmsd_helper:94 def
+R7234:7236 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R7231:7233 AlphaFold3 <> acc:93 var
+R7238:7240 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R7237:7237 AlphaFold3 <> d:97 var
+R7241:7241 AlphaFold3 <> d:97 var
+R7256:7258 AlphaFold3 <> acc:93 var
+def 7279:7290 <> compute_rmsd
+R7311:7314 Coq.Init.Datatypes <> list ind
+R7316:7319 AlphaFold3 <> Vec3 rec
+binder 7293:7299 <> coords1:98
+binder 7301:7307 <> coords2:99
+R7324:7324 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R7340:7342 Coq.Reals.Raxioms <> INR def
+R7345:7355 Coq.Lists.List <> length abbrev
+R7357:7363 AlphaFold3 <> coords1:98 var
+binder 7335:7335 <> n:100
+R7374:7381 Coq.Reals.RIneq <> Req_EM_T abbrev
+R7383:7383 AlphaFold3 <> n:100 var
+R7401:7404 Coq.Reals.R_sqrt <> sqrt def
+R7436:7438 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R7407:7417 AlphaFold3 <> rmsd_helper def
+R7419:7425 AlphaFold3 <> coords1:98 var
+R7427:7433 AlphaFold3 <> coords2:99 var
+R7439:7439 AlphaFold3 <> n:100 var
+prf 7450:7460 <> rmsd_nonneg
+binder 7471:7477 <> coords1:101
+binder 7479:7485 <> coords2:102
+R7491:7494 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R7495:7506 AlphaFold3 <> compute_rmsd def
+R7508:7514 AlphaFold3 <> coords1:101 var
+R7516:7522 AlphaFold3 <> coords2:102 var
+R7549:7560 AlphaFold3 <> compute_rmsd def
+R7575:7582 Coq.Reals.RIneq <> Req_EM_T abbrev
+R7585:7587 Coq.Reals.Raxioms <> INR def
+R7591:7601 Coq.Lists.List <> length abbrev
+R7603:7606 AlphaFold3 <> Vec3 rec
+R7575:7582 Coq.Reals.RIneq <> Req_EM_T abbrev
+R7585:7587 Coq.Reals.Raxioms <> INR def
+R7591:7601 Coq.Lists.List <> length abbrev
+R7603:7606 AlphaFold3 <> Vec3 rec
+R7641:7648 Coq.Reals.R_sqrt <> sqrt_pos thm
+R7641:7648 Coq.Reals.R_sqrt <> sqrt_pos thm
+prf 7663:7683 <> rmsd_helper_symmetric
+binder 7694:7700 <> coords1:103
+binder 7702:7708 <> coords2:104
+binder 7710:7712 <> acc:105
+R7758:7763 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7736:7738 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7717:7727 Coq.Lists.List <> length abbrev
+R7729:7735 AlphaFold3 <> coords1:103 var
+R7739:7749 Coq.Lists.List <> length abbrev
+R7751:7757 AlphaFold3 <> coords2:104 var
+R7795:7797 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7764:7774 AlphaFold3 <> rmsd_helper def
+R7776:7782 AlphaFold3 <> coords1:103 var
+R7784:7790 AlphaFold3 <> coords2:104 var
+R7792:7794 AlphaFold3 <> acc:105 var
+R7798:7808 AlphaFold3 <> rmsd_helper def
+R7810:7816 AlphaFold3 <> coords2:104 var
+R7818:7824 AlphaFold3 <> coords1:103 var
+R7826:7828 AlphaFold3 <> acc:105 var
+R7951:7973 AlphaFold3 <> vec3_distance_symmetric thm
+R7951:7973 AlphaFold3 <> vec3_distance_symmetric thm
+R7951:7973 AlphaFold3 <> vec3_distance_symmetric thm
+prf 8026:8039 <> rmsd_symmetric
+binder 8050:8056 <> coords1:106
+binder 8058:8064 <> coords2:107
+R8110:8115 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8088:8090 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8069:8079 Coq.Lists.List <> length abbrev
+R8081:8087 AlphaFold3 <> coords1:106 var
+R8091:8101 Coq.Lists.List <> length abbrev
+R8103:8109 AlphaFold3 <> coords2:107 var
+R8144:8146 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8116:8127 AlphaFold3 <> compute_rmsd def
+R8129:8135 AlphaFold3 <> coords1:106 var
+R8137:8143 AlphaFold3 <> coords2:107 var
+R8147:8158 AlphaFold3 <> compute_rmsd def
+R8160:8166 AlphaFold3 <> coords2:107 var
+R8168:8174 AlphaFold3 <> coords1:106 var
+R8201:8212 AlphaFold3 <> compute_rmsd def
+R8238:8245 Coq.Reals.RIneq <> Req_EM_T abbrev
+R8248:8250 Coq.Reals.Raxioms <> INR def
+R8253:8263 Coq.Lists.List <> length abbrev
+R8238:8245 Coq.Reals.RIneq <> Req_EM_T abbrev
+R8248:8250 Coq.Reals.Raxioms <> INR def
+R8253:8263 Coq.Lists.List <> length abbrev
+R8322:8342 AlphaFold3 <> rmsd_helper_symmetric thm
+R8322:8342 AlphaFold3 <> rmsd_helper_symmetric thm
+def 8374:8396 <> lennard_jones_potential
+R8417:8417 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 8399:8399 <> r:108
+binder 8401:8405 <> sigma:109
+binder 8407:8413 <> epsilon:110
+R8422:8422 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R8432:8438 Coq.Reals.RIneq <> Rle_dec thm
+R8440:8440 AlphaFold3 <> r:108 var
+R8469:8472 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8517:8517 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8459:8461 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8462:8468 AlphaFold3 <> epsilon:110 var
+R8494:8496 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R8473:8478 Coq.Reals.Rpower <> Rpower def
+R8486:8488 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8481:8485 AlphaFold3 <> sigma:109 var
+R8489:8489 AlphaFold3 <> r:108 var
+R8497:8502 Coq.Reals.Rpower <> Rpower def
+R8510:8512 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8505:8509 AlphaFold3 <> sigma:109 var
+R8513:8513 AlphaFold3 <> r:108 var
+def 8532:8550 <> lennard_jones_force
+R8571:8571 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 8553:8553 <> r:111
+binder 8555:8559 <> sigma:112
+binder 8561:8567 <> epsilon:113
+R8576:8576 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R8586:8592 Coq.Reals.RIneq <> Rle_dec thm
+R8594:8594 AlphaFold3 <> r:111 var
+R8624:8627 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8692:8692 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8614:8616 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8617:8623 AlphaFold3 <> epsilon:113 var
+R8661:8663 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R8653:8655 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8629:8631 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R8632:8637 Coq.Reals.Rpower <> Rpower def
+R8645:8647 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8640:8644 AlphaFold3 <> sigma:112 var
+R8648:8648 AlphaFold3 <> r:111 var
+R8656:8660 AlphaFold3 <> sigma:112 var
+R8684:8686 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8664:8669 Coq.Reals.Rpower <> Rpower def
+R8677:8679 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R8672:8676 AlphaFold3 <> sigma:112 var
+R8680:8680 AlphaFold3 <> r:111 var
+R8687:8691 AlphaFold3 <> sigma:112 var
+rec 8703:8716 <> DiffusionState
+proj 8749:8759 <> diff_coords
+proj 8776:8784 <> diff_time
+proj 8793:8808 <> diff_noise_level
+R8763:8766 Coq.Init.Datatypes <> list ind
+R8768:8771 AlphaFold3 <> Vec3 rec
+R8788:8788 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R8812:8812 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 8829:8846 <> add_gaussian_noise
+R8858:8861 Coq.Init.Datatypes <> list ind
+R8863:8866 AlphaFold3 <> Vec3 rec
+binder 8849:8854 <> coords:118
+R8878:8878 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 8870:8874 <> sigma:119
+R8883:8886 Coq.Init.Datatypes <> list ind
+R8888:8891 AlphaFold3 <> Vec3 rec
+R8898:8900 Coq.Lists.List <> map def
+R8965:8970 AlphaFold3 <> coords:118 var
+binder 8907:8907 <> v:120
+R8912:8917 AlphaFold3 <> mkVec3 constr
+R8924:8926 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R8920:8921 AlphaFold3 <> vx proj
+R8923:8923 AlphaFold3 <> v:120 var
+R8927:8931 AlphaFold3 <> sigma:119 var
+R8939:8941 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R8935:8936 AlphaFold3 <> vy proj
+R8938:8938 AlphaFold3 <> v:120 var
+R8942:8946 AlphaFold3 <> sigma:119 var
+R8954:8956 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R8950:8951 AlphaFold3 <> vz proj
+R8953:8953 AlphaFold3 <> v:120 var
+R8957:8961 AlphaFold3 <> sigma:119 var
+def 8985:9001 <> diffusion_forward
+R9012:9025 AlphaFold3 <> DiffusionState rec
+binder 9004:9008 <> state:121
+R9034:9034 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 9029:9030 <> dt:122
+R9039:9052 AlphaFold3 <> DiffusionState rec
+R9098:9100 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R9076:9091 AlphaFold3 <> diff_noise_level proj
+R9093:9097 AlphaFold3 <> state:121 var
+R9101:9102 AlphaFold3 <> dt:122 var
+binder 9063:9071 <> new_noise:123
+R9109:9124 AlphaFold3 <> mkDiffusionState constr
+R9131:9148 AlphaFold3 <> add_gaussian_noise def
+R9151:9161 AlphaFold3 <> diff_coords proj
+R9163:9167 AlphaFold3 <> state:121 var
+R9171:9174 Coq.Reals.R_sqrt <> sqrt def
+R9176:9177 AlphaFold3 <> dt:122 var
+R9201:9203 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R9186:9194 AlphaFold3 <> diff_time proj
+R9196:9200 AlphaFold3 <> state:121 var
+R9204:9205 AlphaFold3 <> dt:122 var
+R9212:9220 AlphaFold3 <> new_noise:123 var
+def 9233:9247 <> diffusion_steps
+R9258:9271 AlphaFold3 <> DiffusionState rec
+binder 9250:9254 <> state:124
+R9280:9280 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 9275:9276 <> dt:125
+R9288:9290 Coq.Init.Datatypes <> nat ind
+binder 9284:9284 <> n:126
+R9295:9308 AlphaFold3 <> DiffusionState rec
+R9321:9321 AlphaFold3 <> n:126 var
+R9332:9332 Coq.Init.Datatypes <> O constr
+R9337:9341 AlphaFold3 <> state:124 var
+R9347:9347 Coq.Init.Datatypes <> S constr
+R9355:9371 AlphaFold3 <> diffusion_forward def
+R9374:9388 AlphaFold3 <> diffusion_steps:127 def
+R9396:9397 AlphaFold3 <> dt:125 var
+R9390:9394 AlphaFold3 <> state:124 var
+R9403:9404 AlphaFold3 <> dt:125 var
+prf 9420:9443 <> diffusion_time_increases
+binder 9454:9458 <> state:129
+binder 9460:9461 <> dt:130
+R9468:9470 Coq.Init.Datatypes <> nat ind
+binder 9464:9464 <> n:131
+R9482:9485 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9478:9480 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R9476:9477 AlphaFold3 <> dt:130 var
+R9497:9502 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9488:9490 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R9487:9487 AlphaFold3 <> n:131 var
+R9491:9491 Coq.Init.Datatypes <> O constr
+R9541:9543 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R9503:9511 AlphaFold3 <> diff_time proj
+R9514:9528 AlphaFold3 <> diffusion_steps def
+R9530:9534 AlphaFold3 <> state:129 var
+R9536:9537 AlphaFold3 <> dt:130 var
+R9539:9539 AlphaFold3 <> n:131 var
+R9544:9552 AlphaFold3 <> diff_time proj
+R9554:9558 AlphaFold3 <> state:129 var
+R9618:9634 AlphaFold3 <> diffusion_forward def
+R9695:9697 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R9692:9692 Coq.Init.Datatypes <> S constr
+R9698:9698 Coq.Init.Datatypes <> O constr
+R9695:9697 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R9692:9692 Coq.Init.Datatypes <> S constr
+R9698:9698 Coq.Init.Datatypes <> O constr
+prf 9757:9781 <> diffusion_noise_increases
+binder 9792:9796 <> state:132
+binder 9798:9799 <> dt:133
+R9806:9808 Coq.Init.Datatypes <> nat ind
+binder 9802:9802 <> n:134
+R9820:9823 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9816:9818 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R9814:9815 AlphaFold3 <> dt:133 var
+R9835:9840 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R9826:9828 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R9825:9825 AlphaFold3 <> n:134 var
+R9829:9829 Coq.Init.Datatypes <> O constr
+R9886:9888 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R9841:9856 AlphaFold3 <> diff_noise_level proj
+R9859:9873 AlphaFold3 <> diffusion_steps def
+R9875:9879 AlphaFold3 <> state:132 var
+R9881:9882 AlphaFold3 <> dt:133 var
+R9884:9884 AlphaFold3 <> n:134 var
+R9889:9904 AlphaFold3 <> diff_noise_level proj
+R9906:9910 AlphaFold3 <> state:132 var
+R9970:9986 AlphaFold3 <> diffusion_forward def
+R10047:10049 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R10044:10044 Coq.Init.Datatypes <> S constr
+R10050:10050 Coq.Init.Datatypes <> O constr
+R10047:10049 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R10044:10044 Coq.Init.Datatypes <> S constr
+R10050:10050 Coq.Init.Datatypes <> O constr
+rec 10110:10126 <> NeuralLayerParams
+proj 10162:10168 <> weights
+proj 10189:10194 <> biases
+proj 10208:10222 <> activation_type
+R10172:10175 Coq.Init.Datatypes <> list ind
+R10178:10181 Coq.Init.Datatypes <> list ind
+R10183:10183 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10198:10201 Coq.Init.Datatypes <> list ind
+R10203:10203 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10226:10228 Coq.Init.Datatypes <> nat ind
+def 10245:10248 <> relu
+R10255:10255 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10251:10251 <> x:139
+R10260:10260 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10265:10268 Coq.Reals.Rbasic_fun <> Rmax def
+R10270:10270 AlphaFold3 <> x:139 var
+def 10287:10293 <> sigmoid
+R10300:10300 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10296:10296 <> x:140
+R10305:10305 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10311:10314 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R10327:10327 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R10316:10318 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R10319:10321 Coq.Reals.Rtrigo_def <> exp def
+R10324:10324 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R10325:10325 AlphaFold3 <> x:140 var
+def 10342:10345 <> gelu
+R10352:10352 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10348:10348 <> x:141
+R10357:10357 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10363:10365 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R10362:10362 AlphaFold3 <> x:141 var
+R10366:10372 AlphaFold3 <> sigmoid def
+R10380:10382 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R10383:10383 AlphaFold3 <> x:141 var
+def 10399:10414 <> apply_activation
+R10428:10430 Coq.Init.Datatypes <> nat ind
+binder 10417:10424 <> act_type:142
+R10438:10438 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10434:10434 <> x:143
+R10443:10443 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10456:10463 AlphaFold3 <> act_type:142 var
+R10474:10474 Coq.Init.Datatypes <> O constr
+R10479:10479 AlphaFold3 <> x:143 var
+R10485:10485 Coq.Init.Datatypes <> S constr
+R10487:10487 Coq.Init.Datatypes <> O constr
+R10492:10495 AlphaFold3 <> relu def
+R10497:10497 AlphaFold3 <> x:143 var
+R10503:10503 Coq.Init.Datatypes <> S constr
+R10506:10506 Coq.Init.Datatypes <> S constr
+R10508:10508 Coq.Init.Datatypes <> O constr
+R10514:10520 AlphaFold3 <> sigmoid def
+R10522:10522 AlphaFold3 <> x:143 var
+R10528:10528 Coq.Init.Datatypes <> S constr
+R10531:10531 Coq.Init.Datatypes <> S constr
+R10534:10534 Coq.Init.Datatypes <> S constr
+R10536:10536 Coq.Init.Datatypes <> O constr
+R10543:10546 AlphaFold3 <> gelu def
+R10548:10548 AlphaFold3 <> x:143 var
+R10559:10559 AlphaFold3 <> x:143 var
+def 10578:10588 <> dot_product
+R10599:10602 Coq.Init.Datatypes <> list ind
+R10604:10604 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10591:10592 <> v1:145
+binder 10594:10595 <> v2:146
+R10609:10609 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10626:10627 AlphaFold3 <> v2:146 var
+R10622:10623 AlphaFold3 <> v1:145 var
+R10638:10639 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10642:10643 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10656:10657 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10665:10666 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10681:10683 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R10676:10678 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R10684:10694 AlphaFold3 <> dot_product:147 def
+def 10735:10752 <> matrix_vector_mult
+R10759:10762 Coq.Init.Datatypes <> list ind
+R10765:10768 Coq.Init.Datatypes <> list ind
+R10770:10770 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10755:10755 <> m:150
+R10779:10782 Coq.Init.Datatypes <> list ind
+R10784:10784 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10775:10775 <> v:151
+R10789:10792 Coq.Init.Datatypes <> list ind
+R10794:10794 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R10807:10807 AlphaFold3 <> m:150 var
+R10818:10819 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10824:10825 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R10834:10835 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10861:10864 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R10844:10854 AlphaFold3 <> dot_product def
+R10860:10860 AlphaFold3 <> v:151 var
+R10865:10882 AlphaFold3 <> matrix_vector_mult:152 def
+R10889:10889 AlphaFold3 <> v:151 var
+def 10910:10920 <> apply_layer
+R10932:10948 AlphaFold3 <> NeuralLayerParams rec
+binder 10923:10928 <> params:154
+R10960:10963 Coq.Init.Datatypes <> list ind
+R10965:10965 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 10952:10956 <> input:155
+R10970:10973 Coq.Init.Datatypes <> list ind
+R10975:10975 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R11000:11017 AlphaFold3 <> matrix_vector_mult def
+R11020:11026 AlphaFold3 <> weights proj
+R11028:11033 AlphaFold3 <> params:154 var
+R11036:11040 AlphaFold3 <> input:155 var
+binder 10986:10995 <> linear_out:156
+R11064:11067 AlphaFold3 <> map2 def
+R11087:11092 AlphaFold3 <> biases proj
+R11094:11099 AlphaFold3 <> params:154 var
+R11075:11084 AlphaFold3 <> linear_out:156 var
+R11069:11073 Coq.Reals.Rdefinitions RbaseSymbolsImpl Rplus defax
+binder 11051:11059 <> with_bias:157
+R11107:11109 Coq.Lists.List <> map def
+R11155:11163 AlphaFold3 <> with_bias:157 var
+R11112:11127 AlphaFold3 <> apply_activation def
+R11130:11144 AlphaFold3 <> activation_type proj
+R11146:11151 AlphaFold3 <> params:154 var
+prf 11173:11183 <> relu_nonneg
+binder 11194:11194 <> x:158
+R11198:11201 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R11202:11205 AlphaFold3 <> relu def
+R11207:11207 AlphaFold3 <> x:158 var
+R11234:11237 AlphaFold3 <> relu def
+R11247:11250 Coq.Reals.Rbasic_fun <> Rmax def
+R11265:11271 Coq.Reals.RIneq <> Rle_dec thm
+R11265:11271 Coq.Reals.RIneq <> Rle_dec thm
+R11289:11296 Coq.Reals.RIneq <> Rle_refl thm
+R11289:11296 Coq.Reals.RIneq <> Rle_refl thm
+R11309:11318 Coq.Reals.RIneq <> Rnot_le_gt thm
+R11309:11318 Coq.Reals.RIneq <> Rnot_le_gt thm
+prf 11343:11356 <> relu_preserves
+binder 11367:11367 <> x:159
+R11376:11379 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R11371:11374 Coq.Reals.Rdefinitions <> ::R_scope:x_'>='_x not
+R11370:11370 AlphaFold3 <> x:159 var
+R11386:11388 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R11380:11383 AlphaFold3 <> relu def
+R11385:11385 AlphaFold3 <> x:159 var
+R11389:11389 AlphaFold3 <> x:159 var
+R11416:11419 AlphaFold3 <> relu def
+R11422:11425 Coq.Reals.Rbasic_fun <> Rmax def
+R11440:11446 Coq.Reals.RIneq <> Rle_dec thm
+R11440:11446 Coq.Reals.RIneq <> Rle_dec thm
+prf 11492:11504 <> sigmoid_range
+binder 11515:11515 <> x:160
+R11519:11521 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R11531:11533 Coq.Reals.Rdefinitions <> ::R_scope:x_'<'_x_'<'_x not
+R11522:11528 AlphaFold3 <> sigmoid def
+R11530:11530 AlphaFold3 <> x:160 var
+R11522:11528 AlphaFold3 <> sigmoid def
+R11530:11530 AlphaFold3 <> x:160 var
+R11561:11567 AlphaFold3 <> sigmoid def
+R11587:11603 Coq.Reals.RIneq <> Rmult_lt_0_compat thm
+R11587:11603 Coq.Reals.RIneq <> Rmult_lt_0_compat thm
+R11629:11644 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R11629:11644 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R11653:11669 Coq.Reals.RIneq <> Rplus_lt_0_compat thm
+R11653:11669 Coq.Reals.RIneq <> Rplus_lt_0_compat thm
+R11689:11695 Coq.Reals.Exp_prop <> exp_pos thm
+R11689:11695 Coq.Reals.Exp_prop <> exp_pos thm
+R11730:11732 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R11733:11735 Coq.Reals.Rtrigo_def <> exp def
+R11738:11738 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11708:11721 Coq.Reals.RIneq <> Rmult_lt_reg_r thm
+R11730:11732 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R11733:11735 Coq.Reals.Rtrigo_def <> exp def
+R11738:11738 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11708:11721 Coq.Reals.RIneq <> Rmult_lt_reg_r thm
+R11754:11770 Coq.Reals.RIneq <> Rplus_lt_0_compat thm
+R11754:11770 Coq.Reals.RIneq <> Rplus_lt_0_compat thm
+R11784:11790 Coq.Reals.Exp_prop <> exp_pos thm
+R11784:11790 Coq.Reals.Exp_prop <> exp_pos thm
+R11836:11838 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R11828:11830 Coq.Reals.Rtrigo_def <> exp def
+R11833:11833 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11836:11838 Coq.Reals.Rdefinitions <> ::R_scope:x_'>'_x not
+R11828:11830 Coq.Reals.Rtrigo_def <> exp def
+R11833:11833 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11851:11857 Coq.Reals.Exp_prop <> exp_pos thm
+R11851:11857 Coq.Reals.Exp_prop <> exp_pos thm
+R11876:11879 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11893:11893 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11881:11883 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R11884:11886 Coq.Reals.Rtrigo_def <> exp def
+R11889:11890 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11903:11905 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R11906:11908 Coq.Reals.Rtrigo_def <> exp def
+R11911:11911 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11876:11879 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11893:11893 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R11881:11883 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R11884:11886 Coq.Reals.Rtrigo_def <> exp def
+R11889:11890 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11903:11905 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R11906:11908 Coq.Reals.Rtrigo_def <> exp def
+R11911:11911 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R11943:11952 Coq.Reals.RIneq <> Rgt_not_eq thm
+R11943:11952 Coq.Reals.RIneq <> Rgt_not_eq thm
+R11961:11977 Coq.Reals.RIneq <> Rplus_lt_0_compat thm
+R11961:11977 Coq.Reals.RIneq <> Rplus_lt_0_compat thm
+R11991:11997 Coq.Reals.Exp_prop <> exp_pos thm
+R11991:11997 Coq.Reals.Exp_prop <> exp_pos thm
+rec 12013:12027 <> AttentionParams
+proj 12061:12068 <> attn_dim
+proj 12079:12092 <> attn_num_heads
+proj 12103:12118 <> attn_qkv_weights
+proj 12146:12160 <> attn_out_weight
+R12072:12074 Coq.Init.Datatypes <> nat ind
+R12096:12098 Coq.Init.Datatypes <> nat ind
+R12122:12125 Coq.Init.Datatypes <> list ind
+R12128:12131 Coq.Init.Datatypes <> list ind
+R12134:12137 Coq.Init.Datatypes <> list ind
+R12139:12139 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12164:12167 Coq.Init.Datatypes <> list ind
+R12170:12173 Coq.Init.Datatypes <> list ind
+R12175:12175 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 12191:12201 <> split_heads
+R12208:12211 Coq.Init.Datatypes <> list ind
+R12213:12213 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 12204:12204 <> v:166
+R12238:12240 Coq.Init.Datatypes <> nat ind
+binder 12217:12225 <> num_heads:167
+binder 12227:12234 <> head_dim:168
+R12245:12248 Coq.Init.Datatypes <> list ind
+R12251:12254 Coq.Init.Datatypes <> list ind
+R12256:12256 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12270:12278 AlphaFold3 <> num_heads:167 var
+R12289:12289 Coq.Init.Datatypes <> O constr
+R12294:12295 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R12301:12301 Coq.Init.Datatypes <> S constr
+R12325:12328 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R12308:12313 Coq.Lists.List <> firstn def
+R12324:12324 AlphaFold3 <> v:166 var
+R12315:12322 AlphaFold3 <> head_dim:168 var
+R12329:12339 AlphaFold3 <> split_heads:169 def
+R12362:12369 AlphaFold3 <> head_dim:168 var
+R12342:12346 Coq.Lists.List <> skipn def
+R12357:12357 AlphaFold3 <> v:166 var
+R12348:12355 AlphaFold3 <> head_dim:168 var
+def 12390:12417 <> scaled_dot_product_attention
+R12430:12433 Coq.Init.Datatypes <> list ind
+R12436:12439 Coq.Init.Datatypes <> list ind
+R12441:12441 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 12422:12422 <> q:171
+binder 12424:12424 <> k:172
+binder 12426:12426 <> v:173
+R12454:12454 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 12446:12450 <> scale:174
+R12459:12462 Coq.Init.Datatypes <> list ind
+R12465:12468 Coq.Init.Datatypes <> list ind
+R12470:12470 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12492:12494 Coq.Lists.List <> map def
+R12552:12552 AlphaFold3 <> q:171 var
+binder 12501:12502 <> qi:175
+R12507:12509 Coq.Lists.List <> map def
+R12549:12549 AlphaFold3 <> k:172 var
+binder 12516:12517 <> ki:176
+R12539:12541 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R12522:12532 AlphaFold3 <> dot_product def
+R12534:12535 AlphaFold3 <> qi:175 var
+R12537:12538 AlphaFold3 <> ki:176 var
+R12542:12546 AlphaFold3 <> scale:174 var
+binder 12482:12487 <> scores:177
+R12581:12583 Coq.Lists.List <> map def
+R12793:12798 AlphaFold3 <> scores:177 var
+binder 12590:12592 <> row:178
+R12616:12625 Coq.Lists.List <> fold_right def
+R12634:12636 AlphaFold3 <> row:178 var
+R12627:12630 Coq.Reals.Rbasic_fun <> Rmax def
+binder 12605:12611 <> max_val:179
+R12660:12662 Coq.Lists.List <> map def
+R12693:12695 AlphaFold3 <> row:178 var
+binder 12669:12669 <> x:180
+R12674:12676 Coq.Reals.Rtrigo_def <> exp def
+R12680:12682 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R12679:12679 AlphaFold3 <> x:180 var
+R12683:12689 AlphaFold3 <> max_val:179 var
+binder 12649:12655 <> exp_row:181
+R12719:12728 Coq.Lists.List <> fold_right def
+R12738:12744 AlphaFold3 <> exp_row:181 var
+R12730:12734 Coq.Reals.Rdefinitions RbaseSymbolsImpl Rplus defax
+binder 12708:12714 <> sum_exp:182
+R12753:12755 Coq.Lists.List <> map def
+R12784:12790 AlphaFold3 <> exp_row:181 var
+R12766:12766 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 12762:12762 <> x:183
+R12772:12774 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R12771:12771 AlphaFold3 <> x:183 var
+R12775:12781 AlphaFold3 <> sum_exp:182 var
+binder 12563:12576 <> softmax_scores:184
+R12805:12805 AlphaFold3 <> q:171 var
+def 12820:12839 <> multi_head_attention
+R12853:12867 AlphaFold3 <> AttentionParams rec
+binder 12844:12849 <> params:185
+R12879:12882 Coq.Init.Datatypes <> list ind
+R12885:12888 Coq.Init.Datatypes <> list ind
+R12890:12890 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 12871:12875 <> input:186
+R12896:12899 Coq.Init.Datatypes <> list ind
+R12902:12905 Coq.Init.Datatypes <> list ind
+R12907:12907 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R12931:12937 Coq.Arith.PeanoNat Nat div def
+R12940:12947 AlphaFold3 <> attn_dim proj
+R12949:12954 AlphaFold3 <> params:185 var
+R12958:12971 AlphaFold3 <> attn_num_heads proj
+R12973:12978 AlphaFold3 <> params:185 var
+binder 12919:12926 <> head_dim:187
+R13000:13002 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R13003:13006 Coq.Reals.R_sqrt <> sqrt def
+R13009:13011 Coq.Reals.Raxioms <> INR def
+R13013:13020 AlphaFold3 <> head_dim:187 var
+binder 12990:12994 <> scale:188
+R13034:13049 AlphaFold3 <> attn_qkv_weights proj
+R13051:13056 AlphaFold3 <> params:185 var
+R13067:13067 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13071:13072 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13076:13077 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13081:13081 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13099:13101 Coq.Lists.List <> map def
+R13143:13147 AlphaFold3 <> input:186 var
+binder 13108:13110 <> inp:189
+R13115:13132 AlphaFold3 <> matrix_vector_mult def
+R13138:13140 AlphaFold3 <> inp:189 var
+binder 13094:13094 <> q:190
+R13165:13167 Coq.Lists.List <> map def
+R13209:13213 AlphaFold3 <> input:186 var
+binder 13174:13176 <> inp:191
+R13181:13198 AlphaFold3 <> matrix_vector_mult def
+R13204:13206 AlphaFold3 <> inp:191 var
+binder 13160:13160 <> k:192
+R13231:13233 Coq.Lists.List <> map def
+R13275:13279 AlphaFold3 <> input:186 var
+binder 13240:13242 <> inp:193
+R13247:13264 AlphaFold3 <> matrix_vector_mult def
+R13270:13272 AlphaFold3 <> inp:193 var
+binder 13226:13226 <> v:194
+R13303:13305 Coq.Lists.List <> map def
+R13367:13367 AlphaFold3 <> q:190 var
+binder 13312:13313 <> qi:195
+R13318:13328 AlphaFold3 <> split_heads def
+R13330:13331 AlphaFold3 <> qi:195 var
+R13334:13347 AlphaFold3 <> attn_num_heads proj
+R13349:13354 AlphaFold3 <> params:185 var
+R13357:13364 AlphaFold3 <> head_dim:187 var
+binder 13292:13298 <> q_heads:196
+R13391:13393 Coq.Lists.List <> map def
+R13455:13455 AlphaFold3 <> k:192 var
+binder 13400:13401 <> ki:197
+R13406:13416 AlphaFold3 <> split_heads def
+R13418:13419 AlphaFold3 <> ki:197 var
+R13422:13435 AlphaFold3 <> attn_num_heads proj
+R13437:13442 AlphaFold3 <> params:185 var
+R13445:13452 AlphaFold3 <> head_dim:187 var
+binder 13380:13386 <> k_heads:198
+R13479:13481 Coq.Lists.List <> map def
+R13543:13543 AlphaFold3 <> v:194 var
+binder 13488:13489 <> vi:199
+R13494:13504 AlphaFold3 <> split_heads def
+R13506:13507 AlphaFold3 <> vi:199 var
+R13510:13523 AlphaFold3 <> attn_num_heads proj
+R13525:13530 AlphaFold3 <> params:185 var
+R13533:13540 AlphaFold3 <> head_dim:187 var
+binder 13468:13474 <> v_heads:200
+R13552:13556 AlphaFold3 <> input:186 var
+R13567:13571 AlphaFold3 <> input:186 var
+prf 13587:13623 <> multi_head_attention_preserves_length
+binder 13634:13639 <> params:201
+binder 13641:13645 <> input:202
+R13697:13699 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13650:13660 Coq.Lists.List <> length abbrev
+R13663:13682 AlphaFold3 <> multi_head_attention def
+R13684:13689 AlphaFold3 <> params:201 var
+R13691:13695 AlphaFold3 <> input:202 var
+R13700:13710 Coq.Lists.List <> length abbrev
+R13712:13716 AlphaFold3 <> input:202 var
+R13743:13762 AlphaFold3 <> multi_head_attention def
+R13777:13792 AlphaFold3 <> attn_qkv_weights proj
+R13777:13792 AlphaFold3 <> attn_qkv_weights proj
+rec 13861:13880 <> EvoformerBlockParams
+proj 13919:13934 <> evo_msa_row_attn
+proj 13957:13972 <> evo_msa_col_attn
+proj 13995:14008 <> evo_pair_stack
+proj 14038:14051 <> evo_transition
+R13938:13952 AlphaFold3 <> AttentionParams rec
+R13976:13990 AlphaFold3 <> AttentionParams rec
+R14012:14015 Coq.Init.Datatypes <> list ind
+R14017:14033 AlphaFold3 <> NeuralLayerParams rec
+R14055:14071 AlphaFold3 <> NeuralLayerParams rec
+def 14088:14108 <> apply_evoformer_block
+R14122:14141 AlphaFold3 <> EvoformerBlockParams rec
+binder 14113:14118 <> params:208
+R14158:14161 Coq.Init.Datatypes <> list ind
+R14164:14167 Coq.Init.Datatypes <> list ind
+R14169:14169 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 14147:14154 <> msa_repr:209
+R14188:14191 Coq.Init.Datatypes <> list ind
+R14194:14197 Coq.Init.Datatypes <> list ind
+R14200:14203 Coq.Init.Datatypes <> list ind
+R14205:14205 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 14176:14184 <> pair_repr:210
+R14225:14227 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R14212:14215 Coq.Init.Datatypes <> list ind
+R14218:14221 Coq.Init.Datatypes <> list ind
+R14223:14223 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R14228:14231 Coq.Init.Datatypes <> list ind
+R14234:14237 Coq.Init.Datatypes <> list ind
+R14240:14243 Coq.Init.Datatypes <> list ind
+R14245:14245 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R14273:14292 AlphaFold3 <> multi_head_attention def
+R14295:14310 AlphaFold3 <> evo_msa_row_attn proj
+R14312:14317 AlphaFold3 <> params:208 var
+R14320:14327 AlphaFold3 <> msa_repr:209 var
+binder 14258:14268 <> msa_updated:211
+R14354:14362 AlphaFold3 <> pair_repr:210 var
+binder 14338:14349 <> pair_updated:212
+R14369:14369 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14381:14382 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14395:14395 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14370:14380 AlphaFold3 <> msa_updated:211 var
+R14383:14394 AlphaFold3 <> pair_updated:212 var
+def 14408:14428 <> apply_evoformer_stack
+R14442:14445 Coq.Init.Datatypes <> list ind
+R14447:14466 AlphaFold3 <> EvoformerBlockParams rec
+binder 14433:14438 <> blocks:213
+R14483:14486 Coq.Init.Datatypes <> list ind
+R14489:14492 Coq.Init.Datatypes <> list ind
+R14494:14494 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 14472:14479 <> msa_repr:214
+R14513:14516 Coq.Init.Datatypes <> list ind
+R14519:14522 Coq.Init.Datatypes <> list ind
+R14525:14528 Coq.Init.Datatypes <> list ind
+R14530:14530 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 14501:14509 <> pair_repr:215
+R14550:14552 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R14537:14540 Coq.Init.Datatypes <> list ind
+R14543:14546 Coq.Init.Datatypes <> list ind
+R14548:14548 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R14553:14556 Coq.Init.Datatypes <> list ind
+R14559:14562 Coq.Init.Datatypes <> list ind
+R14565:14568 Coq.Init.Datatypes <> list ind
+R14570:14570 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R14585:14590 AlphaFold3 <> blocks:213 var
+R14601:14602 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R14607:14607 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14616:14617 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14627:14627 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R14608:14615 AlphaFold3 <> msa_repr:214 var
+R14618:14626 AlphaFold3 <> pair_repr:215 var
+R14634:14635 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R14667:14687 AlphaFold3 <> apply_evoformer_block def
+R14691:14698 AlphaFold3 <> msa_repr:214 var
+R14700:14708 AlphaFold3 <> pair_repr:215 var
+binder 14651:14654 <> msa':218
+binder 14657:14661 <> pair':219
+R14717:14737 AlphaFold3 <> apply_evoformer_stack:216 def
+R14747:14751 AlphaFold3 <> pair':219 var
+R14742:14745 AlphaFold3 <> msa':218 var
+rec 14768:14782 <> AlphaFold3Model
+proj 14816:14824 <> af3_d_msa
+proj 14835:14844 <> af3_d_pair
+proj 14855:14866 <> af3_d_single
+proj 14877:14893 <> af3_num_evoformer
+proj 14904:14916 <> af3_num_heads
+proj 14927:14942 <> af3_num_recycles
+proj 14953:14975 <> af3_num_diffusion_steps
+proj 14986:15005 <> af3_evoformer_blocks
+proj 15038:15057 <> af3_structure_module
+R14828:14830 Coq.Init.Datatypes <> nat ind
+R14848:14850 Coq.Init.Datatypes <> nat ind
+R14870:14872 Coq.Init.Datatypes <> nat ind
+R14897:14899 Coq.Init.Datatypes <> nat ind
+R14920:14922 Coq.Init.Datatypes <> nat ind
+R14946:14948 Coq.Init.Datatypes <> nat ind
+R14979:14981 Coq.Init.Datatypes <> nat ind
+R15009:15012 Coq.Init.Datatypes <> list ind
+R15014:15033 AlphaFold3 <> EvoformerBlockParams rec
+R15061:15064 Coq.Init.Datatypes <> list ind
+R15066:15082 AlphaFold3 <> NeuralLayerParams rec
+def 15099:15128 <> initialize_pair_representation
+R15141:15143 Coq.Init.Datatypes <> nat ind
+binder 15131:15137 <> seq_len:230
+R15156:15158 Coq.Init.Datatypes <> nat ind
+binder 15147:15152 <> d_pair:231
+R15163:15166 Coq.Init.Datatypes <> list ind
+R15169:15172 Coq.Init.Datatypes <> list ind
+R15175:15178 Coq.Init.Datatypes <> list ind
+R15180:15180 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R15189:15194 Coq.Lists.List <> repeat def
+R15231:15237 AlphaFold3 <> seq_len:230 var
+R15197:15202 Coq.Lists.List <> repeat def
+R15222:15228 AlphaFold3 <> seq_len:230 var
+R15205:15210 Coq.Lists.List <> repeat def
+R15214:15219 AlphaFold3 <> d_pair:231 var
+def 15252:15283 <> initialize_single_representation
+R15296:15298 Coq.Init.Datatypes <> nat ind
+binder 15286:15292 <> seq_len:232
+R15313:15315 Coq.Init.Datatypes <> nat ind
+binder 15302:15309 <> d_single:233
+R15320:15323 Coq.Init.Datatypes <> list ind
+R15326:15329 Coq.Init.Datatypes <> list ind
+R15331:15331 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R15339:15344 Coq.Lists.List <> repeat def
+R15366:15372 AlphaFold3 <> seq_len:232 var
+R15347:15352 Coq.Lists.List <> repeat def
+R15356:15363 AlphaFold3 <> d_single:233 var
+def 15387:15403 <> predict_structure
+R15416:15430 AlphaFold3 <> AlphaFold3Model rec
+binder 15408:15412 <> model:234
+R15442:15452 AlphaFold3 <> MSAFeatures rec
+binder 15436:15438 <> msa:235
+R15475:15478 Coq.Init.Datatypes <> list ind
+R15480:15483 AlphaFold3 <> Vec3 rec
+binder 15458:15471 <> initial_coords:236
+R15488:15491 Coq.Init.Datatypes <> list ind
+R15493:15496 AlphaFold3 <> Vec3 rec
+R15518:15527 AlphaFold3 <> msa_length proj
+R15529:15531 AlphaFold3 <> msa:235 var
+binder 15507:15513 <> seq_len:237
+R15555:15584 AlphaFold3 <> initialize_pair_representation def
+R15586:15592 AlphaFold3 <> seq_len:237 var
+R15595:15604 AlphaFold3 <> af3_d_pair proj
+R15606:15610 AlphaFold3 <> model:234 var
+binder 15542:15550 <> pair_repr:238
+R15634:15647 AlphaFold3 <> msa_embeddings proj
+R15649:15651 AlphaFold3 <> msa:235 var
+binder 15622:15629 <> msa_repr:239
+R15693:15713 AlphaFold3 <> apply_evoformer_stack def
+R15716:15735 AlphaFold3 <> af3_evoformer_blocks proj
+R15737:15741 AlphaFold3 <> model:234 var
+R15744:15751 AlphaFold3 <> msa_repr:239 var
+R15753:15761 AlphaFold3 <> pair_repr:238 var
+binder 15663:15671 <> msa_final:240
+binder 15674:15683 <> pair_final:241
+R15768:15781 AlphaFold3 <> initial_coords:236 var
+prf 15791:15816 <> evoformer_preserves_length
+binder 15827:15832 <> blocks:242
+binder 15834:15836 <> msa:243
+binder 15838:15841 <> pair:244
+R15903:15905 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15846:15856 Coq.Lists.List <> length abbrev
+R15859:15861 Coq.Init.Datatypes <> fst def
+R15864:15884 AlphaFold3 <> apply_evoformer_stack def
+R15886:15891 AlphaFold3 <> blocks:242 var
+R15893:15895 AlphaFold3 <> msa:243 var
+R15897:15900 AlphaFold3 <> pair:244 var
+R15906:15916 Coq.Lists.List <> length abbrev
+R15918:15920 AlphaFold3 <> msa:243 var
+R15996:16016 AlphaFold3 <> apply_evoformer_block def
+R15996:16016 AlphaFold3 <> apply_evoformer_block def
+R16048:16068 AlphaFold3 <> apply_evoformer_block def
+R16132:16168 AlphaFold3 <> multi_head_attention_preserves_length thm
+R16132:16168 AlphaFold3 <> multi_head_attention_preserves_length thm
+rec 16184:16200 <> ConfidenceMetrics
+proj 16236:16247 <> plddt_scores
+proj 16261:16270 <> pae_matrix
+proj 16291:16300 <> pde_scores
+proj 16314:16331 <> overall_confidence
+R16251:16254 Coq.Init.Datatypes <> list ind
+R16256:16256 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R16274:16277 Coq.Init.Datatypes <> list ind
+R16280:16283 Coq.Init.Datatypes <> list ind
+R16285:16285 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R16304:16307 Coq.Init.Datatypes <> list ind
+R16309:16309 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R16335:16335 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 16352:16364 <> compute_plddt
+R16376:16379 Coq.Init.Datatypes <> list ind
+R16381:16384 AlphaFold3 <> Vec3 rec
+binder 16367:16372 <> coords:250
+R16401:16404 Coq.Init.Datatypes <> list ind
+R16406:16409 AlphaFold3 <> Vec3 rec
+binder 16388:16397 <> ref_coords:251
+R16414:16417 Coq.Init.Datatypes <> list ind
+R16419:16419 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R16426:16429 AlphaFold3 <> map2 def
+R16483:16492 AlphaFold3 <> ref_coords:251 var
+R16476:16481 AlphaFold3 <> coords:250 var
+binder 16436:16436 <> c:252
+binder 16438:16438 <> r:253
+R16446:16448 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R16449:16451 Coq.Reals.Rtrigo_def <> exp def
+R16454:16455 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R16456:16468 AlphaFold3 <> vec3_distance def
+R16470:16470 AlphaFold3 <> c:252 var
+R16472:16472 AlphaFold3 <> r:253 var
+def 16507:16517 <> compute_pae
+R16529:16532 Coq.Init.Datatypes <> list ind
+R16534:16537 AlphaFold3 <> Vec3 rec
+binder 16520:16525 <> coords:254
+R16542:16545 Coq.Init.Datatypes <> list ind
+R16548:16551 Coq.Init.Datatypes <> list ind
+R16553:16553 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R16570:16580 Coq.Lists.List <> length abbrev
+R16582:16587 AlphaFold3 <> coords:254 var
+binder 16565:16565 <> n:255
+R16594:16596 Coq.Lists.List <> map def
+R16748:16750 Coq.Lists.List <> seq def
+R16754:16754 AlphaFold3 <> n:255 var
+binder 16603:16603 <> i:256
+R16608:16610 Coq.Lists.List <> map def
+R16737:16739 Coq.Lists.List <> seq def
+R16743:16743 AlphaFold3 <> n:255 var
+binder 16617:16617 <> j:257
+R16629:16635 Coq.Arith.PeanoNat Nat eqb def
+R16637:16637 AlphaFold3 <> i:256 var
+R16639:16639 AlphaFold3 <> j:257 var
+R16657:16669 AlphaFold3 <> vec3_distance def
+R16672:16674 Coq.Lists.List <> nth def
+R16686:16691 AlphaFold3 <> mkVec3 constr
+R16678:16683 AlphaFold3 <> coords:254 var
+R16676:16676 AlphaFold3 <> i:256 var
+R16702:16704 Coq.Lists.List <> nth def
+R16716:16721 AlphaFold3 <> mkVec3 constr
+R16708:16713 AlphaFold3 <> coords:254 var
+R16706:16706 AlphaFold3 <> j:257 var
+def 16770:16795 <> compute_overall_confidence
+R16806:16809 Coq.Init.Datatypes <> list ind
+R16811:16811 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 16798:16802 <> plddt:258
+R16816:16816 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R16832:16834 Coq.Reals.Raxioms <> INR def
+R16837:16847 Coq.Lists.List <> length abbrev
+R16849:16853 AlphaFold3 <> plddt:258 var
+binder 16827:16827 <> n:259
+R16864:16871 Coq.Reals.RIneq <> Req_EM_T abbrev
+R16873:16873 AlphaFold3 <> n:259 var
+R16891:16891 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R16916:16919 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R16892:16901 Coq.Lists.List <> fold_right def
+R16911:16915 AlphaFold3 <> plddt:258 var
+R16903:16907 Coq.Reals.Rdefinitions RbaseSymbolsImpl Rplus defax
+R16920:16920 AlphaFold3 <> n:259 var
+rec 16931:16936 <> MSARow
+proj 16961:16971 <> msa_row_seq
+proj 16995:17010 <> msa_row_identity
+proj 17019:17034 <> msa_row_coverage
+R16975:16978 Coq.Init.Datatypes <> list ind
+R16980:16990 AlphaFold3 <> ResidueType ind
+R17014:17014 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R17038:17038 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 17055:17069 <> align_sequences
+R17084:17087 Coq.Init.Datatypes <> list ind
+R17089:17099 AlphaFold3 <> ResidueType ind
+binder 17072:17075 <> seq1:264
+binder 17077:17080 <> seq2:265
+R17104:17104 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R17126:17136 Coq.Lists.List <> length abbrev
+R17139:17144 Coq.Lists.List <> filter def
+R17180:17186 Coq.Lists.List <> combine def
+R17193:17196 AlphaFold3 <> seq2:265 var
+R17188:17191 AlphaFold3 <> seq1:264 var
+R17152:17152 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17154:17155 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17157:17157 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 17156:17156 <> b:266
+binder 17153:17153 <> a:267
+binder 17152:17157 <> pat:268
+R17162:17172 AlphaFold3 <> residue_eqb def
+R17174:17174 AlphaFold3 <> a:267 var
+R17176:17176 AlphaFold3 <> b:266 var
+binder 17115:17121 <> matches:269
+R17216:17218 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R17205:17207 Coq.Reals.Raxioms <> INR def
+R17209:17215 AlphaFold3 <> matches:269 var
+R17219:17221 Coq.Reals.Raxioms <> INR def
+R17224:17234 Coq.Lists.List <> length abbrev
+R17236:17239 AlphaFold3 <> seq1:264 var
+prf 17250:17265 <> filter_le_length
+binder 17277:17277 <> A:270
+R17286:17289 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17285:17285 AlphaFold3 <> A:270 var
+R17290:17293 Coq.Init.Datatypes <> bool ind
+binder 17281:17281 <> f:271
+R17301:17304 Coq.Init.Datatypes <> list ind
+R17306:17306 AlphaFold3 <> A:270 var
+binder 17297:17297 <> l:272
+R17337:17340 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R17313:17323 Coq.Lists.List <> length abbrev
+R17326:17331 Coq.Lists.List <> filter def
+R17335:17335 AlphaFold3 <> l:272 var
+R17333:17333 AlphaFold3 <> f:271 var
+R17341:17351 Coq.Lists.List <> length abbrev
+R17353:17353 AlphaFold3 <> l:272 var
+prf 17451:17471 <> alignment_score_range
+binder 17482:17485 <> seq1:273
+binder 17487:17490 <> seq2:274
+R17505:17510 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17499:17502 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R17495:17498 AlphaFold3 <> seq1:273 var
+R17503:17504 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R17546:17551 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17527:17529 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R17511:17521 Coq.Lists.List <> length abbrev
+R17523:17526 AlphaFold3 <> seq1:273 var
+R17530:17540 Coq.Lists.List <> length abbrev
+R17542:17545 AlphaFold3 <> seq2:274 var
+R17553:17556 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R17582:17585 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x_'<='_x not
+R17557:17571 AlphaFold3 <> align_sequences def
+R17573:17576 AlphaFold3 <> seq1:273 var
+R17578:17581 AlphaFold3 <> seq2:274 var
+R17557:17571 AlphaFold3 <> align_sequences def
+R17573:17576 AlphaFold3 <> seq1:273 var
+R17578:17581 AlphaFold3 <> seq2:274 var
+R17613:17627 AlphaFold3 <> align_sequences def
+R17647:17658 Coq.Reals.RIneq <> Rmult_le_pos thm
+R17647:17658 Coq.Reals.RIneq <> Rmult_le_pos thm
+R17673:17679 Coq.Reals.RIneq <> pos_INR thm
+R17673:17679 Coq.Reals.RIneq <> pos_INR thm
+R17700:17715 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R17700:17715 Coq.Reals.RIneq <> Rinv_0_lt_compat thm
+R17724:17731 Coq.Reals.RIneq <> lt_0_INR thm
+R17724:17731 Coq.Reals.RIneq <> lt_0_INR thm
+R17813:17815 Coq.Reals.Raxioms <> INR def
+R17818:17828 Coq.Lists.List <> length abbrev
+R17792:17805 Coq.Reals.RIneq <> Rmult_le_reg_r thm
+R17813:17815 Coq.Reals.Raxioms <> INR def
+R17818:17828 Coq.Lists.List <> length abbrev
+R17792:17805 Coq.Reals.RIneq <> Rmult_le_reg_r thm
+R17850:17857 Coq.Reals.RIneq <> lt_0_INR thm
+R17850:17857 Coq.Reals.RIneq <> lt_0_INR thm
+R18019:18022 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R17940:17942 Coq.Reals.Raxioms <> INR def
+R17945:17955 Coq.Lists.List <> length abbrev
+R17958:17963 Coq.Lists.List <> filter def
+R17999:18005 Coq.Lists.List <> combine def
+R17971:17971 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17973:17974 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17976:17976 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 17975:17975 <> b:275
+binder 17972:17972 <> a:276
+binder 17971:17976 <> pat:277
+R17981:17991 AlphaFold3 <> residue_eqb def
+R17993:17993 AlphaFold3 <> a:276 var
+R17995:17995 AlphaFold3 <> b:275 var
+R18023:18025 Coq.Reals.Raxioms <> INR def
+R18028:18038 Coq.Lists.List <> length abbrev
+R18019:18022 Coq.Reals.Rdefinitions <> ::R_scope:x_'<='_x not
+R17940:17942 Coq.Reals.Raxioms <> INR def
+R17945:17955 Coq.Lists.List <> length abbrev
+R17958:17963 Coq.Lists.List <> filter def
+R17999:18005 Coq.Lists.List <> combine def
+R17971:17971 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17973:17974 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R17976:17976 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+binder 17975:17975 <> b:278
+binder 17972:17972 <> a:279
+binder 17971:17976 <> pat:280
+R17981:17991 AlphaFold3 <> residue_eqb def
+R17993:17993 AlphaFold3 <> a:279 var
+R17995:17995 AlphaFold3 <> b:278 var
+R18023:18025 Coq.Reals.Raxioms <> INR def
+R18028:18038 Coq.Lists.List <> length abbrev
+R18064:18069 Coq.Reals.RIneq <> le_INR thm
+R18064:18069 Coq.Reals.RIneq <> le_INR thm
+R18097:18107 Coq.Lists.List <> length abbrev
+R18110:18116 Coq.Lists.List <> combine def
+R18078:18089 Coq.Arith.PeanoNat Nat le_trans thm
+R18097:18107 Coq.Lists.List <> length abbrev
+R18110:18116 Coq.Lists.List <> combine def
+R18078:18089 Coq.Arith.PeanoNat Nat le_trans thm
+R18149:18164 AlphaFold3 <> filter_le_length thm
+R18149:18164 AlphaFold3 <> filter_le_length thm
+R18187:18200 Coq.Lists.List <> combine_length thm
+R18187:18200 Coq.Lists.List <> combine_length thm
+R18187:18200 Coq.Lists.List <> combine_length thm
+R18223:18232 Coq.Arith.PeanoNat Nat min_id thm
+R18223:18232 Coq.Arith.PeanoNat Nat min_id thm
+R18223:18232 Coq.Arith.PeanoNat Nat min_id thm
+R18269:18278 Coq.Reals.RIneq <> Rgt_not_eq thm
+R18269:18278 Coq.Reals.RIneq <> Rgt_not_eq thm
+R18287:18294 Coq.Reals.RIneq <> lt_0_INR thm
+R18287:18294 Coq.Reals.RIneq <> lt_0_INR thm
+def 18356:18367 <> generate_msa
+R18378:18381 Coq.Init.Datatypes <> list ind
+R18383:18393 AlphaFold3 <> ResidueType ind
+binder 18370:18374 <> query:281
+R18405:18407 Coq.Init.Datatypes <> nat ind
+binder 18397:18401 <> depth:282
+R18412:18422 AlphaFold3 <> MSAFeatures rec
+R18444:18454 Coq.Lists.List <> length abbrev
+R18456:18460 AlphaFold3 <> query:281 var
+binder 18433:18439 <> seq_len:283
+R18485:18490 Coq.Lists.List <> repeat def
+R18498:18502 AlphaFold3 <> depth:282 var
+R18492:18496 AlphaFold3 <> query:281 var
+binder 18471:18480 <> dummy_seqs:284
+R18533:18538 Coq.Lists.List <> repeat def
+R18559:18563 AlphaFold3 <> depth:282 var
+R18541:18546 Coq.Lists.List <> repeat def
+R18550:18556 AlphaFold3 <> seq_len:283 var
+binder 18513:18528 <> dummy_embeddings:285
+R18570:18582 AlphaFold3 <> mkMSAFeatures constr
+R18584:18588 AlphaFold3 <> depth:282 var
+R18590:18596 AlphaFold3 <> seq_len:283 var
+R18598:18607 AlphaFold3 <> dummy_seqs:284 var
+R18609:18624 AlphaFold3 <> dummy_embeddings:285 var
+prf 18634:18650 <> msa_depth_correct
+binder 18661:18665 <> query:286
+binder 18667:18671 <> depth:287
+R18712:18714 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18676:18684 AlphaFold3 <> msa_depth proj
+R18687:18698 AlphaFold3 <> generate_msa def
+R18700:18704 AlphaFold3 <> query:286 var
+R18706:18710 AlphaFold3 <> depth:287 var
+R18715:18719 AlphaFold3 <> depth:287 var
+R18746:18757 AlphaFold3 <> generate_msa def
+prf 18792:18809 <> msa_length_correct
+binder 18820:18824 <> query:288
+binder 18826:18830 <> depth:289
+R18872:18874 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R18835:18844 AlphaFold3 <> msa_length proj
+R18847:18858 AlphaFold3 <> generate_msa def
+R18860:18864 AlphaFold3 <> query:288 var
+R18866:18870 AlphaFold3 <> depth:289 var
+R18875:18885 Coq.Lists.List <> length abbrev
+R18887:18891 AlphaFold3 <> query:288 var
+R18918:18929 AlphaFold3 <> generate_msa def
+rec 18965:18974 <> ContactMap
+proj 19003:19014 <> contact_size
+proj 19025:19041 <> contact_threshold
+proj 19050:19063 <> contact_matrix
+R19018:19020 Coq.Init.Datatypes <> nat ind
+R19045:19045 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R19067:19070 Coq.Init.Datatypes <> list ind
+R19073:19076 Coq.Init.Datatypes <> list ind
+R19078:19081 Coq.Init.Datatypes <> bool ind
+def 19099:19117 <> compute_contact_map
+R19129:19132 Coq.Init.Datatypes <> list ind
+R19134:19137 AlphaFold3 <> Vec3 rec
+binder 19120:19125 <> coords:294
+R19153:19153 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 19141:19149 <> threshold:295
+R19158:19167 AlphaFold3 <> ContactMap rec
+R19183:19193 Coq.Lists.List <> length abbrev
+R19195:19200 AlphaFold3 <> coords:294 var
+binder 19178:19178 <> n:296
+R19207:19218 AlphaFold3 <> mkContactMap constr
+R19220:19220 AlphaFold3 <> n:296 var
+R19222:19230 AlphaFold3 <> threshold:295 var
+R19233:19238 Coq.Lists.List <> repeat def
+R19257:19257 AlphaFold3 <> n:296 var
+R19241:19246 Coq.Lists.List <> repeat def
+R19254:19254 AlphaFold3 <> n:296 var
+R19248:19252 Coq.Init.Datatypes <> false constr
+prf 19268:19283 <> contact_map_size
+binder 19294:19299 <> coords:297
+binder 19301:19309 <> threshold:298
+R19365:19367 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R19314:19325 AlphaFold3 <> contact_size proj
+R19328:19346 AlphaFold3 <> compute_contact_map def
+R19348:19353 AlphaFold3 <> coords:297 var
+R19355:19363 AlphaFold3 <> threshold:298 var
+R19368:19378 Coq.Lists.List <> length abbrev
+R19380:19385 AlphaFold3 <> coords:297 var
+R19412:19430 AlphaFold3 <> compute_contact_map def
+rec 19466:19483 <> SecondaryStructure
+proj 19520:19528 <> ss_length
+proj 19539:19551 <> ss_helix_mask
+proj 19568:19581 <> ss_strand_mask
+proj 19598:19609 <> ss_coil_mask
+R19532:19534 Coq.Init.Datatypes <> nat ind
+R19555:19558 Coq.Init.Datatypes <> list ind
+R19560:19563 Coq.Init.Datatypes <> bool ind
+R19585:19588 Coq.Init.Datatypes <> list ind
+R19590:19593 Coq.Init.Datatypes <> bool ind
+R19613:19616 Coq.Init.Datatypes <> list ind
+R19618:19621 Coq.Init.Datatypes <> bool ind
+def 19638:19663 <> assign_secondary_structure
+R19675:19678 Coq.Init.Datatypes <> list ind
+R19680:19683 AlphaFold3 <> Vec3 rec
+binder 19666:19671 <> coords:304
+R19688:19705 AlphaFold3 <> SecondaryStructure rec
+R19721:19731 Coq.Lists.List <> length abbrev
+R19733:19738 AlphaFold3 <> coords:304 var
+binder 19716:19716 <> n:305
+R19745:19764 AlphaFold3 <> mkSecondaryStructure constr
+R19766:19766 AlphaFold3 <> n:305 var
+R19773:19778 Coq.Lists.List <> repeat def
+R19786:19786 AlphaFold3 <> n:305 var
+R19780:19784 Coq.Init.Datatypes <> false constr
+R19794:19799 Coq.Lists.List <> repeat def
+R19807:19807 AlphaFold3 <> n:305 var
+R19801:19805 Coq.Init.Datatypes <> false constr
+R19815:19820 Coq.Lists.List <> repeat def
+R19827:19827 AlphaFold3 <> n:305 var
+R19822:19825 Coq.Init.Datatypes <> true constr
+def 19843:19847 <> atan2
+R19856:19856 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 19850:19850 <> y:306
+binder 19852:19852 <> x:307
+R19861:19861 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R19871:19878 Coq.Reals.RIneq <> Req_EM_T abbrev
+R19880:19880 AlphaFold3 <> x:307 var
+R19976:19982 Coq.Reals.RIneq <> Rlt_dec thm
+R19986:19986 AlphaFold3 <> x:307 var
+R20016:20022 Coq.Reals.RIneq <> Rle_dec thm
+R20026:20026 AlphaFold3 <> y:306 var
+R20070:20072 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R20058:20061 Coq.Reals.Ratan <> atan def
+R20065:20067 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R20064:20064 AlphaFold3 <> y:306 var
+R20068:20068 AlphaFold3 <> x:307 var
+R20073:20074 Coq.Reals.Rtrigo1 <> PI def
+R20045:20047 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R20033:20036 Coq.Reals.Ratan <> atan def
+R20040:20042 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R20039:20039 AlphaFold3 <> y:306 var
+R20043:20043 AlphaFold3 <> x:307 var
+R20048:20049 Coq.Reals.Rtrigo1 <> PI def
+R19993:19996 Coq.Reals.Ratan <> atan def
+R20000:20002 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R19999:19999 AlphaFold3 <> y:306 var
+R20003:20003 AlphaFold3 <> x:307 var
+R19896:19903 Coq.Reals.RIneq <> Req_EM_T abbrev
+R19905:19905 AlphaFold3 <> y:306 var
+R19928:19934 Coq.Reals.RIneq <> Rlt_dec thm
+R19938:19938 AlphaFold3 <> y:306 var
+R19961:19963 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R19957:19958 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R19959:19960 Coq.Reals.Rtrigo1 <> PI def
+R19947:19949 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R19945:19946 Coq.Reals.Rtrigo1 <> PI def
+def 20089:20097 <> phi_angle
+R20113:20116 AlphaFold3 <> Vec3 rec
+binder 20100:20101 <> c1:308
+binder 20103:20103 <> n:309
+binder 20105:20106 <> c2:310
+binder 20108:20109 <> ca:311
+R20121:20121 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R20138:20145 AlphaFold3 <> vec3_sub def
+R20147:20147 AlphaFold3 <> n:309 var
+R20149:20150 AlphaFold3 <> c1:308 var
+binder 20132:20133 <> v1:312
+R20167:20174 AlphaFold3 <> vec3_sub def
+R20176:20177 AlphaFold3 <> ca:311 var
+R20179:20179 AlphaFold3 <> n:309 var
+binder 20161:20162 <> v2:313
+R20196:20203 AlphaFold3 <> vec3_sub def
+R20205:20206 AlphaFold3 <> c2:310 var
+R20208:20209 AlphaFold3 <> ca:311 var
+binder 20190:20191 <> v3:314
+R20226:20235 AlphaFold3 <> vec3_cross def
+R20237:20238 AlphaFold3 <> v1:312 var
+R20240:20241 AlphaFold3 <> v2:313 var
+binder 20220:20221 <> n1:315
+R20258:20267 AlphaFold3 <> vec3_cross def
+R20269:20270 AlphaFold3 <> v2:313 var
+R20272:20273 AlphaFold3 <> v3:314 var
+binder 20252:20253 <> n2:316
+R20289:20296 AlphaFold3 <> vec3_dot def
+R20298:20299 AlphaFold3 <> n1:315 var
+R20301:20302 AlphaFold3 <> n2:316 var
+binder 20284:20284 <> x:317
+R20318:20325 AlphaFold3 <> vec3_dot def
+R20328:20337 AlphaFold3 <> vec3_cross def
+R20339:20340 AlphaFold3 <> n1:315 var
+R20342:20343 AlphaFold3 <> n2:316 var
+R20347:20360 AlphaFold3 <> vec3_normalize def
+R20362:20363 AlphaFold3 <> v2:313 var
+binder 20313:20313 <> y:318
+R20371:20375 AlphaFold3 <> atan2 def
+R20377:20377 AlphaFold3 <> y:318 var
+R20379:20379 AlphaFold3 <> x:317 var
+def 20394:20402 <> psi_angle
+R20418:20421 AlphaFold3 <> Vec3 rec
+binder 20405:20405 <> n:319
+binder 20407:20408 <> c1:320
+binder 20410:20411 <> ca:321
+binder 20413:20414 <> c2:322
+R20426:20426 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R20443:20450 AlphaFold3 <> vec3_sub def
+R20452:20453 AlphaFold3 <> ca:321 var
+R20455:20455 AlphaFold3 <> n:319 var
+binder 20437:20438 <> v1:323
+R20472:20479 AlphaFold3 <> vec3_sub def
+R20481:20482 AlphaFold3 <> c1:320 var
+R20484:20485 AlphaFold3 <> ca:321 var
+binder 20466:20467 <> v2:324
+R20502:20509 AlphaFold3 <> vec3_sub def
+R20511:20512 AlphaFold3 <> c2:322 var
+R20514:20515 AlphaFold3 <> c1:320 var
+binder 20496:20497 <> v3:325
+R20532:20541 AlphaFold3 <> vec3_cross def
+R20543:20544 AlphaFold3 <> v1:323 var
+R20546:20547 AlphaFold3 <> v2:324 var
+binder 20526:20527 <> n1:326
+R20564:20573 AlphaFold3 <> vec3_cross def
+R20575:20576 AlphaFold3 <> v2:324 var
+R20578:20579 AlphaFold3 <> v3:325 var
+binder 20558:20559 <> n2:327
+R20595:20602 AlphaFold3 <> vec3_dot def
+R20604:20605 AlphaFold3 <> n1:326 var
+R20607:20608 AlphaFold3 <> n2:327 var
+binder 20590:20590 <> x:328
+R20624:20631 AlphaFold3 <> vec3_dot def
+R20634:20643 AlphaFold3 <> vec3_cross def
+R20645:20646 AlphaFold3 <> n1:326 var
+R20648:20649 AlphaFold3 <> n2:327 var
+R20653:20666 AlphaFold3 <> vec3_normalize def
+R20668:20669 AlphaFold3 <> v2:324 var
+binder 20619:20619 <> y:329
+R20677:20681 AlphaFold3 <> atan2 def
+R20683:20683 AlphaFold3 <> y:329 var
+R20685:20685 AlphaFold3 <> x:328 var
+def 20700:20707 <> is_helix
+R20720:20720 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 20710:20712 <> phi:330
+binder 20714:20716 <> psi:331
+R20725:20728 Coq.Init.Datatypes <> bool ind
+R20738:20744 Coq.Reals.RIneq <> Rle_dec thm
+R20752:20754 AlphaFold3 <> phi:330 var
+R20912:20916 Coq.Init.Datatypes <> false constr
+R20768:20774 Coq.Reals.RIneq <> Rle_dec thm
+R20776:20778 AlphaFold3 <> phi:330 var
+R20899:20903 Coq.Init.Datatypes <> false constr
+R20800:20806 Coq.Reals.RIneq <> Rle_dec thm
+R20814:20816 AlphaFold3 <> psi:331 var
+R20884:20888 Coq.Init.Datatypes <> false constr
+R20834:20840 Coq.Reals.RIneq <> Rle_dec thm
+R20842:20844 AlphaFold3 <> psi:331 var
+R20867:20871 Coq.Init.Datatypes <> false constr
+R20857:20860 Coq.Init.Datatypes <> true constr
+def 20931:20939 <> is_strand
+R20952:20952 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 20942:20944 <> phi:332
+binder 20946:20948 <> psi:333
+R20957:20960 Coq.Init.Datatypes <> bool ind
+R20970:20976 Coq.Reals.RIneq <> Rle_dec thm
+R20985:20987 AlphaFold3 <> phi:332 var
+R21140:21144 Coq.Init.Datatypes <> false constr
+R21001:21007 Coq.Reals.RIneq <> Rle_dec thm
+R21009:21011 AlphaFold3 <> phi:332 var
+R21127:21131 Coq.Init.Datatypes <> false constr
+R21033:21039 Coq.Reals.RIneq <> Rle_dec thm
+R21044:21046 AlphaFold3 <> psi:333 var
+R21112:21116 Coq.Init.Datatypes <> false constr
+R21064:21070 Coq.Reals.RIneq <> Rle_dec thm
+R21072:21074 AlphaFold3 <> psi:333 var
+R21095:21099 Coq.Init.Datatypes <> false constr
+R21085:21088 Coq.Init.Datatypes <> true constr
+prf 21154:21175 <> helix_strand_exclusive
+binder 21186:21188 <> phi:334
+binder 21190:21192 <> psi:335
+R21220:21223 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R21213:21215 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21197:21204 AlphaFold3 <> is_helix def
+R21206:21208 AlphaFold3 <> phi:334 var
+R21210:21212 AlphaFold3 <> psi:335 var
+R21216:21219 Coq.Init.Datatypes <> true constr
+R21241:21243 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21224:21232 AlphaFold3 <> is_strand def
+R21234:21236 AlphaFold3 <> phi:334 var
+R21238:21240 AlphaFold3 <> psi:335 var
+R21244:21248 Coq.Init.Datatypes <> false constr
+R21275:21282 AlphaFold3 <> is_helix def
+R21285:21293 AlphaFold3 <> is_strand def
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+R21320:21326 Coq.Reals.RIneq <> Rle_dec thm
+rec 21385:21400 <> TemplateFeatures
+proj 21435:21449 <> template_coords
+proj 21466:21484 <> template_confidence
+proj 21493:21509 <> template_identity
+R21453:21456 Coq.Init.Datatypes <> list ind
+R21458:21461 AlphaFold3 <> Vec3 rec
+R21488:21488 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R21513:21513 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 21530:21541 <> use_template
+R21555:21570 AlphaFold3 <> TemplateFeatures rec
+binder 21544:21551 <> template:340
+R21586:21588 Coq.Init.Datatypes <> nat ind
+binder 21574:21582 <> query_len:341
+R21593:21596 Coq.Init.Datatypes <> bool ind
+R21606:21612 Coq.Reals.RIneq <> Rle_dec thm
+R21618:21634 AlphaFold3 <> template_identity proj
+R21636:21643 AlphaFold3 <> template:340 var
+R21749:21753 Coq.Init.Datatypes <> false constr
+R21658:21664 Coq.Arith.PeanoNat Nat eqb def
+R21667:21677 Coq.Lists.List <> length abbrev
+R21680:21694 AlphaFold3 <> template_coords proj
+R21696:21703 AlphaFold3 <> template:340 var
+R21707:21715 AlphaFold3 <> query_len:341 var
+R21736:21740 Coq.Init.Datatypes <> false constr
+R21722:21725 Coq.Init.Datatypes <> true constr
+def 21768:21781 <> blend_template
+R21815:21818 Coq.Init.Datatypes <> list ind
+R21820:21823 AlphaFold3 <> Vec3 rec
+binder 21784:21795 <> query_coords:342
+binder 21797:21811 <> template_coords:343
+R21835:21835 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 21827:21831 <> alpha:344
+R21840:21843 Coq.Init.Datatypes <> list ind
+R21845:21848 AlphaFold3 <> Vec3 rec
+R21855:21858 AlphaFold3 <> map2 def
+R22013:22027 AlphaFold3 <> template_coords:343 var
+R22000:22011 AlphaFold3 <> query_coords:342 var
+binder 21865:21865 <> q:345
+binder 21867:21867 <> t:346
+R21872:21877 AlphaFold3 <> mkVec3 constr
+R21896:21898 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R21889:21891 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21884:21888 AlphaFold3 <> alpha:344 var
+R21892:21893 AlphaFold3 <> vx proj
+R21895:21895 AlphaFold3 <> q:345 var
+R21899:21899 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21909:21912 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21901:21903 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R21904:21908 AlphaFold3 <> alpha:344 var
+R21913:21914 AlphaFold3 <> vx proj
+R21916:21916 AlphaFold3 <> t:346 var
+R21936:21938 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R21929:21931 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21924:21928 AlphaFold3 <> alpha:344 var
+R21932:21933 AlphaFold3 <> vy proj
+R21935:21935 AlphaFold3 <> q:345 var
+R21939:21939 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21949:21952 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21941:21943 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R21944:21948 AlphaFold3 <> alpha:344 var
+R21953:21954 AlphaFold3 <> vy proj
+R21956:21956 AlphaFold3 <> t:346 var
+R21976:21978 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R21969:21971 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21964:21968 AlphaFold3 <> alpha:344 var
+R21972:21973 AlphaFold3 <> vz proj
+R21975:21975 AlphaFold3 <> q:345 var
+R21979:21979 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21989:21992 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R21981:21983 Coq.Reals.Rdefinitions <> ::R_scope:x_'-'_x not
+R21984:21988 AlphaFold3 <> alpha:344 var
+R21993:21994 AlphaFold3 <> vz proj
+R21996:21996 AlphaFold3 <> t:346 var
+prf 22037:22050 <> blend_identity
+binder 22061:22066 <> coords:347
+R22103:22105 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22071:22084 AlphaFold3 <> blend_template def
+R22086:22091 AlphaFold3 <> coords:347 var
+R22093:22098 AlphaFold3 <> coords:347 var
+R22106:22111 AlphaFold3 <> coords:347 var
+R22138:22151 AlphaFold3 <> blend_template def
+prf 22282:22293 <> blend_length
+binder 22304:22304 <> q:348
+binder 22306:22306 <> t:349
+binder 22308:22312 <> alpha:350
+R22355:22357 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22317:22327 Coq.Lists.List <> length abbrev
+R22330:22343 AlphaFold3 <> blend_template def
+R22345:22345 AlphaFold3 <> q:348 var
+R22347:22347 AlphaFold3 <> t:349 var
+R22349:22353 AlphaFold3 <> alpha:350 var
+R22358:22360 Coq.Init.Nat <> min def
+R22363:22373 Coq.Lists.List <> length abbrev
+R22375:22375 AlphaFold3 <> q:348 var
+R22379:22389 Coq.Lists.List <> length abbrev
+R22391:22391 AlphaFold3 <> t:349 var
+R22419:22432 AlphaFold3 <> blend_template def
+R22441:22451 AlphaFold3 <> map2_length thm
+R22441:22451 AlphaFold3 <> map2_length thm
+rec 22467:22480 <> RecyclingState
+proj 22513:22529 <> recycle_iteration
+proj 22540:22553 <> recycle_coords
+proj 22570:22586 <> recycle_pair_repr
+proj 22614:22630 <> recycle_converged
+R22533:22535 Coq.Init.Datatypes <> nat ind
+R22557:22560 Coq.Init.Datatypes <> list ind
+R22562:22565 AlphaFold3 <> Vec3 rec
+R22590:22593 Coq.Init.Datatypes <> list ind
+R22596:22599 Coq.Init.Datatypes <> list ind
+R22602:22605 Coq.Init.Datatypes <> list ind
+R22607:22607 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R22634:22637 Coq.Init.Datatypes <> bool ind
+def 22654:22671 <> recycle_prediction
+R22684:22698 AlphaFold3 <> AlphaFold3Model rec
+binder 22676:22680 <> model:356
+R22712:22725 AlphaFold3 <> RecyclingState rec
+binder 22704:22708 <> state:357
+R22737:22747 AlphaFold3 <> MSAFeatures rec
+binder 22731:22733 <> msa:358
+R22752:22765 AlphaFold3 <> RecyclingState rec
+R22775:22791 AlphaFold3 <> recycle_converged proj
+R22793:22797 AlphaFold3 <> state:357 var
+R22820:22826 Coq.Arith.PeanoNat Nat leb def
+R22829:22844 AlphaFold3 <> af3_num_recycles proj
+R22846:22850 AlphaFold3 <> model:356 var
+R22854:22870 AlphaFold3 <> recycle_iteration proj
+R22872:22876 AlphaFold3 <> state:357 var
+R23020:23036 AlphaFold3 <> predict_structure def
+R23038:23042 AlphaFold3 <> model:356 var
+R23044:23046 AlphaFold3 <> msa:358 var
+R23049:23062 AlphaFold3 <> recycle_coords proj
+R23064:23068 AlphaFold3 <> state:357 var
+binder 23006:23015 <> new_coords:359
+R23090:23101 AlphaFold3 <> compute_rmsd def
+R23104:23117 AlphaFold3 <> recycle_coords proj
+R23119:23123 AlphaFold3 <> state:357 var
+R23126:23135 AlphaFold3 <> new_coords:359 var
+binder 23082:23085 <> rmsd:360
+R23164:23170 Coq.Reals.RIneq <> Rle_dec thm
+R23172:23175 AlphaFold3 <> rmsd:360 var
+R23196:23200 Coq.Init.Datatypes <> false constr
+R23186:23189 Coq.Init.Datatypes <> true constr
+binder 23148:23156 <> converged:361
+R23209:23224 AlphaFold3 <> mkRecyclingState constr
+R23227:23227 Coq.Init.Datatypes <> S constr
+R23230:23246 AlphaFold3 <> recycle_iteration proj
+R23248:23252 AlphaFold3 <> state:357 var
+R23256:23265 AlphaFold3 <> new_coords:359 var
+R23274:23290 AlphaFold3 <> recycle_pair_repr proj
+R23292:23296 AlphaFold3 <> state:357 var
+R23299:23307 AlphaFold3 <> converged:361 var
+R22888:22903 AlphaFold3 <> mkRecyclingState constr
+R22906:22922 AlphaFold3 <> recycle_iteration proj
+R22924:22928 AlphaFold3 <> state:357 var
+R22932:22945 AlphaFold3 <> recycle_coords proj
+R22947:22951 AlphaFold3 <> state:357 var
+R22961:22977 AlphaFold3 <> recycle_pair_repr proj
+R22979:22983 AlphaFold3 <> state:357 var
+R22986:22989 Coq.Init.Datatypes <> true constr
+R22804:22808 AlphaFold3 <> state:357 var
+def 23320:23332 <> run_recycling
+R23345:23359 AlphaFold3 <> AlphaFold3Model rec
+binder 23337:23341 <> model:362
+R23371:23381 AlphaFold3 <> MSAFeatures rec
+binder 23365:23367 <> msa:363
+R23397:23410 AlphaFold3 <> RecyclingState rec
+binder 23387:23393 <> initial:364
+R23427:23429 Coq.Init.Datatypes <> nat ind
+binder 23416:23423 <> max_iter:365
+R23434:23447 AlphaFold3 <> RecyclingState rec
+R23460:23467 AlphaFold3 <> max_iter:365 var
+R23478:23478 Coq.Init.Datatypes <> O constr
+R23483:23489 AlphaFold3 <> initial:364 var
+R23495:23495 Coq.Init.Datatypes <> S constr
+R23520:23537 AlphaFold3 <> recycle_prediction def
+R23539:23543 AlphaFold3 <> model:362 var
+R23545:23551 AlphaFold3 <> initial:364 var
+R23553:23555 AlphaFold3 <> msa:363 var
+binder 23510:23515 <> state':368
+R23567:23583 AlphaFold3 <> recycle_converged proj
+R23585:23590 AlphaFold3 <> state':368 var
+R23613:23625 AlphaFold3 <> run_recycling:366 def
+R23637:23642 AlphaFold3 <> state':368 var
+R23633:23635 AlphaFold3 <> msa:363 var
+R23627:23631 AlphaFold3 <> model:362 var
+R23597:23602 AlphaFold3 <> state':368 var
+prf 23660:23674 <> recycling_bound
+binder 23685:23689 <> model:369
+binder 23691:23693 <> msa:370
+binder 23695:23701 <> initial:371
+binder 23703:23703 <> n:372
+R23761:23765 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R23708:23724 AlphaFold3 <> recycle_iteration proj
+R23727:23739 AlphaFold3 <> run_recycling def
+R23741:23745 AlphaFold3 <> model:369 var
+R23747:23749 AlphaFold3 <> msa:370 var
+R23751:23757 AlphaFold3 <> initial:371 var
+R23759:23759 AlphaFold3 <> n:372 var
+R23766:23782 AlphaFold3 <> recycle_iteration proj
+R23785:23797 AlphaFold3 <> run_recycling def
+R23799:23803 AlphaFold3 <> model:369 var
+R23805:23807 AlphaFold3 <> msa:370 var
+R23809:23815 AlphaFold3 <> initial:371 var
+R23817:23817 AlphaFold3 <> n:372 var
+rec 23864:23877 <> ClashDetection
+proj 23910:23924 <> clash_threshold
+proj 23933:23943 <> clash_count
+proj 23954:23964 <> clash_pairs
+R23928:23928 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R23947:23949 Coq.Init.Datatypes <> nat ind
+R23968:23971 Coq.Init.Datatypes <> list ind
+R23977:23979 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R23974:23976 Coq.Init.Datatypes <> nat ind
+R23980:23982 Coq.Init.Datatypes <> nat ind
+def 24000:24013 <> detect_clashes
+R24025:24028 Coq.Init.Datatypes <> list ind
+R24030:24033 AlphaFold3 <> Vec3 rec
+binder 24016:24021 <> coords:377
+R24049:24049 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 24037:24045 <> threshold:378
+R24054:24067 AlphaFold3 <> ClashDetection rec
+R24083:24093 Coq.Lists.List <> length abbrev
+R24095:24100 AlphaFold3 <> coords:377 var
+binder 24078:24078 <> n:379
+R24120:24127 Coq.Lists.List <> flat_map def
+R24416:24418 Coq.Lists.List <> seq def
+R24422:24422 AlphaFold3 <> n:379 var
+binder 24134:24134 <> i:380
+R24143:24145 Coq.Lists.List <> map def
+R24172:24177 Coq.Lists.List <> filter def
+R24392:24394 Coq.Lists.List <> seq def
+R24404:24406 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R24403:24403 AlphaFold3 <> n:379 var
+R24407:24407 Coq.Init.Datatypes <> S constr
+R24409:24409 AlphaFold3 <> i:380 var
+R24397:24397 Coq.Init.Datatypes <> S constr
+R24399:24399 AlphaFold3 <> i:380 var
+binder 24184:24184 <> j:381
+R24192:24198 Coq.Reals.RIneq <> Rle_dec thm
+R24201:24213 AlphaFold3 <> vec3_distance def
+R24216:24218 Coq.Lists.List <> nth def
+R24230:24235 AlphaFold3 <> mkVec3 constr
+R24222:24227 AlphaFold3 <> coords:377 var
+R24220:24220 AlphaFold3 <> i:380 var
+R24297:24299 Coq.Lists.List <> nth def
+R24311:24316 AlphaFold3 <> mkVec3 constr
+R24303:24308 AlphaFold3 <> coords:377 var
+R24301:24301 AlphaFold3 <> j:381 var
+R24327:24335 AlphaFold3 <> threshold:378 var
+R24376:24380 Coq.Init.Datatypes <> false constr
+R24366:24369 Coq.Init.Datatypes <> true constr
+binder 24152:24152 <> j:382
+R24157:24157 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24159:24160 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24162:24162 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24158:24158 AlphaFold3 <> i:380 var
+R24161:24161 AlphaFold3 <> j:382 var
+binder 24111:24115 <> pairs:383
+R24430:24445 AlphaFold3 <> mkClashDetection constr
+R24447:24455 AlphaFold3 <> threshold:378 var
+R24458:24468 Coq.Lists.List <> length abbrev
+R24470:24474 AlphaFold3 <> pairs:383 var
+R24477:24481 AlphaFold3 <> pairs:383 var
+prf 24491:24515 <> clash_detection_symmetric
+binder 24526:24531 <> coords:384
+binder 24533:24541 <> threshold:385
+binder 24543:24543 <> i:386
+binder 24545:24545 <> j:387
+R24607:24612 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24550:24551 Coq.Lists.List <> In def
+R24561:24571 AlphaFold3 <> clash_pairs proj
+R24574:24587 AlphaFold3 <> detect_clashes def
+R24589:24594 AlphaFold3 <> coords:384 var
+R24596:24604 AlphaFold3 <> threshold:385 var
+R24553:24553 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24555:24556 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24558:24558 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R24554:24554 AlphaFold3 <> i:386 var
+R24557:24557 AlphaFold3 <> j:387 var
+R24686:24690 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24613:24625 AlphaFold3 <> vec3_distance def
+R24628:24630 Coq.Lists.List <> nth def
+R24642:24647 AlphaFold3 <> mkVec3 constr
+R24634:24639 AlphaFold3 <> coords:384 var
+R24632:24632 AlphaFold3 <> i:386 var
+R24658:24660 Coq.Lists.List <> nth def
+R24672:24677 AlphaFold3 <> mkVec3 constr
+R24664:24669 AlphaFold3 <> coords:384 var
+R24662:24662 AlphaFold3 <> j:387 var
+R24691:24703 AlphaFold3 <> vec3_distance def
+R24706:24708 Coq.Lists.List <> nth def
+R24720:24725 AlphaFold3 <> mkVec3 constr
+R24712:24717 AlphaFold3 <> coords:384 var
+R24710:24710 AlphaFold3 <> j:387 var
+R24736:24738 Coq.Lists.List <> nth def
+R24750:24755 AlphaFold3 <> mkVec3 constr
+R24742:24747 AlphaFold3 <> coords:384 var
+R24740:24740 AlphaFold3 <> i:386 var
+R24789:24811 AlphaFold3 <> vec3_distance_symmetric thm
+R24789:24811 AlphaFold3 <> vec3_distance_symmetric thm
+def 24831:24845 <> resolve_clashes
+R24857:24860 Coq.Init.Datatypes <> list ind
+R24862:24865 AlphaFold3 <> Vec3 rec
+binder 24848:24853 <> coords:388
+R24881:24881 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 24869:24877 <> threshold:389
+R24886:24889 Coq.Init.Datatypes <> list ind
+R24891:24894 AlphaFold3 <> Vec3 rec
+R24916:24929 AlphaFold3 <> detect_clashes def
+R24931:24936 AlphaFold3 <> coords:388 var
+R24938:24946 AlphaFold3 <> threshold:389 var
+binder 24905:24911 <> clashes:390
+R24956:24962 Coq.Arith.PeanoNat Nat eqb def
+R24965:24975 AlphaFold3 <> clash_count proj
+R24977:24983 AlphaFold3 <> clashes:390 var
+R25007:25009 Coq.Lists.List <> map def
+R25040:25045 AlphaFold3 <> coords:388 var
+binder 25016:25016 <> v:391
+R25021:25030 AlphaFold3 <> vec3_scale def
+R25037:25037 AlphaFold3 <> v:391 var
+R24993:24998 AlphaFold3 <> coords:388 var
+rec 25056:25066 <> EnergyTerms
+proj 25096:25105 <> energy_vdw
+proj 25114:25133 <> energy_electrostatic
+proj 25142:25153 <> energy_hbond
+proj 25162:25176 <> energy_dihedral
+proj 25185:25196 <> energy_total
+R25109:25109 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25137:25137 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25157:25157 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25180:25180 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25200:25200 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 25217:25234 <> compute_vdw_energy
+R25246:25249 Coq.Init.Datatypes <> list ind
+R25251:25254 AlphaFold3 <> Vec3 rec
+binder 25237:25242 <> coords:398
+R25259:25259 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25275:25285 Coq.Lists.List <> length abbrev
+R25287:25292 AlphaFold3 <> coords:398 var
+binder 25270:25270 <> n:399
+R25299:25308 Coq.Lists.List <> fold_right def
+R25323:25330 Coq.Lists.List <> flat_map def
+R25529:25531 Coq.Lists.List <> seq def
+R25535:25535 AlphaFold3 <> n:399 var
+binder 25337:25337 <> i:400
+R25348:25350 Coq.Lists.List <> map def
+R25506:25508 Coq.Lists.List <> seq def
+R25518:25520 Coq.Init.Nat <> ::nat_scope:x_'-'_x not
+R25517:25517 AlphaFold3 <> n:399 var
+R25521:25521 Coq.Init.Datatypes <> S constr
+R25523:25523 AlphaFold3 <> i:400 var
+R25511:25511 Coq.Init.Datatypes <> S constr
+R25513:25513 AlphaFold3 <> i:400 var
+binder 25357:25357 <> j:401
+R25370:25392 AlphaFold3 <> lennard_jones_potential def
+R25405:25417 AlphaFold3 <> vec3_distance def
+R25420:25422 Coq.Lists.List <> nth def
+R25434:25439 AlphaFold3 <> mkVec3 constr
+R25426:25431 AlphaFold3 <> coords:398 var
+R25424:25424 AlphaFold3 <> i:400 var
+R25450:25452 Coq.Lists.List <> nth def
+R25464:25469 AlphaFold3 <> mkVec3 constr
+R25456:25461 AlphaFold3 <> coords:398 var
+R25454:25454 AlphaFold3 <> j:401 var
+R25310:25314 Coq.Reals.Rdefinitions RbaseSymbolsImpl Rplus defax
+def 25552:25571 <> compute_total_energy
+R25583:25586 Coq.Init.Datatypes <> list ind
+R25588:25591 AlphaFold3 <> Vec3 rec
+binder 25574:25579 <> coords:402
+R25596:25606 AlphaFold3 <> EnergyTerms rec
+R25624:25641 AlphaFold3 <> compute_vdw_energy def
+R25643:25648 AlphaFold3 <> coords:402 var
+binder 25617:25619 <> vdw:403
+R25655:25667 AlphaFold3 <> mkEnergyTerms constr
+R25669:25671 AlphaFold3 <> vdw:403 var
+R25679:25681 AlphaFold3 <> vdw:403 var
+prf 25691:25703 <> energy_finite
+binder 25714:25719 <> coords:404
+R25724:25730 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R25732:25733 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 25731:25731 <> E:405
+R25759:25761 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R25734:25751 AlphaFold3 <> compute_vdw_energy def
+R25753:25758 AlphaFold3 <> coords:404 var
+R25762:25762 AlphaFold3 <> E:405 var
+R25790:25807 AlphaFold3 <> compute_vdw_energy def
+R25790:25807 AlphaFold3 <> compute_vdw_energy def
+rec 25844:25860 <> QualityAssessment
+proj 25896:25903 <> qa_plddt
+proj 25917:25922 <> qa_pae
+proj 25943:25948 <> qa_ptm
+proj 25957:25963 <> qa_ipae
+proj 25972:25987 <> qa_ranking_score
+R25907:25910 Coq.Init.Datatypes <> list ind
+R25912:25912 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25926:25929 Coq.Init.Datatypes <> list ind
+R25932:25935 Coq.Init.Datatypes <> list ind
+R25937:25937 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25952:25952 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25967:25967 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R25991:25991 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+def 26008:26018 <> compute_ptm
+R26027:26030 Coq.Init.Datatypes <> list ind
+R26033:26036 Coq.Init.Datatypes <> list ind
+R26038:26038 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+binder 26021:26023 <> pae:412
+R26044:26044 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R26060:26062 Coq.Reals.Raxioms <> INR def
+R26065:26075 Coq.Lists.List <> length abbrev
+R26077:26079 AlphaFold3 <> pae:412 var
+binder 26055:26055 <> n:413
+R26090:26097 Coq.Reals.RIneq <> Req_EM_T abbrev
+R26099:26099 AlphaFold3 <> n:413 var
+R26129:26136 Coq.Lists.List <> flat_map def
+R26155:26157 AlphaFold3 <> pae:412 var
+binder 26143:26145 <> row:414
+R26150:26152 AlphaFold3 <> row:414 var
+binder 26121:26124 <> flat:415
+R26180:26189 Coq.Lists.List <> fold_right def
+R26199:26202 AlphaFold3 <> flat:415 var
+R26191:26195 Coq.Reals.Rdefinitions RbaseSymbolsImpl Rplus defax
+binder 26173:26175 <> sum:416
+R26217:26220 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R26226:26226 Coq.Reals.Rdefinitions <> ::R_scope:x_'/'_x not
+R26214:26216 AlphaFold3 <> sum:416 var
+R26222:26224 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R26221:26221 AlphaFold3 <> n:413 var
+R26225:26225 AlphaFold3 <> n:413 var
+def 26241:26261 <> compute_ranking_score
+R26269:26285 AlphaFold3 <> QualityAssessment rec
+binder 26264:26265 <> qa:417
+R26290:26290 Coq.Reals.Rdefinitions RbaseSymbolsImpl R defax
+R26312:26314 Coq.Reals.Rdefinitions <> ::R_scope:x_'+'_x not
+R26300:26302 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R26303:26308 AlphaFold3 <> qa_ptm proj
+R26310:26311 AlphaFold3 <> qa:417 var
+R26318:26320 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R26321:26346 AlphaFold3 <> compute_overall_confidence def
+R26349:26356 AlphaFold3 <> qa_plddt proj
+R26358:26359 AlphaFold3 <> qa:417 var
+prf 26370:26380 <> ptm_welldef
+binder 26391:26393 <> pae:418
+R26413:26415 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26398:26408 AlphaFold3 <> compute_ptm def
+R26410:26412 AlphaFold3 <> pae:418 var
+R26416:26426 AlphaFold3 <> compute_ptm def
+R26428:26430 AlphaFold3 <> pae:418 var
+prf 26475:26495 <> ranking_score_welldef
+binder 26506:26507 <> qa:419
+R26536:26538 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R26512:26532 AlphaFold3 <> compute_ranking_score def
+R26534:26535 AlphaFold3 <> qa:419 var
+R26539:26559 AlphaFold3 <> compute_ranking_score def
+R26561:26562 AlphaFold3 <> qa:419 var
+def 26612:26635 <> alphafold3_main_pipeline
+R26648:26662 AlphaFold3 <> AlphaFold3Model rec
+binder 26640:26644 <> model:420
+R26679:26682 Coq.Init.Datatypes <> list ind
+R26684:26694 AlphaFold3 <> ResidueType ind
+binder 26668:26675 <> sequence:421
+R26706:26716 AlphaFold3 <> MSAFeatures rec
+binder 26700:26702 <> msa:422
+R26739:26742 Coq.Init.Datatypes <> list ind
+R26744:26747 AlphaFold3 <> Vec3 rec
+binder 26722:26735 <> initial_coords:423
+R26761:26763 Coq.Init.Datatypes <> ::type_scope:x_'*'_x not
+R26752:26755 Coq.Init.Datatypes <> list ind
+R26757:26760 AlphaFold3 <> Vec3 rec
+R26764:26780 AlphaFold3 <> QualityAssessment rec
+R26808:26823 AlphaFold3 <> mkRecyclingState constr
+R26827:26840 AlphaFold3 <> initial_coords:423 var
+R26847:26876 AlphaFold3 <> initialize_pair_representation def
+R26879:26889 Coq.Lists.List <> length abbrev
+R26891:26898 AlphaFold3 <> sequence:421 var
+R26902:26911 AlphaFold3 <> af3_d_pair proj
+R26913:26917 AlphaFold3 <> model:420 var
+R26921:26925 Coq.Init.Datatypes <> false constr
+binder 26791:26803 <> initial_state:424
+R26951:26963 AlphaFold3 <> run_recycling def
+R26965:26969 AlphaFold3 <> model:420 var
+R26971:26973 AlphaFold3 <> msa:422 var
+R26975:26987 AlphaFold3 <> initial_state:424 var
+R26990:27005 AlphaFold3 <> af3_num_recycles proj
+R27007:27011 AlphaFold3 <> model:420 var
+binder 26936:26946 <> final_state:425
+R27039:27052 AlphaFold3 <> recycle_coords proj
+R27054:27064 AlphaFold3 <> final_state:425 var
+binder 27023:27034 <> final_coords:426
+R27084:27096 AlphaFold3 <> compute_plddt def
+R27098:27109 AlphaFold3 <> final_coords:426 var
+R27111:27122 AlphaFold3 <> final_coords:426 var
+binder 27075:27079 <> plddt:427
+R27140:27150 AlphaFold3 <> compute_pae def
+R27152:27163 AlphaFold3 <> final_coords:426 var
+binder 27133:27135 <> pae:428
+R27181:27191 AlphaFold3 <> compute_ptm def
+R27193:27195 AlphaFold3 <> pae:428 var
+binder 27174:27176 <> ptm:429
+R27212:27230 AlphaFold3 <> mkQualityAssessment constr
+R27232:27236 AlphaFold3 <> plddt:427 var
+R27238:27240 AlphaFold3 <> pae:428 var
+R27242:27244 AlphaFold3 <> ptm:429 var
+binder 27206:27207 <> qa:430
+R27271:27289 AlphaFold3 <> mkQualityAssessment constr
+R27291:27295 AlphaFold3 <> plddt:427 var
+R27297:27299 AlphaFold3 <> pae:428 var
+R27301:27303 AlphaFold3 <> ptm:429 var
+R27308:27328 AlphaFold3 <> compute_ranking_score def
+R27330:27331 AlphaFold3 <> qa:430 var
+binder 27259:27266 <> qa_final:431
+R27339:27339 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27352:27353 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27362:27362 Coq.Init.Datatypes <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R27340:27351 AlphaFold3 <> final_coords:426 var
+R27354:27361 AlphaFold3 <> qa_final:431 var
+prf 27374:27393 <> alphafold3_soundness
+binder 27404:27408 <> model:432
+binder 27410:27417 <> sequence:433
+binder 27419:27421 <> msa:434
+binder 27423:27436 <> initial_coords:435
+R27499:27503 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27441:27464 AlphaFold3 <> alphafold3_main_pipeline def
+R27466:27470 AlphaFold3 <> model:432 var
+R27472:27479 AlphaFold3 <> sequence:433 var
+R27481:27483 AlphaFold3 <> msa:434 var
+R27485:27498 AlphaFold3 <> initial_coords:435 var
+R27504:27527 AlphaFold3 <> alphafold3_main_pipeline def
+R27529:27533 AlphaFold3 <> model:432 var
+R27535:27542 AlphaFold3 <> sequence:433 var
+R27544:27546 AlphaFold3 <> msa:434 var
+R27548:27561 AlphaFold3 <> initial_coords:435 var
+prf 27608:27629 <> alphafold3_determinism
+binder 27640:27644 <> model:436
+binder 27646:27653 <> sequence:437
+binder 27655:27657 <> msa:438
+binder 27659:27672 <> initial_coords:439
+R27699:27722 AlphaFold3 <> alphafold3_main_pipeline def
+R27724:27728 AlphaFold3 <> model:436 var
+R27730:27737 AlphaFold3 <> sequence:437 var
+R27739:27741 AlphaFold3 <> msa:438 var
+R27743:27756 AlphaFold3 <> initial_coords:439 var
+binder 27682:27688 <> coords1:440
+binder 27691:27693 <> qa1:441
+R27785:27808 AlphaFold3 <> alphafold3_main_pipeline def
+R27810:27814 AlphaFold3 <> model:436 var
+R27816:27823 AlphaFold3 <> sequence:437 var
+R27825:27827 AlphaFold3 <> msa:438 var
+R27829:27842 AlphaFold3 <> initial_coords:439 var
+binder 27768:27774 <> coords2:442
+binder 27777:27779 <> qa2:443
+R27866:27869 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R27856:27858 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27849:27855 AlphaFold3 <> coords1:440 var
+R27859:27865 AlphaFold3 <> coords2:442 var
+R27873:27875 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R27870:27872 AlphaFold3 <> qa1:441 var
+R27876:27878 AlphaFold3 <> qa2:443 var
+R27905:27928 AlphaFold3 <> alphafold3_main_pipeline def
+prf 27967:27978 <> rmsd_welldef
+binder 27989:27995 <> coords1:444
+binder 27997:28003 <> coords2:445
+R28036:28038 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28008:28019 AlphaFold3 <> compute_rmsd def
+R28021:28027 AlphaFold3 <> coords1:444 var
+R28029:28035 AlphaFold3 <> coords2:445 var
+R28039:28050 AlphaFold3 <> compute_rmsd def
+R28052:28058 AlphaFold3 <> coords1:444 var
+R28060:28066 AlphaFold3 <> coords2:445 var
+prf 28113:28144 <> evoformer_stack_compositionality
+binder 28155:28161 <> blocks1:446
+binder 28163:28169 <> blocks2:447
+binder 28171:28173 <> msa:448
+binder 28175:28178 <> pair:449
+R28234:28238 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28183:28203 AlphaFold3 <> apply_evoformer_stack def
+R28213:28216 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R28206:28212 AlphaFold3 <> blocks1:446 var
+R28217:28223 AlphaFold3 <> blocks2:447 var
+R28226:28228 AlphaFold3 <> msa:448 var
+R28230:28233 AlphaFold3 <> pair:449 var
+R28260:28280 AlphaFold3 <> apply_evoformer_stack def
+R28282:28288 AlphaFold3 <> blocks1:446 var
+R28290:28292 AlphaFold3 <> msa:448 var
+R28294:28297 AlphaFold3 <> pair:449 var
+binder 28244:28247 <> msa':450
+binder 28250:28254 <> pair':451
+R28304:28324 AlphaFold3 <> apply_evoformer_stack def
+R28326:28332 AlphaFold3 <> blocks2:447 var
+R28334:28337 AlphaFold3 <> msa':450 var
+R28339:28343 AlphaFold3 <> pair':451 var
+R28443:28463 AlphaFold3 <> apply_evoformer_block def
+R28443:28463 AlphaFold3 <> apply_evoformer_block def
+prf 28509:28526 <> vec3_scale_welldef
+binder 28537:28537 <> s:452
+binder 28539:28539 <> v:453
+R28558:28560 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28544:28553 AlphaFold3 <> vec3_scale def
+R28555:28555 AlphaFold3 <> s:452 var
+R28557:28557 AlphaFold3 <> v:453 var
+R28561:28570 AlphaFold3 <> vec3_scale def
+R28572:28572 AlphaFold3 <> s:452 var
+R28574:28574 AlphaFold3 <> v:453 var
+prf 28621:28641 <> lennard_jones_welldef
+binder 28652:28652 <> r:454
+binder 28654:28658 <> sigma:455
+binder 28660:28666 <> epsilon:456
+R28710:28712 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28671:28693 AlphaFold3 <> lennard_jones_potential def
+R28695:28695 AlphaFold3 <> r:454 var
+R28697:28701 AlphaFold3 <> sigma:455 var
+R28703:28709 AlphaFold3 <> epsilon:456 var
+R28713:28735 AlphaFold3 <> lennard_jones_potential def
+R28737:28737 AlphaFold3 <> r:454 var
+R28739:28743 AlphaFold3 <> sigma:455 var
+R28745:28751 AlphaFold3 <> epsilon:456 var
+prf 28798:28816 <> contact_map_welldef
+binder 28827:28832 <> coords:457
+binder 28834:28842 <> threshold:458
+R28883:28885 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R28847:28865 AlphaFold3 <> compute_contact_map def
+R28867:28872 AlphaFold3 <> coords:457 var
+R28874:28882 AlphaFold3 <> threshold:458 var
+R28886:28904 AlphaFold3 <> compute_contact_map def
+R28906:28911 AlphaFold3 <> coords:457 var
+R28913:28921 AlphaFold3 <> threshold:458 var
+prf 28968:28994 <> secondary_structure_welldef
+binder 29005:29010 <> coords:459
+R29048:29050 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29015:29040 AlphaFold3 <> assign_secondary_structure def
+R29042:29047 AlphaFold3 <> coords:459 var
+R29051:29076 AlphaFold3 <> assign_secondary_structure def
+R29078:29083 AlphaFold3 <> coords:459 var
+prf 29130:29142 <> plddt_welldef
+binder 29153:29153 <> c:460
+binder 29155:29155 <> r:461
+R29191:29193 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29163:29165 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R29166:29168 Coq.Reals.Rtrigo_def <> exp def
+R29171:29172 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R29173:29185 AlphaFold3 <> vec3_distance def
+R29187:29187 AlphaFold3 <> c:460 var
+R29189:29189 AlphaFold3 <> r:461 var
+R29197:29199 Coq.Reals.Rdefinitions <> ::R_scope:x_'*'_x not
+R29200:29202 Coq.Reals.Rtrigo_def <> exp def
+R29205:29206 Coq.Reals.Rdefinitions <> ::R_scope:'-'_x not
+R29207:29219 AlphaFold3 <> vec3_distance def
+R29221:29221 AlphaFold3 <> c:460 var
+R29223:29223 AlphaFold3 <> r:461 var
+prf 29271:29284 <> energy_welldef
+binder 29295:29300 <> coords:462
+R29330:29332 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29305:29322 AlphaFold3 <> compute_vdw_energy def
+R29324:29329 AlphaFold3 <> coords:462 var
+R29333:29350 AlphaFold3 <> compute_vdw_energy def
+R29352:29357 AlphaFold3 <> coords:462 var
+prf 29404:29421 <> msa_embedding_size
+binder 29432:29436 <> query:463
+binder 29438:29442 <> depth:464
+R29502:29504 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29447:29457 Coq.Lists.List <> length abbrev
+R29460:29473 AlphaFold3 <> msa_embeddings proj
+R29476:29487 AlphaFold3 <> generate_msa def
+R29489:29493 AlphaFold3 <> query:463 var
+R29495:29499 AlphaFold3 <> depth:464 var
+R29505:29509 AlphaFold3 <> depth:464 var
+R29536:29547 AlphaFold3 <> generate_msa def
+R29563:29575 Coq.Lists.List <> repeat_length thm
+R29563:29575 Coq.Lists.List <> repeat_length thm
+prf 29592:29618 <> pair_representation_welldef
+binder 29629:29635 <> seq_len:465
+binder 29637:29642 <> d_pair:466
+R29692:29694 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29647:29676 AlphaFold3 <> initialize_pair_representation def
+R29678:29684 AlphaFold3 <> seq_len:465 var
+R29686:29691 AlphaFold3 <> d_pair:466 var
+R29695:29724 AlphaFold3 <> initialize_pair_representation def
+R29726:29732 AlphaFold3 <> seq_len:465 var
+R29734:29739 AlphaFold3 <> d_pair:466 var
+prf 29786:29813 <> single_representation_length
+binder 29824:29830 <> seq_len:467
+binder 29832:29839 <> d_single:468
+R29907:29909 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R29844:29854 Coq.Lists.List <> length abbrev
+R29857:29888 AlphaFold3 <> initialize_single_representation def
+R29890:29896 AlphaFold3 <> seq_len:467 var
+R29898:29905 AlphaFold3 <> d_single:468 var
+R29910:29916 AlphaFold3 <> seq_len:467 var
+R29943:29974 AlphaFold3 <> initialize_single_representation def
+R29983:29995 Coq.Lists.List <> repeat_length thm
+R29983:29995 Coq.Lists.List <> repeat_length thm
+prf 30012:30028 <> recycling_welldef
+binder 30039:30043 <> model:469
+binder 30045:30047 <> msa:470
+binder 30049:30055 <> initial:471
+binder 30057:30064 <> max_iter:472
+R30109:30111 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30069:30081 AlphaFold3 <> run_recycling def
+R30083:30087 AlphaFold3 <> model:469 var
+R30089:30091 AlphaFold3 <> msa:470 var
+R30093:30099 AlphaFold3 <> initial:471 var
+R30101:30108 AlphaFold3 <> max_iter:472 var
+R30112:30124 AlphaFold3 <> run_recycling def
+R30126:30130 AlphaFold3 <> model:469 var
+R30132:30134 AlphaFold3 <> msa:470 var
+R30136:30142 AlphaFold3 <> initial:471 var
+R30144:30151 AlphaFold3 <> max_iter:472 var
+prf 30198:30221 <> clash_resolution_welldef
+binder 30232:30237 <> coords:473
+binder 30239:30247 <> threshold:474
+R30284:30286 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30252:30266 AlphaFold3 <> resolve_clashes def
+R30268:30273 AlphaFold3 <> coords:473 var
+R30275:30283 AlphaFold3 <> threshold:474 var
+R30287:30301 AlphaFold3 <> resolve_clashes def
+R30303:30308 AlphaFold3 <> coords:473 var
+R30310:30318 AlphaFold3 <> threshold:474 var
+prf 30365:30381 <> alignment_welldef
+binder 30392:30395 <> seq1:475
+binder 30397:30400 <> seq2:476
+R30430:30432 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30405:30419 AlphaFold3 <> align_sequences def
+R30421:30424 AlphaFold3 <> seq1:475 var
+R30426:30429 AlphaFold3 <> seq2:476 var
+R30433:30447 AlphaFold3 <> align_sequences def
+R30449:30452 AlphaFold3 <> seq1:475 var
+R30454:30457 AlphaFold3 <> seq2:476 var
+prf 30504:30528 <> template_blending_welldef
+binder 30539:30539 <> q:477
+binder 30541:30541 <> t:478
+binder 30543:30547 <> alpha:479
+R30576:30578 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30552:30565 AlphaFold3 <> blend_template def
+R30567:30567 AlphaFold3 <> q:477 var
+R30569:30569 AlphaFold3 <> t:478 var
+R30571:30575 AlphaFold3 <> alpha:479 var
+R30579:30592 AlphaFold3 <> blend_template def
+R30594:30594 AlphaFold3 <> q:477 var
+R30596:30596 AlphaFold3 <> t:478 var
+R30598:30602 AlphaFold3 <> alpha:479 var
+prf 30649:30665 <> diffusion_welldef
+binder 30676:30680 <> state:480
+binder 30682:30683 <> dt:481
+binder 30685:30685 <> n:482
+R30716:30718 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30690:30704 AlphaFold3 <> diffusion_steps def
+R30706:30710 AlphaFold3 <> state:480 var
+R30712:30713 AlphaFold3 <> dt:481 var
+R30715:30715 AlphaFold3 <> n:482 var
+R30719:30733 AlphaFold3 <> diffusion_steps def
+R30735:30739 AlphaFold3 <> state:480 var
+R30741:30742 AlphaFold3 <> dt:481 var
+R30744:30744 AlphaFold3 <> n:482 var
+prf 30791:30808 <> confidence_welldef
+binder 30819:30823 <> plddt:483
+R30860:30862 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30828:30853 AlphaFold3 <> compute_overall_confidence def
+R30855:30859 AlphaFold3 <> plddt:483 var
+R30863:30888 AlphaFold3 <> compute_overall_confidence def
+R30890:30894 AlphaFold3 <> plddt:483 var
+prf 30941:30957 <> evoformer_welldef
+binder 30968:30973 <> blocks:484
+binder 30975:30977 <> msa:485
+binder 30979:30982 <> pair:486
+R31024:31026 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30987:31007 AlphaFold3 <> apply_evoformer_stack def
+R31009:31014 AlphaFold3 <> blocks:484 var
+R31016:31018 AlphaFold3 <> msa:485 var
+R31020:31023 AlphaFold3 <> pair:486 var
+R31027:31047 AlphaFold3 <> apply_evoformer_stack def
+R31049:31054 AlphaFold3 <> blocks:484 var
+R31056:31058 AlphaFold3 <> msa:485 var
+R31060:31063 AlphaFold3 <> pair:486 var
+prf 31110:31129 <> neural_layer_welldef
+binder 31140:31145 <> params:487
+binder 31147:31151 <> input:488
+R31180:31182 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31156:31166 AlphaFold3 <> apply_layer def
+R31168:31173 AlphaFold3 <> params:487 var
+R31175:31179 AlphaFold3 <> input:488 var
+R31183:31193 AlphaFold3 <> apply_layer def
+R31195:31200 AlphaFold3 <> params:487 var
+R31202:31206 AlphaFold3 <> input:488 var
+prf 31253:31269 <> attention_welldef
+binder 31280:31285 <> params:489
+binder 31287:31291 <> input:490
+R31329:31331 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31296:31315 AlphaFold3 <> multi_head_attention def
+R31317:31322 AlphaFold3 <> params:489 var
+R31324:31328 AlphaFold3 <> input:490 var
+R31332:31351 AlphaFold3 <> multi_head_attention def
+R31353:31358 AlphaFold3 <> params:489 var
+R31360:31364 AlphaFold3 <> input:490 var
+prf 31411:31423 <> rmsd_welldef2
+binder 31434:31440 <> coords1:491
+binder 31442:31448 <> coords2:492
+R31481:31483 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31453:31464 AlphaFold3 <> compute_rmsd def
+R31466:31472 AlphaFold3 <> coords1:491 var
+R31474:31480 AlphaFold3 <> coords2:492 var
+R31484:31495 AlphaFold3 <> compute_rmsd def
+R31497:31503 AlphaFold3 <> coords1:491 var
+R31505:31511 AlphaFold3 <> coords2:492 var
+prf 31558:31570 <> final_welldef
+binder 31581:31585 <> model:493
+binder 31587:31594 <> sequence:494
+binder 31596:31598 <> msa:495
+binder 31600:31613 <> initial_coords:496
+R31676:31680 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31618:31641 AlphaFold3 <> alphafold3_main_pipeline def
+R31643:31647 AlphaFold3 <> model:493 var
+R31649:31656 AlphaFold3 <> sequence:494 var
+R31658:31660 AlphaFold3 <> msa:495 var
+R31662:31675 AlphaFold3 <> initial_coords:496 var
+R31681:31704 AlphaFold3 <> alphafold3_main_pipeline def
+R31706:31710 AlphaFold3 <> model:493 var
+R31712:31719 AlphaFold3 <> sequence:494 var
+R31721:31723 AlphaFold3 <> msa:495 var
+R31725:31738 AlphaFold3 <> initial_coords:496 var

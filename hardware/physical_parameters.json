@@ -1,0 +1,147 @@
+{
+  "photonics": {
+    "silicon_waveguide": {
+      "wavelength_nm": 1550,
+      "refractive_index_core": 3.48,
+      "refractive_index_cladding": 1.445,
+      "core_width_nm": 450,
+      "core_height_nm": 220,
+      "propagation_loss_db_cm": 0.3,
+      "group_index": 4.2,
+      "effective_area_um2": 0.12,
+      "nonlinear_index_m2_w": 1.2e-17,
+      "two_photon_absorption_cm_gw": 0.8,
+      "free_carrier_lifetime_ns": 1.0,
+      "thermo_optic_coefficient_k": 1.86e-4
+    },
+    "microring_resonator": {
+      "radius_um": 5,
+      "gap_nm": 200,
+      "quality_factor": 50000,
+      "free_spectral_range_ghz": 20,
+      "extinction_ratio_db": 20,
+      "finesse": 314,
+      "coupling_coefficient": 0.1,
+      "thermal_tuning_efficiency_pm_mw": 75,
+      "linewidth_ghz": 0.4,
+      "group_delay_ps": 40
+    },
+    "mach_zehnder_interferometer": {
+      "arm_length_um": 100,
+      "phase_shifter_efficiency_pi_v": 2.5,
+      "extinction_ratio_db": 25,
+      "insertion_loss_db": 0.5,
+      "modulation_bandwidth_ghz": 40,
+      "vpi_voltage": 2.5,
+      "rise_time_ps": 8,
+      "electrical_capacitance_pf": 50
+    },
+    "photodetector": {
+      "responsivity_a_w": 1.1,
+      "dark_current_na": 10,
+      "bandwidth_ghz": 50,
+      "quantum_efficiency": 0.9,
+      "capacitance_pf": 30,
+      "saturation_power_dbm": 10,
+      "noise_equivalent_power_pw_hz": 5
+    },
+    "coherent_receiver": {
+      "modulation_format": "QPSK",
+      "symbol_rate_gbaud": 28,
+      "laser_linewidth_khz": 100,
+      "osnr_requirement_db": 12,
+      "phase_error_deg": 2,
+      "carrier_recovery_bandwidth_mhz": 50,
+      "clock_recovery_ppm": 10
+    }
+  },
+  "spintronics": {
+    "spin_transfer_torque": {
+      "spin_polarization_percent": 70,
+      "critical_current_density_ma_cm2": 5,
+      "critical_current_ua": 50,
+      "switching_time_ns": 2,
+      "tunnel_magnetoresistance_ratio": 2.5,
+      "gilbert_damping_constant": 0.01,
+      "saturation_magnetization_ka_m": 800,
+      "magnetic_anisotropy_field_oe": 500,
+      "exchange_stiffness_pj_m": 13,
+      "interfacial_dmi_mj_m2": 1.5
+    },
+    "spin_hall_effect": {
+      "spin_hall_angle": 0.3,
+      "charge_current_density_ma_cm2": 10,
+      "spin_current_conversion_efficiency": 0.3,
+      "rashba_coupling_ev_angstrom": 0.05,
+      "spin_orbit_coupling_mev": 100,
+      "spin_diffusion_length_nm": 5,
+      "fermi_velocity_km_s": 1500,
+      "sheet_resistance_ohm_sq": 50
+    },
+    "spin_orbit_torque": {
+      "field_like_torque_efficiency": 0.15,
+      "damping_like_torque_efficiency": 0.25,
+      "free_layer_thickness_nm": 2,
+      "heavy_metal_thickness_nm": 5,
+      "spin_transparency": 0.8,
+      "effective_field_oe_ma": 100,
+      "critical_switching_current_ua": 30
+    },
+    "magnetic_domain_wall": {
+      "domain_width_nm": 100,
+      "wall_width_nm": 10,
+      "wall_velocity_m_s": 100,
+      "depinning_field_oe": 50,
+      "dzyaloshinskii_moriya_constant_mj_m2": 1.2,
+      "perpendicular_anisotropy_kj_m3": 800,
+      "skyrmion_diameter_nm": 50,
+      "walker_breakdown_field_oe": 200
+    },
+    "spin_wave": {
+      "dispersion_relation_ghz_nm": 0.05,
+      "propagation_length_um": 10,
+      "attenuation_db_um": 0.5,
+      "group_velocity_km_s": 1.5,
+      "phase_velocity_km_s": 10,
+      "magnon_effective_mass_ev_c2": 3.3e-4,
+      "damon_eshbach_constant": 1.2,
+      "exchange_length_nm": 5,
+      "backward_volume_mode_factor": 0.8
+    },
+    "spin_torque_oscillator": {
+      "oscillation_frequency_ghz": 5,
+      "frequency_tuning_ghz_ma": 0.5,
+      "linewidth_mhz": 5,
+      "quality_factor": 1000,
+      "output_power_nw": 100,
+      "dc_bias_current_ua": 200,
+      "thermal_stability_factor": 60,
+      "slonczewski_prefactor": 2.1
+    }
+  },
+  "physical_constants": {
+    "planck_constant_j_s": 6.62607015e-34,
+    "reduced_planck_constant_j_s": 1.054571817e-34,
+    "electron_charge_c": 1.602176634e-19,
+    "boltzmann_constant_j_k": 1.380649e-23,
+    "bohr_magneton_j_t": 9.2740100783e-24,
+    "gyromagnetic_ratio_hz_t": 2.8e10,
+    "electron_mass_kg": 9.1093837015e-31,
+    "vacuum_permeability_h_m": 1.25663706212e-6,
+    "speed_of_light_m_s": 299792458
+  },
+  "operating_conditions": {
+    "temperature_k": 300,
+    "ambient_pressure_pa": 101325,
+    "relative_humidity_percent": 45,
+    "magnetic_field_background_oe": 0.5,
+    "electromagnetic_noise_floor_dbm_hz": -174
+  },
+  "fabrication_tolerances": {
+    "lithography_resolution_nm": 7,
+    "etching_depth_variation_nm": 5,
+    "doping_concentration_variation_percent": 2,
+    "film_thickness_uniformity_percent": 1,
+    "alignment_accuracy_nm": 10
+  }
+}
