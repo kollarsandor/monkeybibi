@@ -1,0 +1,206 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: julia-backend
+  namespace: alphafold3
+  labels:
+    app: alphafold3
+    component: julia-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: alphafold3
+      component: julia-backend
+  template:
+    metadata:
+      labels:
+        app: alphafold3
+        component: julia-backend
+    spec:
+      containers:
+      - name: julia-backend
+        image: alphafold3-julia-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 6000
+          protocol: TCP
+        env:
+        - name: JULIA_NUM_THREADS
+          value: "auto"
+        - name: PORT
+          value: "6000"
+        resources:
+          requests:
+            cpu: "2000m"
+            memory: "4Gi"
+          limits:
+            cpu: "8000m"
+            memory: "16Gi"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 6000
+          initialDelaySeconds: 120
+          periodSeconds: 60
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 6000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+        volumeMounts:
+        - name: julia-cache
+          mountPath: /app/.julia
+        - name: models
+          mountPath: /app/models
+      volumes:
+      - name: julia-cache
+        persistentVolumeClaim:
+          claimName: julia-cache-pvc
+      - name: models
+        persistentVolumeClaim:
+          claimName: models-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: julia-backend-service
+  namespace: alphafold3
+  labels:
+    app: alphafold3
+    component: julia-backend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 6000
+    targetPort: 6000
+    protocol: TCP
+  selector:
+    app: alphafold3
+    component: julia-backend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-backend
+  namespace: alphafold3
+  labels:
+    app: alphafold3
+    component: python-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: alphafold3
+      component: python-backend
+  template:
+    metadata:
+      labels:
+        app: alphafold3
+        component: python-backend
+    spec:
+      containers:
+      - name: python-backend
+        image: alphafold3-python-backend:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 7000
+          protocol: TCP
+        env:
+        - name: PYTHONUNBUFFERED
+          value: "1"
+        - name: PORT
+          value: "7000"
+        resources:
+          requests:
+            cpu: "2000m"
+            memory: "4Gi"
+          limits:
+            cpu: "8000m"
+            memory: "16Gi"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 7000
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 7000
+          initialDelaySeconds: 30
+          periodSeconds: 15
+          timeoutSeconds: 5
+        volumeMounts:
+        - name: python-cache
+          mountPath: /app/.cache
+        - name: models
+          mountPath: /app/models
+      volumes:
+      - name: python-cache
+        persistentVolumeClaim:
+          claimName: python-cache-pvc
+      - name: models
+        persistentVolumeClaim:
+          claimName: models-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-backend-service
+  namespace: alphafold3
+  labels:
+    app: alphafold3
+    component: python-backend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 7000
+    targetPort: 7000
+    protocol: TCP
+  selector:
+    app: alphafold3
+    component: python-backend
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: julia-cache-pvc
+  namespace: alphafold3
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: python-cache-pvc
+  namespace: alphafold3
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: models-pvc
+  namespace: alphafold3
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 200Gi

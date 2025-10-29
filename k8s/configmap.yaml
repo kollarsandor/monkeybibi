@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alphafold3-config
+  namespace: alphafold3
+data:
+  PHX_HOST: "alphafold3.example.com"
+  PORT: "4000"
+  MIX_ENV: "prod"
+  LOG_LEVEL: "info"
+  JULIA_BACKEND_HOST: "julia-backend-service"
+  JULIA_BACKEND_PORT: "6000"
+  PYTHON_BACKEND_HOST: "python-backend-service"
+  PYTHON_BACKEND_PORT: "7000"
+  REDIS_URL: "redis://redis-service:6379/0"
+  RATE_LIMITING_ENABLED: "true"
+  RATE_LIMIT_RPM: "100"
+  RATE_LIMIT_BURST: "20"
+  CACHE_DEFAULT_TTL: "3600"
+  CACHE_MAX_SIZE: "10000"
+  MAX_UPLOAD_SIZE: "104857600"

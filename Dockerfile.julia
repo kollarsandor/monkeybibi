@@ -1,0 +1,54 @@
+# ============================================================================
+# Julia Backend Dockerfile - Production Ready
+# High-performance scientific computing backend
+# ============================================================================
+
+FROM julia:1.10
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    curl \
+    wget \
+    ca-certificates \
+    libopenblas-dev \
+    liblapack-dev \
+    gfortran \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app
+
+# Copy Julia project files
+COPY Project.toml Manifest.toml ./
+
+# Instantiate Julia packages
+RUN julia --project=. -e 'using Pkg; Pkg.instantiate(); Pkg.precompile()'
+
+# Copy source code
+COPY main.jl ./
+COPY model/ model/
+
+# Precompile all packages
+RUN julia --project=. -e 'using Pkg; Pkg.precompile()'
+
+# Create necessary directories
+RUN mkdir -p /app/models /app/cache /app/logs
+
+# Expose Julia HTTP server port
+EXPOSE 6000
+
+# Health check endpoint
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:6000/health || exit 1
+
+# Set Julia environment variables
+ENV JULIA_NUM_THREADS=auto
+ENV JULIA_DEPOT_PATH=/app/.julia
+ENV PORT=6000
+
+# Start Julia HTTP server
+CMD ["julia", "--project=.", "--threads=auto", "model/http_server.jl"]

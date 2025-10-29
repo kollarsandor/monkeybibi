@@ -1,0 +1,270 @@
+version: '3.9'
+
+# ============================================================================
+# Docker Compose - Full Production Stack
+# AlphaFold3 Gateway with all backend services
+# ============================================================================
+
+services:
+  # ==========================================================================
+  # Main Gateway Application (Phoenix/Elixir)
+  # ==========================================================================
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphafold3_gateway
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+      - "5000:5000"
+      - "9090:9090"
+    environment:
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE:-$(openssl rand -base64 64 | tr -d '\n')}
+      - PHX_HOST=${PHX_HOST:-localhost}
+      - PORT=4000
+      - MIX_ENV=prod
+      - DATABASE_URL=${DATABASE_URL:-}
+      - POSTGRES_URL=${POSTGRES_URL:-}
+      - CEREBRAS_API_KEY=${CEREBRAS_API_KEY:-}
+      - CEREBRAS_ENABLED=${CEREBRAS_ENABLED:-false}
+      - JULIA_BACKEND_HOST=julia-backend
+      - JULIA_BACKEND_PORT=6000
+      - PYTHON_BACKEND_HOST=python-backend
+      - PYTHON_BACKEND_PORT=7000
+      - REDIS_URL=redis://redis:6379/0
+      - RATE_LIMITING_ENABLED=true
+      - RATE_LIMIT_RPM=100
+      - RATE_LIMIT_BURST=20
+      - LOG_LEVEL=info
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:4000}
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      julia-backend:
+        condition: service_started
+      python-backend:
+        condition: service_started
+    volumes:
+      - uploads:/app/priv/uploads
+      - logs:/app/logs
+    networks:
+      - alphafold_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # ==========================================================================
+  # Julia Backend Server
+  # ==========================================================================
+  julia-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.julia
+    container_name: alphafold3_julia_backend
+    restart: unless-stopped
+    ports:
+      - "6000:6000"
+    environment:
+      - JULIA_NUM_THREADS=auto
+      - JULIA_DEPOT_PATH=/app/.julia
+      - PORT=6000
+    volumes:
+      - julia_depot:/app/.julia
+      - model_cache:/app/models
+    networks:
+      - alphafold_network
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+        reservations:
+          cpus: '2'
+          memory: 4G
+
+  # ==========================================================================
+  # Python Backend Server
+  # ==========================================================================
+  python-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    container_name: alphafold3_python_backend
+    restart: unless-stopped
+    ports:
+      - "7000:7000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PORT=7000
+      - REDIS_URL=redis://redis:6379/1
+    volumes:
+      - python_cache:/app/.cache
+      - model_cache:/app/models
+    networks:
+      - alphafold_network
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 8G
+        reservations:
+          cpus: '2'
+          memory: 4G
+
+  # ==========================================================================
+  # Redis Cache
+  # ==========================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: alphafold3_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: >
+      redis-server
+      --maxmemory 2gb
+      --maxmemory-policy allkeys-lru
+      --save 60 1000
+      --appendonly yes
+      --requirepass ${REDIS_PASSWORD:-changeme}
+    volumes:
+      - redis_data:/data
+    networks:
+      - alphafold_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD:-changeme}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==========================================================================
+  # PostgreSQL Database
+  # ==========================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: alphafold3_postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-alphafold}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-changeme}
+      - POSTGRES_DB=${POSTGRES_DB:-alphafold3_gateway}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - alphafold_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-alphafold}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==========================================================================
+  # Prometheus Monitoring
+  # ==========================================================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: alphafold3_prometheus
+    restart: unless-stopped
+    ports:
+      - "9091:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=30d'
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    networks:
+      - alphafold_network
+    depends_on:
+      - gateway
+
+  # ==========================================================================
+  # Grafana Dashboard
+  # ==========================================================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: alphafold3_grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_INSTALL_PLUGINS=redis-datasource
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - alphafold_network
+    depends_on:
+      - prometheus
+
+  # ==========================================================================
+  # Nginx Reverse Proxy
+  # ==========================================================================
+  nginx:
+    image: nginx:alpine
+    container_name: alphafold3_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+    networks:
+      - alphafold_network
+    depends_on:
+      - gateway
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# ============================================================================
+# Networks
+# ============================================================================
+networks:
+  alphafold_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# ============================================================================
+# Volumes
+# ============================================================================
+volumes:
+  uploads:
+    driver: local
+  logs:
+    driver: local
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+  nginx_logs:
+    driver: local
+  julia_depot:
+    driver: local
+  python_cache:
+    driver: local
+  model_cache:
+    driver: local

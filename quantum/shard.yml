@@ -1,0 +1,23 @@
+name: jaded-quantum-server
+version: 1.0.0
+
+authors:
+  - JADED Team <team@jaded.io>
+
+description: |
+  JADED Crystal Quantum Server
+  High-performance TCP server for quantum circuit execution
+
+crystal: 1.10.0
+
+license: MIT
+
+targets:
+  quantum_server:
+    main: quantum_server.cr
+
+dependencies:
+  json:
+    github: crystal-lang/json
+  http:
+    github: crystal-lang/http

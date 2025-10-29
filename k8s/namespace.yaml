@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: alphafold3
+  labels:
+    name: alphafold3
+    environment: production

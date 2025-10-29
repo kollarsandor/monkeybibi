@@ -1,0 +1,81 @@
+# ============================================================================
+# Systemd Service File - Production Ready
+# AlphaFold3 Gateway Service
+# ============================================================================
+#
+# Installation:
+#   sudo cp alphafold3-gateway.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable alphafold3-gateway
+#   sudo systemctl start alphafold3-gateway
+#
+# ============================================================================
+
+[Unit]
+Description=AlphaFold3 Gateway - Protein Structure Prediction Service
+Documentation=https://github.com/yourusername/alphafold3-gateway
+After=network.target postgresql.service redis.service
+Wants=postgresql.service redis.service
+
+[Service]
+Type=forking
+User=alphafold
+Group=alphafold
+WorkingDirectory=/opt/alphafold3_gateway/current
+
+# Environment variables
+Environment="MIX_ENV=prod"
+Environment="PORT=4000"
+Environment="LANG=en_US.UTF-8"
+Environment="LC_ALL=en_US.UTF-8"
+
+# Load additional environment variables from file
+EnvironmentFile=/opt/alphafold3_gateway/current/.env
+
+# Pre-start checks
+ExecStartPre=/bin/bash -c 'test -d /opt/alphafold3_gateway/current'
+ExecStartPre=/bin/bash -c 'test -f /opt/alphafold3_gateway/current/bin/alphafold3_gateway'
+
+# Start command
+ExecStart=/opt/alphafold3_gateway/current/bin/alphafold3_gateway daemon
+
+# Stop command
+ExecStop=/opt/alphafold3_gateway/current/bin/alphafold3_gateway stop
+
+# Reload command
+ExecReload=/bin/kill -HUP $MAINPID
+
+# Restart policy
+Restart=on-failure
+RestartSec=10s
+
+# Process limits
+LimitNOFILE=65536
+LimitNPROC=4096
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=alphafold3_gateway
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/alphafold3_gateway/current/priv/uploads
+ReadWritePaths=/opt/alphafold3_gateway/current/logs
+ReadWritePaths=/opt/alphafold3_gateway/current/tmp
+
+# Resource limits
+CPUQuota=400%
+MemoryLimit=8G
+TasksMax=4096
+
+# Health check
+TimeoutStartSec=300
+TimeoutStopSec=60
+
+[Install]
+WantedBy=multi-user.target
+Alias=alphafold3.service

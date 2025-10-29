@@ -1,0 +1,107 @@
+# ============================================================================
+# Prometheus Configuration - Production Ready
+# Metrics collection and monitoring
+# ============================================================================
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'alphafold3-gateway'
+    environment: 'production'
+
+# Alertmanager configuration (optional)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets: ['alertmanager:9093']
+
+# Rule files
+# rule_files:
+#   - "/etc/prometheus/rules/*.yml"
+
+# Scrape configurations
+scrape_configs:
+  # Gateway application metrics
+  - job_name: 'alphafold3_gateway'
+    static_configs:
+      - targets: ['gateway:9090']
+        labels:
+          service: 'gateway'
+          component: 'phoenix'
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+
+  # Gateway API metrics
+  - job_name: 'gateway_api'
+    static_configs:
+      - targets: ['gateway:4000']
+        labels:
+          service: 'gateway'
+          component: 'api'
+    metrics_path: '/api/metrics'
+    scrape_interval: 15s
+
+  # Julia backend metrics
+  - job_name: 'julia_backend'
+    static_configs:
+      - targets: ['julia-backend:6000']
+        labels:
+          service: 'backend'
+          component: 'julia'
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Python backend metrics
+  - job_name: 'python_backend'
+    static_configs:
+      - targets: ['python-backend:7000']
+        labels:
+          service: 'backend'
+          component: 'python'
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # Redis metrics (requires redis_exporter)
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+        labels:
+          service: 'cache'
+          component: 'redis'
+    scrape_interval: 30s
+
+  # PostgreSQL metrics (requires postgres_exporter)
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres:5432']
+        labels:
+          service: 'database'
+          component: 'postgres'
+    scrape_interval: 30s
+
+  # Nginx metrics (requires nginx-prometheus-exporter)
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx:9113']
+        labels:
+          service: 'proxy'
+          component: 'nginx'
+    scrape_interval: 30s
+
+  # Node exporter for system metrics
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+        labels:
+          service: 'infrastructure'
+          component: 'node'
+    scrape_interval: 30s
+
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          service: 'monitoring'
+          component: 'prometheus'

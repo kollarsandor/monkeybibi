@@ -1,0 +1,79 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alphafold3-ingress
+  namespace: alphafold3
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/limit-rps: "50"
+    nginx.ingress.kubernetes.io/websocket-services: "gateway-service"
+spec:
+  tls:
+  - hosts:
+    - alphafold3.example.com
+    secretName: alphafold3-tls
+  rules:
+  - host: alphafold3.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gateway-service
+            port:
+              number: 4000
+      - path: /socket
+        pathType: Prefix
+        backend:
+          service:
+            name: gateway-service
+            port:
+              number: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: alphafold3-network-policy
+  namespace: alphafold3
+spec:
+  podSelector:
+    matchLabels:
+      app: alphafold3
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: alphafold3
+    - podSelector: {}
+    ports:
+    - protocol: TCP
+      port: 4000
+    - protocol: TCP
+      port: 5000
+    - protocol: TCP
+      port: 6000
+    - protocol: TCP
+      port: 7000
+  egress:
+  - to:
+    - namespaceSelector: {}
+    ports:
+    - protocol: TCP
+      port: 53
+    - protocol: UDP
+      port: 53
+  - to:
+    - podSelector:
+        matchLabels:
+          app: alphafold3
